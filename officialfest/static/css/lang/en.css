@@ -1,0 +1,36 @@
+.siteHeader {
+	background-image	: url('/img/design/headers/en/header.jpg');
+}
+
+/*.arrow {
+	margin-left			: 25px;
+}*/
+
+
+.menubMiddleContent {
+	margin-left			: 120px;
+}
+
+/*
+.arrow {
+	width				: 160px;
+	height				: 29px;
+	background			: transparent url('/img/design/menu/arrow.gif') no-repeat top right;
+	padding				: 5px 3px 0px 0px;
+	margin				: 100px 0px 0px 20px;
+	font-weight			: bold;
+	text-align			: right;	
+}*/
+
+.accept {
+	width				: 190px;
+	margin-left			: 24px;
+}
+
+dt.statusFridge, dd.numberFridge {
+	margin-top			: 20px;
+}
+
+.menuInfo p {
+	font-size		: 10.5pt;		
+}

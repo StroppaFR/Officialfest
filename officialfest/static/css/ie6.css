@@ -1,0 +1,12 @@
+/* ie6 specific */
+
+.siteMinHeight, .forum {
+	height				: 400px;
+}
+
+
+/** main menu extra options (adventure and soccer) **/
+
+.menu ul.moptl li {
+	float				: none;
+}

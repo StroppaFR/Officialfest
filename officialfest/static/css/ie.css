@@ -1,0 +1,160 @@
+/* ie specific */
+
+.info, .infoUser {
+	margin-top			: 0px;
+}
+
+.error {
+	margin-top			: 0px;
+}
+
+
+.topMainBar {
+	margin-top			: 182px;
+}
+
+.lineMainBar {
+	height				: 18px;
+	margin-left			: 145px;
+	}
+
+.enter {
+	margin-top			: 0px;
+	height				: 13px;
+}
+
+input.submitShop {
+	margin-top			: -5px;
+}
+
+.playerInfo a {
+	color				: #ffffff;
+	text-decoration		: none;
+}
+
+.playerInfo a:visited {
+	color				: #ffffff;
+	text-decoration		: none;
+}
+
+.playerInfo a:hover {
+	color				: #ffffff;
+	text-decoration		: underline;
+}
+
+.iconPyramid {
+	margin-top			: -2px;
+}
+
+.iconSnowFlake img {
+	margin-top		: 1px;
+}
+
+table.features td {
+	height				: 99px;
+
+	width				: 530px;
+	background-repeat	: no-repeat;
+
+	color				: #ffffff;
+	font-weight			: bold;
+	font-style			: italic;
+	font-size			: 10.5pt;
+	word-spacing		: 2px;
+	vertical-align		: bottom;
+	padding-bottom		: 6px;
+	padding-left		: 3px;
+	padding-right		: 7px;
+}
+
+.lineWrapConfig {
+	height				: 1px;
+}
+
+.firstText {
+	margin-left			: 7px;
+}
+
+.game {
+	margin-bottom		: 10px;
+}
+
+.menu ul.moptl { /* compensado con margen negativo en vez de display:inline */
+	margin				: 0px 0px 0px -15px;
+}
+
+
+
+
+/** shop and general error page**/
+
+.minSpace {
+	height				: 400px;
+}
+
+
+/*** MENU: LARGE ICONS ***/
+.iconPlay img,
+.iconInventory img,
+.iconQuests img,
+.iconScore img,
+.iconPlay a:hover img,
+.iconInventory a:hover img,
+.iconQuests a:hover img,
+.iconScore a:hover img
+{
+	background-image	: none;
+}
+.iconPlay img	{	
+	filter			: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_play.png', sizingMethod=scale);	
+}
+
+.iconInventory img	{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_inventory.png', sizingMethod=scale);	}
+.iconQuests img		{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_quests.png', sizingMethod=scale);	}
+.iconScore img		{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_score.png', sizingMethod=scale);	}
+
+.iconPlay a:hover img		{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_play_on.png', sizingMethod=scale);	}
+.iconInventory a:hover img	{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_inventory_on.png', sizingMethod=scale);	}
+.iconQuests a:hover img		{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_quests_on.png', sizingMethod=scale);	}
+.iconScore a:hover img		{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_score_on.png', sizingMethod=scale);	}
+
+
+/*** MENU: SMALL ICONS ***/
+
+.iconAccount,
+.iconShop,
+.iconSponsor,
+.iconLogout,
+.buttonForum
+{
+	background-image	: none;
+}
+
+.iconAccount img	{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_account.png', sizingMethod=scale);	}
+.iconShop img		{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_shop.png', sizingMethod=scale);	}
+.iconSponsor img	{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_sponsor.png', sizingMethod=scale);	}
+.iconLogout img		{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_logout.png', sizingMethod=scale);	}
+.buttonForum img	{	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_forum.png', sizingMethod=scale);	}
+
+
+/*** PANTEON MESSAGE ***/
+.pntimg img {	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_account.png', sizingMethod=scale);	}
+
+
+/** FORUM **/
+
+.forum .message .header .statut {
+ 	height				: 28px;
+ 	width				: 60px; /* min-width patch */
+}
+
+
+/*** PYRAMID: PNG SUPPORT ***/
+img.icon_pyramid {
+	background-image	: none;
+}
+img.icon_pyramid_1 {	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_pyramid_1.png', sizingMethod=scale);	}
+img.icon_pyramid_2 {	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_pyramid_2.png', sizingMethod=scale);	}
+img.icon_pyramid_3 {	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_pyramid_3.png', sizingMethod=scale);	}
+img.icon_pyramid_4 {	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_pyramid_4.png', sizingMethod=scale);	}
+img.icon_pyramid_hof {	filter	: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='/img/design/icon_pyramid_hof.png', sizingMethod=scale);	}
