@@ -29,11 +29,14 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    from . import common
+    app.register_blueprint(common.bp)
+
     from . import user
     app.register_blueprint(user.bp)
 
-    from . import common
-    app.register_blueprint(common.bp)
+    from . import forum
+    app.register_blueprint(forum.bp)
 
     # Note: if possible just serve the static files with Nginx or something
     cssbp = Blueprint('css', __name__, static_url_path='/css', static_folder='static/css')

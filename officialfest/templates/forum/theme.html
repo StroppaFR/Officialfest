@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+{% block title %} - Forum {{ theme.name }}{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+	<div class="forum">
+		<h1><a href="/forum.html">Forum</a> &gt; {{ theme.name }}</h1>
+
+		<ul class="menuactions">
+			<li><a href="/forum.html/search" class="button2">Rechercher</a></li>
+			<li><a href="/forum.html/theme/{{ theme.theme_id }}/createThreadForm" class="button2">Nouveau message</a></li>
+			<li><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank" class="button2">Lire la FAQ</a></li>
+		</ul>
+		<div class="clear"></div>
+
+		<table class="threads">
+			<tr>
+				<th class="subject">Sujet</th>
+				<th class="author">Auteur</th>
+				<th class="replies">Msg</th>
+			</tr>
+			{% for thread in sticky_threads %}
+			<tr class="thread sticky{% if thread.author_is_moderator %} mode{% endif %}" onclick="document.location = '/forum.html/thread/{{ thread.thread_id }}';">
+				<td class="subject">
+					<a href="/forum.html/thread/{{ thread.thread_id }}/">{{ thread.name }}</a>
+				</td>
+				<td class="author">
+					<a href="/user.html/{{ thread.author_id }}">{{ thread.author_name }}</a>
+				</td>
+				<td class="replies">{{ thread.total_messages - 1 }}</td>
+			</tr>
+			{% endfor %}
+
+			{% for day_and_thread in latest_threads_by_day %}
+			<tr>
+				<td class="forumDate" colspan="3">{{ day_and_thread[0] | pretty_thread_date }}</td>
+			</tr>
+			{% for thread in day_and_thread[1] %}
+			<tr class="thread{% if thread.author_is_moderator %} mode{% endif %}" onclick="document.location = '/forum.html/thread/{{ thread.thread_id }}';">
+				<td class="subject">
+					<a href="/forum.html/thread/{{ thread.thread_id }}/">{{ thread.name }}</a>
+				</td>
+				<td class="author">
+					<a href="/user.html/{{ thread.author_id }}">{{ thread.author_name }}</a>
+				</td>
+				<td class="replies">{{ thread.total_messages - 1 }}</td>
+			</tr>
+			{% endfor %}
+			{% endfor %}
+
+		</table>
+
+		<div class="paginateBox">
+			<div class="currentPage">page {{ page }}/{{ max_page }}</div>
+
+			<div class="paginate">
+				&lt;
+				{% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
+				{% for a_page in range(1, max_page + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/theme/{{ theme.theme_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
+				{% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
+			</div>
+		</div>
+
+		<ul class="menuactions">
+			<li><a href="/forum.html/search" class="button2">Rechercher</a></li>
+			<li><a href="/forum.html/theme/{{ theme.theme_id }}/createThreadForm" class="button2">Nouveau message</a></li>				<li><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank" class="button2">Lire la FAQ</a></li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+{% endblock %}

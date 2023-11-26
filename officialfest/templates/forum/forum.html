@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %} - Forum{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+	<div class="forum">
+		<h1>Forum</h1>
+		<!--- il nous interesse une seule categorie pour l'instant -->
+		<div class="forumCat">
+			<h2>Hammerfest</h2>
+			<p class="info">
+			<strong>Attention:</strong> Avant de poster une question
+			sur le forum, utilisez la fonction <a href="/forum.html/search">rechercher</a> !
+			Vous trouverez sans doute votre réponse dans les messages
+			existants.
+			</p>
+			<ul class="menuf">
+				<li><a href="/forum.html/search">rechercher</a></li>
+			</ul>
+
+			<dl>
+				<dt class="categ"><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank"><img src="/img/items/107.gif" class="supportsite"/> Questions fréquemment posées</a></dt>
+				<dd class="categDesc"><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank">Cliquez ici pour accéder à notre site d&#039;aide et lire les Questions fréquemment posées (site externe)</a>.</dd>
+			</dl>
+			{% for theme in themes %}
+			<div class="forumTheme forumThemeRead" onclick="document.location = '/forum.html/theme/{{ theme.theme_id }}/';">
+				<dl>
+					<dt class="categ"><a href="/forum.html/theme/{{ theme.theme_id }}/">{{ theme.name }}</a></dt>
+					<dd class="categDesc">{{ theme.description }}</dd>
+				</dl>
+			</div>										
+			{% endfor %}
+		</div>		
+	</div>
+</div>
+{% endblock %}
