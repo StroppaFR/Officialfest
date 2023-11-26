@@ -25,14 +25,14 @@ CREATE TABLE hof_messages (
     author INTEGER NOT NULL PRIMARY KEY,
     message TEXT NOT NULL,
     written_at DATETIME NOT NULL,
-    FOREIGN KEY (author) REFERENCES users (user_id)
+    FOREIGN KEY (author) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE user_unlocked_items (
     user_id INTEGER NOT NULL,
     item_id INTEGER NOT NULL,
     PRIMARY KEY (user_id, item_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE user_quests (
@@ -40,7 +40,7 @@ CREATE TABLE user_quests (
     quest_id INTEGER NOT NULL,
     completed BOOLEAN NOT NULL DEFAULT FALSE,
     PRIMARY KEY (user_id, quest_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE forum_themes (
@@ -58,8 +58,8 @@ CREATE TABLE forum_threads (
     total_messages INTEGER NOT NULL DEFAULT 1,
     is_sticky BOOLEAN NOT NULL DEFAULT FALSE,
     is_closed BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (theme_id) REFERENCES forum_themes (theme_id),
-    FOREIGN KEY (author) REFERENCES users (user_id)
+    FOREIGN KEY (theme_id) REFERENCES forum_themes (theme_id) ON DELETE CASCADE,
+    FOREIGN KEY (author) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE forum_messages (
@@ -68,8 +68,8 @@ CREATE TABLE forum_messages (
     author INTEGER NOT NULL,
     html_content TEXT NOT NULL,
     created_at DATETIME not NULL,
-    FOREIGN KEY (thread_id) REFERENCES forum_threads (thread_id),
-    FOREIGN KEY (author) REFERENCES users (user_id)
+    FOREIGN KEY (thread_id) REFERENCES forum_threads (thread_id) ON DELETE CASCADE,
+    FOREIGN KEY (author) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 INSERT INTO users (user_id, username, email, best_score, weekly_best_score, best_level, has_carrot, pyramid_step, pyramid_rank, is_moderator, is_admin)
