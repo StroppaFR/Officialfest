@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template
 from officialfest.db import get_db
+from babel.dates import format_datetime
+import dateutil.parser
 from itertools import chain
 
 bp = Blueprint('user', __name__, url_prefix='/user.html')
@@ -146,6 +148,11 @@ def inject_profile_items():
 @bp.app_template_filter('pretty_score')
 def pretty_score_filter(score: int) -> str:
     return f'{score:,}'.replace(',', '.')
+
+@bp.app_template_filter('pretty_hof_date')
+def pretty_hof_date_filter(date_str: str) -> str:
+    date = dateutil.parser.parse(date_str)
+    return format_datetime(date, 'YYYY-MM-dd', locale='fr_FR')
 
 @bp.route('/<int:user_id>', methods=['GET'])
 def show_profile(user_id):

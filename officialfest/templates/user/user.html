@@ -40,7 +40,7 @@
 	{% if user.hof_message %}
 	<dl>
 		<dt class="wordsFame">Ses dernières paroles au <a href="/halloffame.html">Panthéon</a>
-			<div class="wordsFameInfo">Dites le {{ user.hof_message_date }}</div>
+			<div class="wordsFameInfo">Dites le {{ user.hof_message_date | pretty_hof_date }}</div>
 		</dt>
 		<dd class="wordsFameUser">{{ user.hof_message }}</dd>
 	</dl>
