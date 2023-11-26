@@ -20,6 +20,16 @@ def init_db():
     db = get_db()
     with current_app.open_resource('schema.sql') as f:
         db.executescript(f.read().decode('utf8'))
+    for quest_id in range(76):
+        db.execute('INSERT INTO user_quests (user_id, quest_id, completed) \
+                    VALUES (0, ?, 1)', (quest_id,))
+    for item_id in range(118):
+        db.execute('INSERT INTO user_unlocked_items (user_id, item_id) \
+                    VALUES (0, ?)', (item_id,))
+    for item_id in range(1000, 1239):
+        db.execute('INSERT INTO user_unlocked_items (user_id, item_id) \
+                    VALUES (0, ?)', (item_id,))
+    db.commit()
 
 @click.command('init-db')
 def init_db_command():

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %} - Intro du jeu{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+
+	<h1>intro du <strong>jeu</strong></h1>
+
+	<a name="play"></a>
+	<div class="intro">
+		<div class="topBar"></div>
+		<div>
+			<script type="text/javascript">
+				// <![CDATA[
+				var o = new FlashObject('swf/intro.swf?v=10', "title", '420', '325', 7 ,'#000000');
+				o.addParam("allowScriptAccess", "always");
+				o.addVariable("url", "/try.html#play");
+				o.addVariable("lang", "fr");
+				o.write();
+				// ]]>
+			</script>
+		</div>
+		<div class="bottomBar"></div>
+	</div>
+
+
+	<div class="joystick">
+		<a href="/try.html#play">Passer l&#039;intro et essayer le jeu</a>
+	</div>
+</div>
+{% endblock %}

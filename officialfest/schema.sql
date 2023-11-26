@@ -72,10 +72,6 @@ CREATE TABLE forum_posts (
 );
 
 INSERT INTO users (user_id, username, email, best_score, weekly_best_score, best_level, has_carrot, pyramid_step, is_moderator, is_admin)
-VALUES (1, 'Igor', 'igor@hammerfest.fr', 19001234, 456789, 114, TRUE, 0, TRUE, FALSE);
+VALUES (0, 'Igor', 'igor@hammerfest.fr', 19999999, 0, 115, TRUE, 0, FALSE, FALSE);
 INSERT INTO hof_messages (author, message, written_at)
-VALUES (1, 'Youpi ! Je suis au Panthéon !', '2023-12-11');
-INSERT INTO user_quests (user_id, quest_id, completed)
-VALUES (1, 5, FALSE), (1, 6, TRUE);
-INSERT INTO user_unlocked_items (user_id, item_id)
-VALUES (1, 10), (1, 100), (1, 1000)
+VALUES (0, 'Youpi ! Je suis au Panthéon !', '2023-12-11');

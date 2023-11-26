@@ -32,6 +32,9 @@ def create_app(test_config=None):
     from . import user
     app.register_blueprint(user.bp)
 
+    from . import common
+    app.register_blueprint(common.bp)
+
     # Note: if possible just serve the static files with Nginx or something
     cssbp = Blueprint('css', __name__, static_url_path='/css', static_folder='static/css')
     imgbp = Blueprint('img', __name__, static_url_path='/img', static_folder='static/img')

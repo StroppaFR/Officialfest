@@ -1,4 +1,4 @@
-from flask import Blueprint, abort, render_template
+from flask import Blueprint, render_template
 from officialfest.db import get_db
 from itertools import chain
 
