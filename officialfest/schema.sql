@@ -75,7 +75,8 @@ CREATE TABLE forum_messages (
 INSERT INTO users (user_id, username, email, best_score, weekly_best_score, best_level, has_carrot, pyramid_step, pyramid_rank, is_moderator, is_admin)
 VALUES (0, 'Igor', 'igor@hammerfest.fr', 19999999, 0, 115, TRUE, 2, 999, TRUE, TRUE);
 INSERT INTO hof_messages (author, message, written_at)
-VALUES (0, 'Youpi ! Je suis au Panthéon !', '2023-12-11');
+VALUES (0, 'Hammerfest !! Yeaaaaaaaaah !', '2023-12-11');
+/*
 INSERT INTO forum_themes (theme_id, name, description, is_restricted)
 VALUES (2, "Caverne de l'apprenti", "Si vous vous etes perdu(e) dans les Cavernes, c'est ici qu'il faut demander sa route", FALSE),
        (10, "Coin des modos", "Vous n'avez rien à faire là !", TRUE);
@@ -108,3 +109,4 @@ VALUES (0, 0, 'Ma première réaction.', '2023-12-11 10:00:00'),
        (0, 0, 'Spam 19 !', '2023-12-12 08:00:00'),
        (0, 0, 'Spam 20 !', '2023-12-12 08:00:00'),
        (3, 0, 'Le règlement est...', '2024-01-01');
+*/

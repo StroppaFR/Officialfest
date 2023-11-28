@@ -21,11 +21,13 @@ def sanitize_page_arg(max_page: int):
 
 @bp.app_template_filter('pretty_thread_date')
 def pretty_thread_date_filter(date: datetime) -> str:
+    # TODO: translations
     return format_datetime(date, 'EEEE dd LLLL YYYY', locale='fr_FR')
 
 @bp.app_template_filter('pretty_message_date')
 def pretty_thread_date_filter(date_str: str) -> str:
     date = dateutil.parser.parse(date_str)
+    # TODO: translations
     return format_datetime(date, 'EEEE dd LLL YYYY HH:mm', locale='fr_FR')
 
 @bp.route('/', methods=['GET'])
@@ -46,8 +48,11 @@ def get_theme(theme_id):
                         FROM forum_themes INNER JOIN forum_threads USING (theme_id) \
                         WHERE theme_id = ?', (theme_id,)).fetchone()
     if theme['theme_id'] is None:
+        # TODO: translations
         return render_template('evni.html', error='404 : Thème introuvable'), 404
+    # TODO: allow access to restricted area
     if theme['is_restricted']:
+        # TODO: translations
         return render_template('evni.html', error='403 : Accès interdit'), 403
     # Fetch sticky threads
     sticky_threads = db.execute('SELECT forum_threads.*, users.user_id AS "author_id", users.username AS "author_name", users.is_moderator AS "author_is_moderator" \
@@ -89,8 +94,11 @@ def get_thread(thread_id):
                          FROM forum_threads INNER JOIN forum_themes USING (theme_id) INNER JOIN forum_messages USING (thread_id) \
                          WHERE thread_id = ?', (thread_id,)).fetchone()
     if thread['thread_id'] is None:
+        # TODO: translations
         return render_template('evni.html', error='404 : Thread introuvable'), 404
+    # TODO: allow access to restricted area
     if thread['is_restricted']:
+        # TODO: translations
         return render_template('evni.html', error='403 : Accès interdit'), 403
     # Fetch page of messages to show
     messages_count = thread['messages_count']
@@ -112,8 +120,11 @@ def get_message(message_id):
                          FROM forum_messages INNER JOIN forum_threads USING (thread_id) INNER JOIN forum_themes USING (theme_id) \
                          WHERE thread_id = (SELECT thread_id FROM forum_messages WHERE message_id = ?)', (message_id,)).fetchone()
     if thread['thread_id'] is None:
+        # TODO: translations
         return render_template('evni.html', error='404 : Message introuvable'), 404
+    # TODO: allow access to restricted area
     if thread['is_restricted']:
+        # TODO: translations
         return render_template('evni.html', error='403 : Accès interdit'), 403
     # Fetch message rank in thread
     message_rank = db.execute('SELECT COUNT(*) \

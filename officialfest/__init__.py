@@ -2,6 +2,7 @@ import os
 from flask import Blueprint, Flask, render_template, send_from_directory
 
 def page_not_found(e):
+    # TODO: translations
     return render_template('evni.html', error='404 : Page introuvable'), 404
 
 def create_app(test_config=None):

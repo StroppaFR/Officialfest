@@ -1,8 +1,8 @@
-from flask import Blueprint, render_template
-from officialfest.db import get_db
-from babel.dates import format_datetime
 import dateutil.parser
+from babel.dates import format_datetime
+from flask import Blueprint, render_template
 from itertools import chain
+from officialfest.db import get_db
 
 bp = Blueprint('user', __name__, url_prefix='/user.html')
 
@@ -62,6 +62,8 @@ ITEMS_PER_FAMILY = {
 
 SORTED_PROFILE_ITEMS = list(chain(*[ITEMS_PER_FAMILY[key] for key in sorted(ITEMS_PER_FAMILY.keys())]))
 
+# TODO: centralize this somewhere
+# TODO: translations
 QUEST_NAMES = [
     'Les constellations',
     'Mixtures du zodiaque',
@@ -152,6 +154,7 @@ def pretty_score_filter(score: int) -> str:
 @bp.app_template_filter('pretty_hof_date')
 def pretty_hof_date_filter(date_str: str) -> str:
     date = dateutil.parser.parse(date_str)
+    # TODO: handle other locales
     return format_datetime(date, 'YYYY-MM-dd', locale='fr_FR')
 
 @bp.route('/<int:user_id>', methods=['GET'])
@@ -162,6 +165,7 @@ def show_profile(user_id):
                        FROM users LEFT OUTER JOIN hof_messages ON user_id = author \
                        WHERE user_id = ?', (user_id,)).fetchone()
     if user is None:
+        # TODO: translations
         return render_template('evni.html', error='404 : Utilisateur introuvable'), 404
     # Fetch user quests
     user_quests = db.execute('SELECT quest_id, completed \
@@ -171,6 +175,7 @@ def show_profile(user_id):
     current_quests = []
     for user_quest in user_quests:
         quest_id = user_quest['quest_id']
+        # TODO: translations
         quest_name = QUEST_NAMES[quest_id] if quest_id < len(QUEST_NAMES) else 'Quête inconnue'
         if user_quest['completed']:
             completed_quests.append(quest_name)
