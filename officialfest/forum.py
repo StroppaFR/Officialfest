@@ -45,7 +45,7 @@ def get_theme(theme_id):
     db = get_db()
     # Fetch theme
     theme = db.execute('SELECT forum_themes.*, COUNT(*) AS "total_threads" \
-                        FROM forum_themes INNER JOIN forum_threads USING (theme_id) \
+                        FROM forum_themes LEFT OUTER JOIN forum_threads USING (theme_id) \
                         WHERE theme_id = ?', (theme_id,)).fetchone()
     if theme['theme_id'] is None:
         # TODO: translations
