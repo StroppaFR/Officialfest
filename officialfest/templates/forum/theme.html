@@ -19,7 +19,7 @@
 				<th class="replies">Msg</th>
 			</tr>
 			{% for thread in sticky_threads %}
-			<tr class="thread sticky{% if thread.author_is_moderator %} mode{% endif %}" onclick="document.location = '/forum.html/thread/{{ thread.thread_id }}';">
+			<tr class="thread sticky{% if thread.author_is_moderator %} mode{% endif %}{%if thread.author_is_admin %} admin{% endif %}{%if thread.is_closed %} closed{% endif %}" onclick="document.location = '/forum.html/thread/{{ thread.thread_id }}';">
 				<td class="subject">
 					<a href="/forum.html/thread/{{ thread.thread_id }}/">{{ thread.name }}</a>
 				</td>
@@ -35,7 +35,7 @@
 				<td class="forumDate" colspan="3">{{ day_and_thread[0] | pretty_thread_date }}</td>
 			</tr>
 			{% for thread in day_and_thread[1] %}
-			<tr class="thread{% if thread.author_is_moderator %} mode{% endif %}" onclick="document.location = '/forum.html/thread/{{ thread.thread_id }}';">
+			<tr class="thread{% if thread.author_is_moderator %} mode{% endif %}{%if thread.author_is_admin %} admin{% endif %}{%if thread.is_closed %} closed{% endif %}" onclick="document.location = '/forum.html/thread/{{ thread.thread_id }}';">
 				<td class="subject">
 					<a href="/forum.html/thread/{{ thread.thread_id }}/">{{ thread.name }}</a>
 				</td>
@@ -55,7 +55,9 @@
 			<div class="paginate">
 				&lt;
 				{% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
-				{% for a_page in range(1, max_page + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/theme/{{ theme.theme_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
+				{% set min_page_link = [1, page - 5] | max %}
+				{% set max_page_link = [max_page, min_page_link + 10] | min %}
+				{% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/theme/{{ theme.theme_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
 				{% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
 			</div>
 		</div>
