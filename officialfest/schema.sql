@@ -1,4 +1,6 @@
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS user_weekly_scores;
+DROP TABLE IF EXISTS user_timeattack_scores;
 DROP TABLE IF EXISTS hof_messages;
 DROP TABLE IF EXISTS user_unlocked_items;
 DROP TABLE IF EXISTS user_quests;
@@ -12,13 +14,25 @@ CREATE TABLE users (
     username TEXT NOT NULL,
     email TEXT,
     best_score INTEGER NOT NULL DEFAULT 0,
-    weekly_best_score INTEGER NOT NULL DEFAULT 0,
     best_level INTEGER DEFAULT NULL,
-    has_carrot BOOLEAN NOT NULL DEFAULT FALSE,
+    has_carrot BOOLEAN NOT NULL DEFAULT FALSE, -- redundancy with user_quests for the carrot quest
     pyramid_step INTEGER NOT NULL DEFAULT 4,
-    pyramid_rank INTEGER NOT NULL,
+    pyramid_rank INTEGER NOT NULL DEFAULT 1, -- redundancy with user_weekly_scores but this avoids calculating it when showing a forum message
     is_moderator BOOLEAN NOT NULL DEFAULT FALSE,
     is_admin BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE table user_weekly_scores (
+    user_id INTEGER NOT NULL PRIMARY KEY,
+    weekly_level INTEGER NOT NULL,
+    weekly_score INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
+);
+
+CREATE table user_timeattack_scores (
+    user_id INTEGER NOT NULL PRIMARY KEY,
+    seconds INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE hof_messages (
@@ -55,7 +69,7 @@ CREATE TABLE forum_threads (
     theme_id INTEGER NOT NULL,
     author INTEGER NOT NULL,
     name TEXT NOT NULL,
-    total_messages INTEGER NOT NULL DEFAULT 1,
+    total_messages INTEGER NOT NULL DEFAULT 1, -- total messages posted, including deleted messages
     is_sticky BOOLEAN NOT NULL DEFAULT FALSE,
     is_closed BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (theme_id) REFERENCES forum_themes (theme_id) ON DELETE CASCADE,
@@ -66,14 +80,14 @@ CREATE TABLE forum_messages (
     message_id INTEGER NOT NULL PRIMARY KEY,
     thread_id INTEGER NOT NULL,
     author INTEGER NOT NULL,
-    html_content TEXT NOT NULL,
+    html_content TEXT NOT NULL, -- raw HTML content generated when the message was posted
     created_at DATETIME not NULL,
     FOREIGN KEY (thread_id) REFERENCES forum_threads (thread_id) ON DELETE CASCADE,
     FOREIGN KEY (author) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
-INSERT INTO users (user_id, username, email, best_score, weekly_best_score, best_level, has_carrot, pyramid_step, pyramid_rank, is_moderator, is_admin)
-VALUES (0, 'Igor', 'igor@hammerfest.fr', 19999999, 0, 115, TRUE, 2, 999, TRUE, TRUE);
+INSERT INTO users (user_id, username, email, best_score, best_level, has_carrot, pyramid_step, pyramid_rank, is_moderator, is_admin)
+VALUES (0, 'Igor', 'igor@hammerfest.fr', 0, 115, TRUE, 0, 1, TRUE, TRUE);
 INSERT INTO hof_messages (author, message, written_at)
 VALUES (0, 'Hammerfest !! Yeaaaaaaaaah !', '2023-12-11');
 /*

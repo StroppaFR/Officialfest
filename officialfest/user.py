@@ -161,8 +161,8 @@ def pretty_hof_date_filter(date_str: str) -> str:
 def show_profile(user_id):
     db = get_db()
     # Fetch user information
-    user = db.execute('SELECT users.*, hof_messages.message as "hof_message", hof_messages.written_at as "hof_message_date" \
-                       FROM users LEFT OUTER JOIN hof_messages ON user_id = author \
+    user = db.execute('SELECT users.*, hof_messages.message as "hof_message", hof_messages.written_at as "hof_message_date", user_weekly_scores.weekly_score \
+                       FROM users LEFT OUTER JOIN hof_messages ON user_id = author LEFT OUTER JOIN user_weekly_scores USING (user_id) \
                        WHERE user_id = ?', (user_id,)).fetchone()
     if user is None:
         # TODO: translations
