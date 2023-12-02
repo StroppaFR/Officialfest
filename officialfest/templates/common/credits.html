@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block title %} - {% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+	<h1>Vous avez terminé Hammerfest !</h1>
+	<a name="play"></a>
+	<div class="intro">
+		<div class="topBar"></div>
+		<div>
+			<script type="text/javascript">
+				//<![CDATA[
+				var swf = new FlashObject("/play.html/creditsSwf", "swf", "420", "325", 7 ,"#000000");
+				swf.addParam("allowScriptAccess", "always");
+				swf.addVariable('url', '/play.html');
+				swf.addVariable('pseudo', 'Igor');
+				swf.write();
+				//]]>
+			</script>
+		</div>
+		<div class="bottomBar"></div>
+	</div>
+	<p class="jumpPlay">
+	<a href="/play.html">Passer la séquence</a>
+	</p>
+</div>
+{% endblock %}

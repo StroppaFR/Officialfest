@@ -43,6 +43,10 @@ def get_shop():
 def get_play():
     return render_template('common/play.html')
 
+@bp.route('/play.html/credits', methods=['GET'])
+def get_credits():
+    return render_template('common/credits.html')
+
 @bp.route('/play.html/<mode>', methods=['POST'])
 def post_play_mode(mode):
     if mode not in ['solo', 'timeattack', 'multi']:
