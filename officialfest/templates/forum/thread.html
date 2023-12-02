@@ -53,7 +53,9 @@
 			<div class="paginate">
 				&lt;
 				{% if page != 1 %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
-				{% for a_page in range(1, max_page + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/thread/{{ thread.thread_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
+				{% set min_page_link = [1, page - 5] | max %}
+				{% set max_page_link = [max_page, min_page_link + 10] | min %}
+				{% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/thread/{{ thread.thread_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
 				{% if page != max_page %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
 			</div>
 		</div>
