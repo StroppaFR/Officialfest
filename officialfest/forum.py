@@ -1,23 +1,14 @@
+import dateutil.parser
+from . import utils
 from flask import Blueprint, render_template, request
 from officialfest.db import get_db
 from babel.dates import format_datetime
 from datetime import datetime
-import dateutil.parser
 
 bp = Blueprint('forum', __name__, url_prefix='/forum.html')
 
 THREADS_PER_PAGE = 15
 MESSAGES_PER_PAGE = 10
-
-def sanitize_page_arg(max_page: int):
-    page = request.args.get('page') or request.args.get(';page')
-    try:
-        page = int(page)
-    except Exception:
-        page = 1
-    if page < 1 or page > max_page:
-        page = 1
-    return page
 
 @bp.app_template_filter('pretty_thread_date')
 def pretty_thread_date_filter(date: datetime) -> str:
@@ -42,6 +33,7 @@ def get_forum():
 
 @bp.route('/theme/<int:theme_id>/', methods=['GET'])
 def get_theme(theme_id):
+    args = utils.args_from_query_string(request.query_string)
     db = get_db()
     # Fetch theme
     theme = db.execute('SELECT forum_themes.*, COUNT(*) AS "total_threads" \
@@ -62,7 +54,7 @@ def get_theme(theme_id):
     # Fetch page of threads to show
     total_threads = theme['total_threads']
     max_page = 1 + ((total_threads - len(sticky_threads) - 1) // THREADS_PER_PAGE)
-    page = sanitize_page_arg(max_page)
+    page = utils.sanitized_page_arg(args, max_page)
     latest_threads = db.execute('WITH latest_messages AS ( \
                                      SELECT thread_id, MAX(forum_messages.message_id) AS "last_message_id", forum_messages.created_at AS "last_message_date" \
                                      FROM forum_messages INNER JOIN forum_threads USING (thread_id) \
@@ -88,6 +80,7 @@ def get_theme(theme_id):
 
 @bp.route('/thread/<int:thread_id>/', methods=['GET'])
 def get_thread(thread_id):
+    args = utils.args_from_query_string(request.query_string)
     db = get_db()
     # Fetch thread
     thread = db.execute('SELECT forum_threads.*, forum_themes.name AS "theme_name", forum_themes.is_restricted, COUNT(*) AS "messages_count" \
@@ -103,7 +96,7 @@ def get_thread(thread_id):
     # Fetch page of messages to show
     messages_count = thread['messages_count']
     max_page = 1 + ((messages_count - 1) // MESSAGES_PER_PAGE)
-    page = sanitize_page_arg(max_page)
+    page = utils.sanitized_page_arg(args, max_page)
     messages = db.execute('SELECT forum_messages.*, users.username AS "author_name", users.pyramid_step AS "author_pyramid_step", users.pyramid_rank as "author_pyramid_rank", users.has_carrot AS "author_has_carrot", \
                            users.is_moderator AS "author_is_moderator", users.is_admin AS "author_is_admin" \
                            FROM forum_messages INNER JOIN users ON (forum_messages.author = users.user_id) \
