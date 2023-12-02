@@ -22,7 +22,7 @@
 						{% if message.author_pyramid_step == 0 %}
 						<img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/> <span>1</span>
 						{% else %}
-						<img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ message.author_pyramid_step }}" title="Niveau Pyramide : {{ message.author_pyramid_step }}" class="icon_pyramid icon_pyramid_{{ message.author_pyramid_step }}"/> <span>{{ message.author_pyramid_rank }}</span>
+						<img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ message.author_pyramid_step }}" title="Niveau Pyramide : {{ message.author_pyramid_step }}" class="icon_pyramid icon_pyramid_{{ message.author_pyramid_step }}"/> <span>{{ message.author_pyramid_rank or "--" }}</span>
 						{% endif %}
 					</div>
 					<div class="author">

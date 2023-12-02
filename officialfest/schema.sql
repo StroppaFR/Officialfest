@@ -17,7 +17,7 @@ CREATE TABLE users (
     best_level INTEGER DEFAULT NULL,
     has_carrot BOOLEAN NOT NULL DEFAULT FALSE, -- redundancy with user_quests for the carrot quest
     pyramid_step INTEGER NOT NULL DEFAULT 4,
-    pyramid_rank INTEGER NOT NULL DEFAULT 1, -- redundancy with user_weekly_scores but this avoids calculating it when showing a forum message
+    pyramid_rank INTEGER DEFAULT NULL, -- redundancy with user_weekly_scores but this avoids calculating it when showing a forum message
     is_moderator BOOLEAN NOT NULL DEFAULT FALSE,
     is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
@@ -31,7 +31,7 @@ CREATE table user_weekly_scores (
 
 CREATE table user_timeattack_scores (
     user_id INTEGER NOT NULL PRIMARY KEY,
-    seconds INTEGER NOT NULL,
+    milliseconds INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
@@ -86,11 +86,11 @@ CREATE TABLE forum_messages (
     FOREIGN KEY (author) REFERENCES users (user_id) ON DELETE CASCADE
 );
 
-INSERT INTO users (user_id, username, email, best_score, best_level, has_carrot, pyramid_step, pyramid_rank, is_moderator, is_admin)
-VALUES (0, 'Igor', 'igor@hammerfest.fr', 0, 115, TRUE, 0, 1, TRUE, TRUE);
+INSERT INTO users (user_id, username, email, best_score, best_level, has_carrot, pyramid_step, is_moderator, is_admin)
+VALUES (0, 'Igor', 'igor@hammerfest.fr', 0, 115, TRUE, 0, TRUE, TRUE);
+/*
 INSERT INTO hof_messages (author, message, written_at)
 VALUES (0, 'Hammerfest !! Yeaaaaaaaaah !', '2023-12-11');
-/*
 INSERT INTO forum_themes (theme_id, name, description, is_restricted)
 VALUES (2, "Caverne de l'apprenti", "Si vous vous etes perdu(e) dans les Cavernes, c'est ici qu'il faut demander sa route", FALSE),
        (10, "Coin des modos", "Vous n'avez rien à faire là !", TRUE);
