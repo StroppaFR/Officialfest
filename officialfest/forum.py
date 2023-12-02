@@ -184,3 +184,13 @@ def get_replyForm(thread_id):
 def post_reply(thread_id):
     return redirect('/')
 
+@bp.route('/redirect', methods=['GET'])
+def get_redirect():
+    url = request.args['url']
+    if url is None:
+        return redirect('/')
+    # TODO: check current website lang before replacing
+    elif url.startswith('http://www.hammerfest.fr'):
+        return redirect(url.replace('http://www.hammerfest.fr', ''))
+    else:
+        return redirect(url)
