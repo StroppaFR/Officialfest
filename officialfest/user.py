@@ -193,3 +193,13 @@ def show_profile(user_id):
     # Render the profile page
     return render_template('user/user.html', user=user, user_items=user_items,
                            completed_quests=completed_quests, current_quests=current_quests)
+
+# TODO: show full fridge
+@bp.route('/inventory', methods=['GET'])
+def get_inventory():
+    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
+
+# TODO: show full quests
+@bp.route('/quests', methods=['GET'])
+def get_quests():
+    return render_template('evni.html', error='501 : Pas encore implémenté'), 501

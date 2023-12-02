@@ -46,3 +46,13 @@ def get_scores():
                               LIMIT 1').fetchone()
     leagues_param = '|'.join(str(v) for v in sorted(RISING_USERS_PER_STEP.values()))
     return render_template('scores/scores.html', pyramid_step=pyramid_step, scores=scores, page=page, max_page=max_page, score_to_beat=score_to_beat, leagues_param=leagues_param, hof_message=hof_message)
+
+# TODO: show timeattack rankings
+@bp.route('/scores.html/timeattack', methods=['GET'])
+def get_timeattack_scores():
+    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
+
+# TODO: hall of fame
+@bp.route('/halloffame.html', methods=['GET'])
+def get_halloffame():
+    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
