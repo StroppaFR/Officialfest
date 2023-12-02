@@ -39,6 +39,9 @@ def create_app(test_config=None):
     from . import forum
     app.register_blueprint(forum.bp)
 
+    from . import scores
+    app.register_blueprint(scores.bp)
+
     from . import static
     app.register_blueprint(static.bp)
 

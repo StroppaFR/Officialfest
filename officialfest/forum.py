@@ -29,7 +29,7 @@ def get_forum():
                          FROM forum_themes \
                          WHERE is_restricted = 0 \
                          ORDER BY theme_id ASC').fetchall()
-    return render_template("forum/forum.html", themes=themes)
+    return render_template('forum/forum.html', themes=themes)
 
 @bp.route('/theme/<int:theme_id>/', methods=['GET'])
 def get_theme(theme_id):
@@ -75,7 +75,7 @@ def get_theme(theme_id):
             curr_date = date
         else:
             latest_threads_by_day[-1][1].append(thread)
-    return render_template("forum/theme.html", theme=theme, page=page, max_page=max_page,
+    return render_template('forum/theme.html', theme=theme, page=page, max_page=max_page,
                            sticky_threads=sticky_threads, latest_threads_by_day=latest_threads_by_day)
 
 @bp.route('/thread/<int:thread_id>/', methods=['GET'])
@@ -103,7 +103,7 @@ def get_thread(thread_id):
                            WHERE thread_id = ? \
                            ORDER BY forum_messages.message_id ASC \
                            LIMIT ? OFFSET ?', (thread_id, MESSAGES_PER_PAGE, MESSAGES_PER_PAGE * (page - 1))).fetchall()
-    return render_template("forum/thread.html", thread=thread, page=page, max_page=max_page, messages=messages)
+    return render_template('forum/thread.html', thread=thread, page=page, max_page=max_page, messages=messages)
 
 @bp.route('/message/<int:message_id>/', methods=['GET'])
 def get_message(message_id):
@@ -134,4 +134,4 @@ def get_message(message_id):
                            WHERE thread_id = ? \
                            ORDER BY forum_messages.message_id ASC \
                            LIMIT ? OFFSET ?', (thread['thread_id'], MESSAGES_PER_PAGE, MESSAGES_PER_PAGE * (page - 1))).fetchall()
-    return render_template("forum/thread.html", thread=thread, page=page, max_page=max_page, messages=messages)
+    return render_template('forum/thread.html', thread=thread, page=page, max_page=max_page, messages=messages)
