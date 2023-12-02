@@ -18,5 +18,8 @@ bp.register_blueprint(swfbp)
 
 @bp.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(bp.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(os.path.join(bp.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@bp.route('/play.html/creditsSwf')
+def get_creditsSwf():
+    return send_from_directory(os.path.join(bp.root_path, 'static', 'swf'), 'credits.swf', mimetype='application/x-shockwave-flash')
