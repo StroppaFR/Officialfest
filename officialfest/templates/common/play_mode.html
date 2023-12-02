@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block title %} - Jouer !{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+	<a name="play"></a>
+	<div class="game">
+		<div class="topBar"></div>
+		<script type="text/javascript">
+			//<![CDATA[
+			// 420x520  630x780  504x624
+			var fo = new FlashObject("/swf/loader.swf?v=96", "game", 420,520, 7);
+			fo.addVariable("$mode",   	  "{{ mode }}");
+			fo.addVariable("$options",    "{{ options }}");
+			fo.addVariable("$lang",			"fr");
+			fo.addVariable("swf",			"game.swf?v=101");
+			fo.addVariable("srv",			"play.html/manage");
+			fo.addVariable("$shake",		"1");
+			fo.addVariable("$detail",		"1");
+			fo.addVariable("$sound",		"1");
+			fo.addVariable("$music",		"1");
+			fo.addVariable("$volume",		"100");
+			//		fo.addVariable("$alt", "1");
+
+			fo.addParam("allowScriptAccess","always"); // flash 9 redirect fix
+			fo.write();
+			//]]>
+		</script>	<div class="bottomBar"></div>
+	</div>
+
+	<div class="friends">
+		<h2>Sites amis:</h2>	
+		<script src="http://trax.motion-twin.com/words/hfest/0?rnd=1" type="text/javascript"></script>    			
+	</div>
+
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, redirect, render_template
 from itertools import chain
 from officialfest.db import get_db
 
@@ -144,6 +144,22 @@ QUEST_NAMES = [
 @bp.app_context_processor
 def inject_profile_items():
     return dict(SORTED_PROFILE_ITEMS=SORTED_PROFILE_ITEMS)
+
+@bp.route('/', methods=['GET'])
+def get_user_account():
+    return render_template('user/user-account.html')
+
+@bp.route('/godChildren', methods=['GET'])
+def get_godChildren():
+    return render_template('user/godChildren.html')
+
+@bp.route('/changeEmail', methods=['POST'])
+@bp.route('/changeEmailPublic', methods=['POST'])
+@bp.route('/passwd', methods=['POST'])
+@bp.route('/raz', methods=['POST'])
+@bp.route('/unsubscribe', methods=['POST'])
+def post_update_user():
+    return redirect('/user.html')
 
 @bp.route('/<int:user_id>', methods=['GET'])
 def show_profile(user_id):

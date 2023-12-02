@@ -1,0 +1,146 @@
+{% extends 'layout.html' %}
+{% block title %} - Mon compte{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+
+
+
+	<h1>mon <strong>compte</strong></h1>
+	<div class="user">
+		<div class="lineWrap">
+			<div class="leftColumUser">Nom hammerfestian</div>
+			<div class="rightColumUser"> Igor </div>
+		</div>
+
+		<div class="infoUser">
+			Mon Nom d&#039;utilisateur sur Hammerfest.
+		</div>
+		<div class="lineWrap">
+			<div class="leftColumUser">Nombre disponible de parties</div>
+			<div class="rightColumUser"> ∞ <a href="/shop.html" title="Plus de Parties">
+					<img src="/img/design/snow_flake_blue.gif" alt="Flocon"/>
+				</a>
+			</div>
+		</div>
+
+		<div class="lineWrap">
+			<div class="leftColumUser">Mon adresse mail</div>
+			<div class="rightColumUser">
+				<form method="post" action="/user.html/changeEmail">
+					<input type="text" name="email" value="igor@hammerfest.fr" class="globalInput"/>
+					<input type="submit" name="submit" value="Submit" class="buttonMailChange"/>
+				</form>
+			</div>
+		</div>
+
+		<div class="lineWrapRules">
+			<div class="leftColumUser">
+				<div class="acceptUser">
+					Montrer l&#039;adresse mail dans ma
+					<a href="/user.html/0" title="Voir ma Fiche Publique">Fiche Publique</a>
+				</div>
+			</div>
+			<div class="rightColumUser">
+				<form method="post" action="/user.html/changeEmailPublic">
+					<input type="checkbox" name="isEmailPublic" class="checkbox"/>
+					<input type="submit" name="submit" value="OK" class="buttonPublicProfile"/>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<h1>changer code <strong>secret</strong></h1>
+
+	<form action="/user.html/passwd" method="post">
+		<div class="user">
+			<div class="lineWrap">
+				<div class="leftColumUser">Ancien code secret</div>
+				<div class="rightColumUser">
+					<input maxlength="12" type="password" name="old" value="" class="globalInput"/>
+				</div>
+			</div>
+
+
+			<div class="lineWrap">
+				<div class="leftColumUser">Nouveau code secret</div>
+				<div class="rightColumUser">
+					<input maxlength="12" type="password" name="new" value="" class="globalInput"/>
+				</div>
+			</div>
+
+
+			<div class="lineWrap">
+				<div class="leftColumUser">Entrez à nouveau le code</div>
+				<div class="rightColumUser">
+					<input maxlength="12" type="password" name="con" value="" class="globalInput"/>
+				</div>
+			</div>
+
+
+			<input name="submit" type="submit" value="Valider" class="submitUser"/>
+		</div>
+	</form>
+
+	<h1>remise à <strong>zéro</strong></h1>
+	<form action="/user.html/raz" method="post">
+		<div class="user">
+			<div class="lineWrap">
+				<input type="hidden" name="xid" value="1"/>
+				<div class="leftColumUser">
+					Mot de passe
+				</div>
+
+				<div class="rightColumUser">
+					<input maxlength="12" type="password" name="passwd"/>
+				</div>
+			</div>
+
+			<div class="lineWrap">
+				<div class="leftColumUser">
+					Confirmation (irréversible)
+				</div>
+				<div class="rightColumUser">
+					<input type="checkbox" name="confirm" value="1" class="checkbox"/>
+				</div>
+			</div>
+
+
+			<div class="infoUser">
+				Oui, je veux effacer tous mes scores ainsi que mon
+				inventaire et recommencer depuis le début.
+			</div>				<input type="submit" name="submit" value="Valider" class="submitUser"/>
+		</div>
+	</form>
+
+	<h1>se <strong>désinscrire</strong></h1>
+
+	<form action="/user.html/unsubscribe" method="post">
+		<div class="user">
+			<div class="lineWrap">
+				<input type="hidden" name="xid" value="1"/>
+				<div class="leftColumUser">
+					Code secret
+				</div>
+				<div class="rightColumUser">
+					<input maxlength="12" type="password" name="passwd" class="globalInput"/>
+				</div>
+			</div>
+
+
+			<div class="lineWrap">
+				<div class="leftColumUser">
+					Confirmation (irréversible)
+				</div>
+				<div class="rightColumUser">
+					<input type="checkbox" name="confirm" value="1" class="checkbox"/>
+				</div>
+			</div>
+			<div class="infoUser">
+				Oui, je veux supprimer définitivement mon compte, je perds toutes
+				mes possessions.
+			</div>								<input type="submit" name="submit" value="Désinscription" class="submitUser"/>
+		</div>
+	</form>
+
+</div>
+{% endblock %}
