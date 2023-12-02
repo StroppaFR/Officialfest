@@ -1,5 +1,5 @@
 import os
-from flask import Blueprint, Flask, render_template, send_from_directory
+from flask import Flask, render_template
 
 def page_not_found(e):
     # TODO: translations
@@ -39,21 +39,7 @@ def create_app(test_config=None):
     from . import forum
     app.register_blueprint(forum.bp)
 
-    # Note: if possible just serve the static files with Nginx or something
-    cssbp = Blueprint('css', __name__, static_url_path='/css', static_folder='static/css')
-    imgbp = Blueprint('img', __name__, static_url_path='/img', static_folder='static/img')
-    jsbp = Blueprint('js', __name__, static_url_path='/js', static_folder='static/js')
-    goodiesbp = Blueprint('goodies', __name__, static_url_path='/goodies', static_folder='static/goodies')
-    swfbp = Blueprint('swf', __name__, static_url_path='/swf', static_folder='static/swf')
-    app.register_blueprint(cssbp)
-    app.register_blueprint(imgbp)
-    app.register_blueprint(jsbp)
-    app.register_blueprint(goodiesbp)
-    app.register_blueprint(swfbp)
-
-    @app.route('/favicon.ico')
-    def favicon():
-        return send_from_directory(os.path.join(app.root_path, 'static'),
-                                   'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    from . import static
+    app.register_blueprint(static.bp)
 
     return app
