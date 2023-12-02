@@ -25,7 +25,7 @@ def init_db():
     for quest_id in range(76):
         db.execute('INSERT INTO user_quests (user_id, quest_id, completed) \
                     VALUES (0, ?, 1)', (quest_id,))
-    for item_id in range(118):
+    for item_id in chain(range(115), range(116, 118)): # No casque de volleyfest
         db.execute('INSERT INTO user_unlocked_items (user_id, item_id) \
                     VALUES (0, ?)', (item_id,))
     for item_id in chain(range(1000, 1186), range(1190, 1239)): # No forbidden item

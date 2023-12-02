@@ -36,9 +36,7 @@
 					</div>
 					<div class="date">{{ message.created_at | pretty_message_date }}</div>
 				</div>
-				<div class="message">
-					<div class="content">{{ message.html_content | safe }}</div>
-				</div>
+				<div class="content">{{ message.html_content | safe }}</div>
 			</div>
 			{% endfor %}
 		</div>

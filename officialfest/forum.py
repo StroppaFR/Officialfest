@@ -1,14 +1,16 @@
 import dateutil.parser
 from . import utils
-from flask import Blueprint, render_template, request
+from flask import Blueprint, redirect, render_template, request
 from officialfest.db import get_db
 from babel.dates import format_datetime
 from datetime import datetime
+from itertools import chain
 
 bp = Blueprint('forum', __name__, url_prefix='/forum.html')
 
 THREADS_PER_PAGE = 15
 MESSAGES_PER_PAGE = 10
+ALLOWED_PICTOS = list(chain(range(115), range(116, 118), range(1000, 1186), range(1190, 1239)))
 
 @bp.app_template_filter('pretty_thread_date')
 def pretty_thread_date_filter(date: datetime) -> str:
@@ -135,3 +137,50 @@ def get_message(message_id):
                            ORDER BY forum_messages.message_id ASC \
                            LIMIT ? OFFSET ?', (thread['thread_id'], MESSAGES_PER_PAGE, MESSAGES_PER_PAGE * (page - 1))).fetchall()
     return render_template('forum/thread.html', thread=thread, page=page, max_page=max_page, messages=messages)
+
+@bp.route('/theme/<int:theme_id>/createThreadForm', methods=['GET'])
+def get_createThreadForm(theme_id):
+    db = get_db()
+    # Fetch theme
+    theme = db.execute('SELECT * \
+                        FROM forum_themes \
+                        WHERE theme_id = ?', (theme_id,)).fetchone()
+    if theme is None:
+        # TODO: translations
+        return render_template('evni.html', error='404 : Thème introuvable'), 404
+    # TODO: allow access to restricted area
+    if theme['is_restricted']:
+        # TODO: translations
+        return render_template('evni.html', error='403 : Accès interdit'), 403
+    return render_template('forum/createThreadForm.html', theme=theme, pictos=ALLOWED_PICTOS)
+
+@bp.route('/theme/<int:theme_id>/createThread', methods=['POST'])
+def post_createThread(theme_id):
+    return redirect('/')
+
+@bp.route('/thread/<int:thread_id>/replyForm', methods=['GET'])
+def get_replyForm(thread_id):
+    db = get_db()
+    # Fetch theme
+    thread = db.execute('SELECT forum_threads.*, forum_themes.is_restricted, forum_themes.name AS "theme_name" \
+                        FROM forum_threads INNER JOIN forum_themes USING (theme_id) \
+                        WHERE thread_id = ?', (thread_id,)).fetchone()
+    if thread is None:
+        # TODO: translations
+        return render_template('evni.html', error='404 : Thread introuvable'), 404
+    # TODO: allow access to restricted area
+    if thread['is_restricted']:
+        # TODO: translations
+        return render_template('evni.html', error='403 : Accès interdit'), 403
+    message = db.execute('SELECT forum_messages.*, users.username AS "author_name", users.pyramid_step AS "author_pyramid_step", users.pyramid_rank as "author_pyramid_rank", users.has_carrot AS "author_has_carrot", \
+                           users.is_moderator AS "author_is_moderator", users.is_admin AS "author_is_admin" \
+                           FROM forum_messages INNER JOIN users ON (forum_messages.author = users.user_id) \
+                           WHERE thread_id = ? \
+                           ORDER BY forum_messages.message_id ASC \
+                           LIMIT 1', (thread_id,)).fetchone()
+    return render_template('forum/replyForm.html', thread=thread, pictos=ALLOWED_PICTOS, message=message)
+
+@bp.route('/thread/<int:thread_id>/reply', methods=['POST'])
+def post_reply(thread_id):
+    return redirect('/')
+
