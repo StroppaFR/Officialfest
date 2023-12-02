@@ -194,3 +194,7 @@ def get_redirect():
         return redirect(url.replace('http://www.hammerfest.fr', ''))
     else:
         return redirect(url)
+
+@bp.route('/search', methods=['GET'])
+def get_search():
+    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
