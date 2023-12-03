@@ -23,7 +23,7 @@ def pretty_thread_date_filter(date_str: str) -> str:
     # TODO: translations
     return format_datetime(date, 'EEEE dd LLL YYYY HH:mm', locale='fr_FR')
 
-@bp.route('/', methods=['GET'])
+@bp.route('/', methods=['GET'], strict_slashes=False)
 def get_forum():
     db = get_db()
     # Fetch all themes
@@ -33,7 +33,7 @@ def get_forum():
                          ORDER BY theme_id ASC').fetchall()
     return render_template('forum/forum.html', themes=themes)
 
-@bp.route('/theme/<int:theme_id>/', methods=['GET'])
+@bp.route('/theme/<int:theme_id>/', methods=['GET'], strict_slashes=False)
 def get_theme(theme_id):
     args = utils.args_from_query_string(request.query_string)
     db = get_db()
@@ -80,7 +80,7 @@ def get_theme(theme_id):
     return render_template('forum/theme.html', theme=theme, page=page, max_page=max_page,
                            sticky_threads=sticky_threads, latest_threads_by_day=latest_threads_by_day)
 
-@bp.route('/thread/<int:thread_id>/', methods=['GET'])
+@bp.route('/thread/<int:thread_id>/', methods=['GET'], strict_slashes=False)
 def get_thread(thread_id):
     args = utils.args_from_query_string(request.query_string)
     db = get_db()
@@ -107,7 +107,7 @@ def get_thread(thread_id):
                            LIMIT ? OFFSET ?', (thread_id, MESSAGES_PER_PAGE, MESSAGES_PER_PAGE * (page - 1))).fetchall()
     return render_template('forum/thread.html', thread=thread, page=page, max_page=max_page, messages=messages)
 
-@bp.route('/message/<int:message_id>/', methods=['GET'])
+@bp.route('/message/<int:message_id>/', methods=['GET'], strict_slashes=False)
 def get_message(message_id):
     db = get_db()
     # Fetch thread containing message

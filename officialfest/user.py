@@ -145,7 +145,7 @@ QUEST_NAMES = [
 def inject_profile_items():
     return dict(SORTED_PROFILE_ITEMS=SORTED_PROFILE_ITEMS)
 
-@bp.route('/', methods=['GET'])
+@bp.route('/', methods=['GET'], strict_slashes=False)
 def get_user_account():
     return render_template('user/user-account.html')
 
@@ -161,7 +161,7 @@ def get_godChildren():
 def post_update_user():
     return redirect('/user.html')
 
-@bp.route('/<int:user_id>', methods=['GET'])
+@bp.route('/<int:user_id>/', methods=['GET'], strict_slashes=False)
 def show_profile(user_id):
     db = get_db()
     # Fetch user information
