@@ -186,7 +186,7 @@ def post_reply(thread_id):
 
 @bp.route('/redirect', methods=['GET'])
 def get_redirect():
-    url = request.args['url']
+    url = request.args.get('url')
     if url is None:
         return redirect('/')
     # TODO: check current website lang before replacing
