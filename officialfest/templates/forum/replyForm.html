@@ -67,10 +67,7 @@
 				</div>
 
 				<div class="itemBox">
-					<label>Objets</label>
-					{% for picto in pictos %}
-					<a href="javascript:insertText(':item{{ picto }}: ');"><img src="/img/items/small/{{ picto }}.gif" alt = ":item{{ picto }}:"/></a>
-					{% endfor %}
+					<label>Objets</label>{% for picto in pictos %}<a href="javascript:insertText(':item{{ picto }}: ');"><img src="/img/items/small/{{ picto }}.gif" alt=":item{{ picto }}:"/></a>{% endfor %}
 				</div>
 				<p class="readmepls">
 				<strong>Avez-vous déjà cherché votre question dans l&#039;aide du jeu ?</strong>
