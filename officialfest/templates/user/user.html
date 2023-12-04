@@ -22,7 +22,7 @@
 		<dd>{{ user.best_score | pretty_score }}</dd>
 
 		<dt>Meilleur niveau</dt>
-		<dd>{{ user.best_level or "" }} {% if user.has_carrot %}<span><img src="/img/design/icon_endGame.gif" alt="Carotte recuperée !" title="Carotte recuperée !"/></span>{% endif %}</dd>
+		<dd> {{ user.best_level or "" }} {% if user.has_carrot %}<span><img src="/img/design/icon_endGame.gif" alt="Carotte recuperée !" title="Carotte recuperée !"/></span>{% endif %}</dd>
 
 		<dt>Score de la semaine</dt>
 		<dd>{{ (user.weekly_score or 0) | pretty_score }}</dd>
