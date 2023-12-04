@@ -97,7 +97,7 @@ def get_thread(thread_id):
         return render_template('evni.html', error='403 : Accès interdit'), 403
     # Fetch page of messages to show
     messages_count = thread['messages_count']
-    max_page = 1 + ((messages_count - 1) // MESSAGES_PER_PAGE)
+    max_page = 1 + ((messages_count - 2) // MESSAGES_PER_PAGE)
     page = utils.sanitized_page_arg(args, max_page)
     messages = db.execute('SELECT forum_messages.*, users.username AS "author_name", users.pyramid_step AS "author_pyramid_step", users.pyramid_rank as "author_pyramid_rank", users.has_carrot AS "author_has_carrot", \
                            users.is_moderator AS "author_is_moderator", users.is_admin AS "author_is_admin" \
@@ -127,9 +127,9 @@ def get_message(message_id):
                                WHERE thread_id = ? AND message_id < ? \
                                ORDER BY message_id ASC', (thread['thread_id'], message_id)).fetchone()[0]
     # Fetch page of messages to show
-    page = 1 + (message_rank // MESSAGES_PER_PAGE)
+    page = 1 + ((message_rank - 1) // MESSAGES_PER_PAGE)
     messages_count = thread['messages_count']
-    max_page = 1 + ((messages_count - 1) // MESSAGES_PER_PAGE)
+    max_page = 1 + ((messages_count - 2) // MESSAGES_PER_PAGE)
     messages = db.execute('SELECT forum_messages.*, users.username AS "author_name", users.pyramid_step AS "author_pyramid_step", users.pyramid_rank as "author_pyramid_rank", users.has_carrot AS "author_has_carrot", \
                            users.is_moderator AS "author_is_moderator", users.is_admin AS "author_is_admin" \
                            FROM forum_messages INNER JOIN users ON (forum_messages.author = users.user_id) \
