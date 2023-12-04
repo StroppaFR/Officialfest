@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
+  <!--
   <allow-access-from domain="localhost"/>
   <allow-access-from domain="*.hammerfest.fr"/>
   <allow-access-from domain="*.hammerfest.es"/>
   <allow-access-from domain="*.hfest.net"/>
+  -->
 </cross-domain-policy>
