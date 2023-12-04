@@ -104,7 +104,7 @@ def get_thread(thread_id):
                            FROM forum_messages INNER JOIN users ON (forum_messages.author = users.user_id) \
                            WHERE thread_id = ? \
                            ORDER BY forum_messages.message_id ASC \
-                           LIMIT ? OFFSET ?', (thread_id, MESSAGES_PER_PAGE if page > 1 else MESSAGES_PER_PAGE + 1, MESSAGES_PER_PAGE * (page - 1))).fetchall()
+                           LIMIT ? OFFSET ?', (thread_id, MESSAGES_PER_PAGE + (1 if page == 1 else 0), MESSAGES_PER_PAGE * (page - 1) + (1 if page > 1 else 0))).fetchall()
     return render_template('forum/thread.html', thread=thread, page=page, max_page=max_page, messages=messages)
 
 @bp.route('/message/<int:message_id>/', methods=['GET'], strict_slashes=False)
@@ -135,7 +135,7 @@ def get_message(message_id):
                            FROM forum_messages INNER JOIN users ON (forum_messages.author = users.user_id) \
                            WHERE thread_id = ? \
                            ORDER BY forum_messages.message_id ASC \
-                           LIMIT ? OFFSET ?', (thread['thread_id'], MESSAGES_PER_PAGE, MESSAGES_PER_PAGE * (page - 1))).fetchall()
+                           LIMIT ? OFFSET ?', (thread['thread_id'], MESSAGES_PER_PAGE + (1 if page == 1 else 0), MESSAGES_PER_PAGE * (page - 1) + (1 if page > 1 else 0))).fetchall()
     return render_template('forum/thread.html', thread=thread, page=page, max_page=max_page, messages=messages)
 
 @bp.route('/theme/<int:theme_id>/createThreadForm', methods=['GET'])
