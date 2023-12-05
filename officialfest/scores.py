@@ -47,10 +47,34 @@ def get_scores():
     leagues_param = '|'.join(str(v) for v in sorted(RISING_USERS_PER_STEP.values()))
     return render_template('scores/scores.html', pyramid_step=pyramid_step, scores=scores, page=page, max_page=max_page, score_to_beat=score_to_beat, leagues_param=leagues_param, hof_message=hof_message)
 
-# TODO: show timeattack rankings
+@bp.app_template_filter('pretty_timeattack_score')
+def pretty_score_filter(milliseconds: int) -> str:
+    res = ''
+    if milliseconds < 0:
+        milliseconds = -milliseconds
+        res += '-'
+    minutes = milliseconds // (60 * 1000)
+    milliseconds -= 1000 * 60 * minutes
+    seconds = milliseconds // 1000
+    milliseconds -= 1000 * seconds
+    res += f'{minutes}" {seconds:02d}\' {milliseconds}'
+    return res
+
 @bp.route('/scores.html/timeattack', methods=['GET'])
 def get_timeattack_scores():
-    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
+    args = utils.args_from_query_string(request.query_string)
+    db = get_db()
+    # Count scores
+    total_scores = db.execute('SELECT COUNT(*) AS "total_scores" \
+                               FROM user_timeattack_scores').fetchone()[0]
+    max_page = 1 + ((total_scores - 1) // SCORES_PER_PYRAMID_PAGE)
+    page = utils.sanitized_page_arg(args, max_page)
+    # Get scores to display
+    scores = db.execute('SELECT user_timeattack_scores.*, users.username \
+                         FROM user_timeattack_scores INNER JOIN users USING (user_id) \
+                         ORDER BY milliseconds ASC \
+                         LIMIT ? OFFSET ?', (SCORES_PER_PYRAMID_PAGE, SCORES_PER_PYRAMID_PAGE * (page - 1))).fetchall()
+    return render_template('scores/timeattack.html', page=page, max_page=max_page, scores=scores)
 
 # TODO: hall of fame
 @bp.route('/halloffame.html', methods=['GET'])

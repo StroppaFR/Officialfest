@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block title %} - {% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+
+    <h1 class="clasifTitle">
+        Classement Time Attack
+    </h1>
+
+    <p>Débloquez le mode <strong>Time Attack</strong> grâce aux quêtes du <strong>mode Aventure</strong> !</p>
+
+    <p>Vous aussi jouez et entrez dans le classement des joueurs les plus rapides des Cavernes de Hammerfest :</p>
+
+    <a name="myself"></a>
+
+    <table class="tournament">
+        <thead>
+            <tr>
+                <th class="posit">Position</th>
+                <th>Joueur</th>
+                <th class="score">Temps</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score in scores %}
+            <tr class="">
+                <td class="position">{{ 30 * (page - 1) + loop.index }}</td>
+                <td class="player"><a href="/user.html/{{ score.user_id }}">{{ score.username }}</a></td>
+                <td class="score">{{ score.milliseconds | pretty_timeattack_score }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="paginateBox">
+        <div class="currentPage">page {{ page }}/{{ max_page }}</div>
+
+        <div class="paginate">
+            &lt;
+            {% if page != 1 %}<a href="/scores.html/timeattack?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/scores.html?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
+            {% set min_page_link = [1, page - 5] | max %}
+            {% set max_page_link = [max_page, min_page_link + 10] | min %}
+            {% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/scores.html/timeattack?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
+            {% if page != max_page %}<a href="/scores.html/timeattack?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/scores.html/timeattack?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
+        </div>
+    </div>
+</div>
+{% endblock %}
