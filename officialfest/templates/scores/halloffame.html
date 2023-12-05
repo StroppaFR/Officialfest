@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% block title %} - Panthéon{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+
+    <div class="pyramid">
+        <script type="text/javascript">
+            //<![CDATA[
+            var fo = new FlashObject("/swf/pyramid.swf?v=15", "game", 520, 170, 7);
+            fo.addParam("allowScriptAccess", "always");
+            fo.addVariable("leagues", "{{ leagues_param }}");
+            fo.addVariable("hof", "/halloffame.html");
+            fo.addVariable("url", "/scores.html?id=");
+            fo.addVariable("s", "{{ leagues_param }}");
+            fo.addVariable("c", "0");
+            fo.addVariable("l", "fr");
+            fo.write();
+            //]]>
+        </script>
+    </div>
+
+    <h1>le <strong>panthéon</strong></h1>
+
+    <p>
+    Les plus courageux et plus talentueux joueurs ont leur place pour l&#039;éternité
+    au Panthéon ! Vous aussi devenez une légende de Hammerfest !
+    </p>
+
+    <p>
+    Le nouveau héros <a href="/user.html/{{ last_hof_message.author }}">{{ last_hof_message.username }}</a>,
+    les mains gelées d&#039;avoir trop joué, a dit :
+    </p>
+    <blockquote class="hofLatest">
+        {{ last_hof_message.message }}
+        <div class="player"><a href="/user.html/{{ last_hof_message.author }}">{{ last_hof_message.username }}</a></div>
+        <div class="date">{{ last_hof_message.written_at | pretty_hof_date }}</div>
+        <div class="clear"></div>
+    </blockquote>
+    <h2>Le hall des Héros de Hammerfest</h2>
+    <table class="fame">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Joueur</th>
+                <th>Paroles pleines de sagesse</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in messages %}
+            <tr>
+                <td>{{ message.written_at | pretty_hof_date }}</td>
+                <td class="winnerName"><a href="/user.html/{{ message.author }}">{{ message.username }}</a></td>
+                <td class="winnerQuote">
+                    {{ message.message }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="paginHall">
+        <div class="paginateBox">
+            <div class="currentPage">page {{ page }}/{{ max_page }}</div>
+
+            <div class="paginate">
+                &lt;
+                {% if page != 1 %}<a href="/halloffame.html?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/halloffame.html?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
+                {% set min_page_link = [1, page - 5] | max %}
+                {% set max_page_link = [max_page, min_page_link + 10] | min %}
+                {% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/halloffame.html?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
+                {% if page != max_page %}<a href="/halloffame.html?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/halloffame.html?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

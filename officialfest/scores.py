@@ -76,7 +76,24 @@ def get_timeattack_scores():
                          LIMIT ? OFFSET ?', (SCORES_PER_PYRAMID_PAGE, SCORES_PER_PYRAMID_PAGE * (page - 1))).fetchall()
     return render_template('scores/timeattack.html', page=page, max_page=max_page, scores=scores)
 
-# TODO: hall of fame
 @bp.route('/halloffame.html', methods=['GET'])
 def get_halloffame():
-    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
+    args = utils.args_from_query_string(request.query_string)
+    db = get_db()
+    # Count messages
+    total_messages = db.execute('SELECT COUNT(*) AS "total_messages" \
+                               FROM hof_messages').fetchone()[0]
+    max_page = 1 + ((total_messages - 1) // SCORES_PER_PYRAMID_PAGE)
+    page = utils.sanitized_page_arg(args, max_page)
+    # Get messages to display
+    messages = db.execute('SELECT hof_messages.*, users.username \
+                         FROM hof_messages INNER JOIN users ON hof_messages.author = users.user_id \
+                         ORDER BY written_at DESC \
+                         LIMIT ? OFFSET ?', (SCORES_PER_PYRAMID_PAGE, SCORES_PER_PYRAMID_PAGE * (page - 1))).fetchall()
+    # Get latest hof message
+    last_hof_message = db.execute('SELECT hof_messages.*, users.username \
+                              FROM hof_messages INNER JOIN users ON hof_messages.author = users.user_id \
+                              ORDER BY written_at DESC \
+                              LIMIT 1').fetchone()
+    leagues_param = '|'.join(str(v) for v in sorted(RISING_USERS_PER_STEP.values()))
+    return render_template('scores/halloffame.html', page=page, max_page=max_page, messages=messages, leagues_param=leagues_param, last_hof_message=last_hof_message)
