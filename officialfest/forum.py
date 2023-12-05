@@ -192,6 +192,10 @@ def get_redirect():
     # TODO: check current website lang before replacing
     elif url.startswith('http://www.hammerfest.fr'):
         return redirect(url.replace('http://www.hammerfest.fr', ''))
+    elif url.startswith('http://www.hammerfest.es'):
+        return redirect(url.replace('http://www.hammerfest.es', ''))
+    elif url.startswith('http://www.hfest.net'):
+        return redirect(url.replace('http://www.hfest.net', ''))
     else:
         return redirect(url)
 
