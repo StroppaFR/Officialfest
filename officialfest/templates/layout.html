@@ -1,115 +1,115 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-	<head>
-		<title>Les Cavernes de Hammerfest{% block title %}{% endblock %}</title>
-		<script type="text/javascript" src="/js/flashobject.js"></script>
-		<link rel="stylesheet" type="text/css" href="/css/main.css?version=77"/>
-		<!--[if IE]>
-			<link rel="stylesheet" type="text/css" href="/css/ie.css?version=10"/>
-		<![endif]-->
-		<!--[if IE 6]>
-			<link rel="stylesheet" type="text/css" href="/css/ie6.css?version=10"/>
-		<![endif]-->
-	</head>
-	<body>
-		<div class="cache">
-			<img src="/img/design/icon_play.png" alt=""/>
-			<img src="/img/design/icon_inventory.png" alt=""/>
-			<img src="/img/design/icon_inventory_on.png" alt=""/>
-			<img src="/img/design/icon_quests.png" alt=""/>
-			<img src="/img/design/icon_quests_on.png" alt=""/>
-			<img src="/img/design/icon_score.png" alt=""/>
-			<img src="/img/design/icon_score_on.png" alt=""/>
-			<img src="/img/design/icon_play.png" alt=""/>
-			<img src="/img/design/icon_play_on.png" alt=""/>
-		</div>
-		<div id="creditBanner" style="position:absolute;width:100%;height:62px;background-color:#002855;opacity:0.9;">
-			<div style="width:850px;text-align:center;line-height:20px;color:white;margin:10px;">
-				<span>
-					Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>
-					Il n'est pas possible de jouer à Hammerfest ici. <a href="https://github.com/StroppaFR/Officialfest">Plus d'infos.</a>
-				</span>
-			</div>
-		</div>
-		<div class="siteHeaderBg">
-			<div class="siteHeader headernew ">
-				<a href="/index.html" class="index"><img src="/img/design/pixel.gif" alt="" title=""/></a>
-				<div class="siteBanner">
-					<div class="topMainBar">
-						{% if layout_hide_user_bar %}
-						<div class="lineMainBar">
-						</div>
-						{% endif %}
-						<div class="playerInfo">
-							{% if not layout_hide_user_bar %}
-							<a href="/user.html/0">Igor</a> <span>~</span>
-							<a href="/shop.html" title="Plus de Parties">∞</a>
-							<div class="iconSnowFlake">
-								<a href="/shop.html" title="Plus de Parties">
-									<img src="/img/design/snow_flake.gif" alt="Flocons"/>
-								</a>
-							</div>
-							<span>~</span>
-							<a href="/scores.html/mypos#myself" title="Voir ma Position">Position : ∞</a>
-							<span>~</span>
-							<div class="iconPyramid">
-								<a href="/scores.html">
-									<img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/>										
-								</a>
-							</div>
-							{% endif %}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="siteBg">
-			<div class="siteContentBg">
-				<div class="siteContent">
-					<div class="icons">
-						{% if not layout_hide_left_menu %}
-						<div class="iconPlay">
-							<a href="/play.html"><img src="/img/design/pixel.gif" alt="Jouer" title="Jouer"/></a>
-						</div>
-						<div class="iconInventory">
-							<a href="/user.html/inventory"><img src="/img/design/pixel.gif" alt="Réfrigérateur" title="Réfrigérateur"/></a>
-						</div>
-						<div class="iconQuests">
-							<a href="/user.html/quests"><img src="/img/design/pixel.gif" alt="Quêtes" title="Quêtes"/></a>
-						</div>
-						<div class="iconScore">
-							<a href="/scores.html"><img src="/img/design/pixel.gif" alt="Score" title="Classement"/></a>
-						</div>
-						<div class="iconAccount">
-							<a href="/user.html"><img src="/img/design/pixel.gif" alt="Mon compte" title="Mon compte"/></a>
-						</div>
-						<div class="iconShop">
-							<a href="/shop.html"><img src="/img/design/pixel.gif" alt="Plus de Parties" title="Plus de Parties"/></a>
-						</div>
-						<div class="iconSponsor">
-							<a href="/user.html/godChildren"><img src="/img/design/pixel.gif" alt="Parrainage" title="Parrainage"/></a>
-						</div>
-						<div class="iconLogout">
-							<a href="/login.html/logout" onclick="return confirm('Quitter le site ?');"><img src="/img/design/pixel.gif" alt="Déconnecter" title="Déconnecter"/></a>
-						</div>
-						<div class="buttonForum">
-							<a href="/forum.html"><img src="/img/design/pixel.gif" alt="Forum" title=""/></a>
-						</div>
-						{% endif %}
-					</div>
-					{% block site_content required %}{% endblock %}
-					<div class="bottomMenu">
-						<div class="bottomMenuContent">
-							<a href="http://www.motion-twin.com" target="_blank"><img src="/img/design/motiontwin.gif" alt="Motion Twin" class="firefox"/></a> ~
-							<a href="/guide.html">guide du jeu</a> ~
-							<a href="http://www.motion-twin.com/cgu.php?s=hfest" target="_blank">règlement</a> ~
-							<a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank">FAQ et contact</a> ~
-							<a href="http://www.getfirefox.com/" target="_blank"><img src="/img/design/icon_firefox.png" class="firefox" alt="Firefox" title="Igor aime Firefox"/></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+    <head>
+        <title>Les Cavernes de Hammerfest{% block title %}{% endblock %}</title>
+        <script type="text/javascript" src="/js/flashobject.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/main.css?version=77"/>
+        <!--[if IE]>
+            <link rel="stylesheet" type="text/css" href="/css/ie.css?version=10"/>
+        <![endif]-->
+        <!--[if IE 6]>
+            <link rel="stylesheet" type="text/css" href="/css/ie6.css?version=10"/>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="cache">
+            <img src="/img/design/icon_play.png" alt=""/>
+            <img src="/img/design/icon_inventory.png" alt=""/>
+            <img src="/img/design/icon_inventory_on.png" alt=""/>
+            <img src="/img/design/icon_quests.png" alt=""/>
+            <img src="/img/design/icon_quests_on.png" alt=""/>
+            <img src="/img/design/icon_score.png" alt=""/>
+            <img src="/img/design/icon_score_on.png" alt=""/>
+            <img src="/img/design/icon_play.png" alt=""/>
+            <img src="/img/design/icon_play_on.png" alt=""/>
+        </div>
+        <div id="creditBanner" style="position:absolute;width:100%;height:62px;background-color:#002855;opacity:0.9;">
+            <div style="width:850px;text-align:center;line-height:20px;color:white;margin:10px;">
+                <span>
+                    Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>
+                    Il n'est pas possible de jouer à Hammerfest ici. <a href="https://github.com/StroppaFR/Officialfest">Plus d'infos.</a>
+                </span>
+            </div>
+        </div>
+        <div class="siteHeaderBg">
+            <div class="siteHeader headernew ">
+                <a href="/index.html" class="index"><img src="/img/design/pixel.gif" alt="" title=""/></a>
+                <div class="siteBanner">
+                    <div class="topMainBar">
+                        {% if layout_hide_user_bar %}
+                        <div class="lineMainBar">
+                        </div>
+                        {% endif %}
+                        <div class="playerInfo">
+                            {% if not layout_hide_user_bar %}
+                            <a href="/user.html/0">Igor</a> <span>~</span>
+                            <a href="/shop.html" title="Plus de Parties">∞</a>
+                            <div class="iconSnowFlake">
+                                <a href="/shop.html" title="Plus de Parties">
+                                    <img src="/img/design/snow_flake.gif" alt="Flocons"/>
+                                </a>
+                            </div>
+                            <span>~</span>
+                            <a href="/scores.html/mypos#myself" title="Voir ma Position">Position : ∞</a>
+                            <span>~</span>
+                            <div class="iconPyramid">
+                                <a href="/scores.html">
+                                    <img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/>
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="siteBg">
+            <div class="siteContentBg">
+                <div class="siteContent">
+                    <div class="icons">
+                        {% if not layout_hide_left_menu %}
+                        <div class="iconPlay">
+                            <a href="/play.html"><img src="/img/design/pixel.gif" alt="Jouer" title="Jouer"/></a>
+                        </div>
+                        <div class="iconInventory">
+                            <a href="/user.html/inventory"><img src="/img/design/pixel.gif" alt="Réfrigérateur" title="Réfrigérateur"/></a>
+                        </div>
+                        <div class="iconQuests">
+                            <a href="/user.html/quests"><img src="/img/design/pixel.gif" alt="Quêtes" title="Quêtes"/></a>
+                        </div>
+                        <div class="iconScore">
+                            <a href="/scores.html"><img src="/img/design/pixel.gif" alt="Score" title="Classement"/></a>
+                        </div>
+                        <div class="iconAccount">
+                            <a href="/user.html"><img src="/img/design/pixel.gif" alt="Mon compte" title="Mon compte"/></a>
+                        </div>
+                        <div class="iconShop">
+                            <a href="/shop.html"><img src="/img/design/pixel.gif" alt="Plus de Parties" title="Plus de Parties"/></a>
+                        </div>
+                        <div class="iconSponsor">
+                            <a href="/user.html/godChildren"><img src="/img/design/pixel.gif" alt="Parrainage" title="Parrainage"/></a>
+                        </div>
+                        <div class="iconLogout">
+                            <a href="/login.html/logout" onclick="return confirm('Quitter le site ?');"><img src="/img/design/pixel.gif" alt="Déconnecter" title="Déconnecter"/></a>
+                        </div>
+                        <div class="buttonForum">
+                            <a href="/forum.html"><img src="/img/design/pixel.gif" alt="Forum" title=""/></a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% block site_content required %}{% endblock %}
+                    <div class="bottomMenu">
+                        <div class="bottomMenuContent">
+                            <a href="http://www.motion-twin.com" target="_blank"><img src="/img/design/motiontwin.gif" alt="Motion Twin" class="firefox"/></a> ~
+                            <a href="/guide.html">guide du jeu</a> ~
+                            <a href="http://www.motion-twin.com/cgu.php?s=hfest" target="_blank">règlement</a> ~
+                            <a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank">FAQ et contact</a> ~
+                            <a href="http://www.getfirefox.com/" target="_blank"><img src="/img/design/icon_firefox.png" class="firefox" alt="Firefox" title="Igor aime Firefox"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

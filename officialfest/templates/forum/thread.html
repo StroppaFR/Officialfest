@@ -2,63 +2,63 @@
 {% block title %} - Sujet: {{ thread.name }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
-	<div class="forum">
-		<h1>
-			<a href="/forum.html">Forum</a> &gt;
-			<a href="/forum.html/theme/{{ thread.theme_id }}">{{ thread.theme_name }}</a> &gt;
-			fil de discussion
-		</h1>
-		<h2 class="view"><span>{{ thread.name }}</span></h2>
+    <div class="forum">
+        <h1>
+            <a href="/forum.html">Forum</a> &gt;
+            <a href="/forum.html/theme/{{ thread.theme_id }}">{{ thread.theme_name }}</a> &gt;
+            fil de discussion
+        </h1>
+        <h2 class="view"><span>{{ thread.name }}</span></h2>
 
-		<ul class="menuf">
-			<li><a href="/forum.html/thread/{{thread.thread_id }}/replyForm">répondre</a></li>
-			<li><a href="/forum.html/search">rechercher</a></li>
-		</ul>					
-		<div class="threadBlock">
-			{% for message in messages %}
-			<div class="message">
-				<div class="header">
-					<div class="statut">
-						{% if message.author_pyramid_step == 0 %}
-						<img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/> <span>1</span>
-						{% else %}
-						<img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ message.author_pyramid_step }}" title="Niveau Pyramide : {{ message.author_pyramid_step }}" class="icon_pyramid icon_pyramid_{{ message.author_pyramid_step }}"/> <span>{{ message.author_pyramid_rank or "--" }}</span>
-						{% endif %}
-					</div>
-					<div class="author">
-						<a href="/user.html/{{ message.author }}">{{ message.author_name }}</a>
-						{% if message.author_has_carrot %}
-						<span><img src="/img/design/icon_endGame.gif" alt="Carotte" title="{{ message.author_name }} a terminé le jeu !"/></span>
-						{% endif %}
-						{% if message.author_is_moderator %}
-						<span class="rank" title="Modérateur !"> <img src="/img/design/icon_moderator.gif" alt="*"/> {%if message.author_is_admin %}<img src="/img/design/icon_moderator.gif" alt="*"/> <img src="/img/design/icon_moderator.gif" alt="*"/>{% endif %} </span>
-						{% endif %}
-					</div>
-					<div class="date">{{ message.created_at | pretty_message_date }}</div>
-				</div>
-				<div class="content">{{ message.html_content | safe }}</div>
-			</div>
-			{% endfor %}
-		</div>
+        <ul class="menuf">
+            <li><a href="/forum.html/thread/{{thread.thread_id }}/replyForm">répondre</a></li>
+            <li><a href="/forum.html/search">rechercher</a></li>
+        </ul>
+        <div class="threadBlock">
+            {% for message in messages %}
+            <div class="message">
+                <div class="header">
+                    <div class="statut">
+                        {% if message.author_pyramid_step == 0 %}
+                        <img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/> <span>1</span>
+                        {% else %}
+                        <img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ message.author_pyramid_step }}" title="Niveau Pyramide : {{ message.author_pyramid_step }}" class="icon_pyramid icon_pyramid_{{ message.author_pyramid_step }}"/> <span>{{ message.author_pyramid_rank or "--" }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="author">
+                        <a href="/user.html/{{ message.author }}">{{ message.author_name }}</a>
+                        {% if message.author_has_carrot %}
+                        <span><img src="/img/design/icon_endGame.gif" alt="Carotte" title="{{ message.author_name }} a terminé le jeu !"/></span>
+                        {% endif %}
+                        {% if message.author_is_moderator %}
+                        <span class="rank" title="Modérateur !"> <img src="/img/design/icon_moderator.gif" alt="*"/> {%if message.author_is_admin %}<img src="/img/design/icon_moderator.gif" alt="*"/> <img src="/img/design/icon_moderator.gif" alt="*"/>{% endif %} </span>
+                        {% endif %}
+                    </div>
+                    <div class="date">{{ message.created_at | pretty_message_date }}</div>
+                </div>
+                <div class="content">{{ message.html_content | safe }}</div>
+            </div>
+            {% endfor %}
+        </div>
 
-		<ul class="menuf">
-			<li><a href="/forum.html/thread/{{ thread.thread_id }}/replyForm">répondre</a></li> <li><a href="/forum.html/search">rechercher</a></li>
-		</ul>
+        <ul class="menuf">
+            <li><a href="/forum.html/thread/{{ thread.thread_id }}/replyForm">répondre</a></li> <li><a href="/forum.html/search">rechercher</a></li>
+        </ul>
 
-		{% if max_page > 1 %}
-		<div class="paginateBox">
-			<div class="currentPage">page {{ page }}/{{ max_page }}</div>
-			<div class="paginate">
-				&lt;
-				{% if page != 1 %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
-				{% set min_page_link = [1, page - 5] | max %}
-				{% set max_page_link = [max_page, min_page_link + 10] | min %}
-				{% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/thread/{{ thread.thread_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
-				{% if page != max_page %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
-			</div>
-		</div>
-		{% endif %}
+        {% if max_page > 1 %}
+        <div class="paginateBox">
+            <div class="currentPage">page {{ page }}/{{ max_page }}</div>
+            <div class="paginate">
+                &lt;
+                {% if page != 1 %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
+                {% set min_page_link = [1, page - 5] | max %}
+                {% set max_page_link = [max_page, min_page_link + 10] | min %}
+                {% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/thread/{{ thread.thread_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
+                {% if page != max_page %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/forum.html/thread/{{ thread.thread_id }}/?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
+            </div>
+        </div>
+        {% endif %}
 
-	</div>
+    </div>
 </div>
 {% endblock %}

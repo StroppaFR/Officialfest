@@ -3,71 +3,74 @@
 {% block site_content %}
 <div class="siteMinHeight">
 
-	<div>
-		<script type="text/javascript">
-			//<![CDATA[
-			var fo = new FlashObject("/swf/pyramid.swf?v=15", "game", 520, 170, 7);
-			fo.addParam("allowScriptAccess", "always");
-			fo.addVariable("leagues", "{{ leagues_param }}");
-			fo.addVariable("hof", "/halloffame.html");
-			fo.addVariable("url", "/scores.html?id=");
-			fo.addVariable("c", "{{ pyramid_step }}");
-			fo.addVariable("s", "{{ leagues_param }}");
-			fo.addVariable("l", "fr");
-			fo.write();
-			//]]>
-		</script>
-	</div>
-	<h3 class="clasifTitle">Le dernier héros d&#039;Hammerfest, a dit :</h3>		<blockquote class="hofLink" onclick="document.location = '/halloffame.html';">
-		{{ hof_message.message }}
-		<div class="player"><a href="/user.html/{{ hof_message.author }}">{{ hof_message.username }}</a></div>
-		<div class="date">{{ hof_message.written_at | pretty_hof_date }}</div>
-		<div class="clear"></div>
-	</blockquote>
-	<div class="goToHall">[ <a href="/halloffame.html">Voir le panthéon</a> ]</div>
-	<p class="goToHall">
-	<a href="/scores.html/timeattack">-- Accès au classement Time Attack --</a>
-	</p>
+    <div>
+        <script type="text/javascript">
+            //<![CDATA[
+            var fo = new FlashObject("/swf/pyramid.swf?v=15", "game", 520, 170, 7);
+            fo.addParam("allowScriptAccess", "always");
+            fo.addVariable("leagues", "{{ leagues_param }}");
+            fo.addVariable("hof", "/halloffame.html");
+            fo.addVariable("url", "/scores.html?id=");
+            fo.addVariable("c", "{{ pyramid_step }}");
+            fo.addVariable("s", "{{ leagues_param }}");
+            fo.addVariable("l", "fr");
+            fo.write();
+            //]]>
+        </script>
+    </div>
+    <h3 class="clasifTitle">Le dernier héros d&#039;Hammerfest, a dit :</h3>
+    <blockquote class="hofLink" onclick="document.location = '/halloffame.html';">
+        {{ hof_message.message }}
+        <div class="player"><a href="/user.html/{{ hof_message.author }}">{{ hof_message.username }}</a></div>
+        <div class="date">{{ hof_message.written_at | pretty_hof_date }}</div>
+        <div class="clear"></div>
+    </blockquote>
+    <div class="goToHall">[ <a href="/halloffame.html">Voir le panthéon</a> ]</div>
+    <p class="goToHall">
+    <a href="/scores.html/timeattack">-- Accès au classement Time Attack --</a>
+    </p>
 
-	<h3 class="clasifTitle">
-		Classement de l&#039;étage {{ pyramid_step }} :
-	</h3>
+    <h3 class="clasifTitle">
+        Classement de l&#039;étage {{ pyramid_step }} :
+    </h3>
 
-	<a name="myself"></a>
+    <a name="myself"></a>
 
-	<table summary="Classement de la ligue" class="tournament">
-		<thead>
-			<tr>
-				<th class="posit">Position</th>
-				<th>Joueur</th>
-				<th>Niveau atteint</th>
-				<th class="score">Score</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for score in scores %}
-			<tr class="">
-				<td class="position">{{ 30 * (page - 1) + loop.index }}</td>
-				<td class="player"><a href="/user.html/{{ score.user_id }}">{{ score.username }}</a></td>
-				<td class="level">{{ score.weekly_level | pretty_score }}</td>
-				<td class="score">{{ score.weekly_score | pretty_score }}</td>
-			</tr>
-			{% endfor %}
-			</tr>		</tbody>
-	</table>		<p class="pyramidLevel">
-	Score à atteindre pour la prochaine montée: <strong>{{ score_to_beat | pretty_score }} points</strong>
-	</p>
-	<div class="paginateBox">
-		<div class="currentPage">page {{ page }}/{{ max_page }}</div>
+    <table summary="Classement de la ligue" class="tournament">
+        <thead>
+            <tr>
+                <th class="posit">Position</th>
+                <th>Joueur</th>
+                <th>Niveau atteint</th>
+                <th class="score">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score in scores %}
+            <tr class="">
+                <td class="position">{{ 30 * (page - 1) + loop.index }}</td>
+                <td class="player"><a href="/user.html/{{ score.user_id }}">{{ score.username }}</a></td>
+                <td class="level">{{ score.weekly_level | pretty_score }}</td>
+                <td class="score">{{ score.weekly_score | pretty_score }}</td>
+            </tr>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <p class="pyramidLevel">
+    Score à atteindre pour la prochaine montée: <strong>{{ score_to_beat | pretty_score }} points</strong>
+    </p>
+    <div class="paginateBox">
+        <div class="currentPage">page {{ page }}/{{ max_page }}</div>
 
-		<div class="paginate">
-			&lt;
-			{% if page != 1 %}<a href="/scores.html?id={{ pyramid_step }};page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/scores.html?id={{ pyramid_step }};page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
-			{% set min_page_link = [1, page - 5] | max %}
-			{% set max_page_link = [max_page, min_page_link + 10] | min %}
-			{% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/scores.html?id={{ pyramid_step }};page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
-			{% if page != max_page %}<a href="/scores.html?id={{ pyramid_step }};page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/scores.html?id={{ pyramid_step }};page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
-		</div>
-	</div>
+        <div class="paginate">
+            &lt;
+            {% if page != 1 %}<a href="/scores.html?id={{ pyramid_step }};page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/scores.html?id={{ pyramid_step }};page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
+            {% set min_page_link = [1, page - 5] | max %}
+            {% set max_page_link = [max_page, min_page_link + 10] | min %}
+            {% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/scores.html?id={{ pyramid_step }};page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
+            {% if page != max_page %}<a href="/scores.html?id={{ pyramid_step }};page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/scores.html?id={{ pyramid_step }};page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
+        </div>
+    </div>
 </div>
 {% endblock %}

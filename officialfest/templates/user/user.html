@@ -2,85 +2,85 @@
 {% block title %} - Fiche utilisateur{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
-	<h1>fiche de <strong>{{ user.username }}</strong></h1>
+    <h1>fiche de <strong>{{ user.username }}</strong></h1>
 
-	<dl class="profile">
-		<dt>Nom du joueur</dt>
-		<dd>{{ user.username }}</dd>
+    <dl class="profile">
+        <dt>Nom du joueur</dt>
+        <dd>{{ user.username }}</dd>
 
-		{% if user.email %}
-		<dt>
-			E-mail
-		</dt>
-		<dd>
-			<a href="mailto:{{ user.email }}">{{ user.email }}</a>
-		</dd>
-		{% endif %}
+        {% if user.email %}
+        <dt>
+            E-mail
+        </dt>
+        <dd>
+            <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+        </dd>
+        {% endif %}
 
 
-		<dt>Meilleur score</dt>
-		<dd>{{ user.best_score | pretty_score }}</dd>
+        <dt>Meilleur score</dt>
+        <dd>{{ user.best_score | pretty_score }}</dd>
 
-		<dt>Meilleur niveau</dt>
-		<dd> {{ user.best_level or "" }} {% if user.has_carrot %}<span><img src="/img/design/icon_endGame.gif" alt="Carotte recuperée !" title="Carotte recuperée !"/></span>{% endif %}</dd>
+        <dt>Meilleur niveau</dt>
+        <dd> {{ user.best_level or "" }} {% if user.has_carrot %}<span><img src="/img/design/icon_endGame.gif" alt="Carotte recuperée !" title="Carotte recuperée !"/></span>{% endif %}</dd>
 
-		<dt>Score de la semaine</dt>
-		<dd>{{ (user.weekly_score or 0) | pretty_score }}</dd>
+        <dt>Score de la semaine</dt>
+        <dd>{{ (user.weekly_score or 0) | pretty_score }}</dd>
 
-		<dt>Pyramide</dt>
-		<dd>
-			{% if user.pyramid_step == 0 %}
-			<img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/>
-			{% else %}
-			<img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ user.pyramid_step }}" title="Niveau Pyramide : {{ user.pyramid_step }}" class="icon_pyramid icon_pyramid_{{ user.pyramid_step }}"/>
-			{% endif %}
-		</dd>
-	</dl>
+        <dt>Pyramide</dt>
+        <dd>
+            {% if user.pyramid_step == 0 %}
+            <img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/>
+            {% else %}
+            <img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ user.pyramid_step }}" title="Niveau Pyramide : {{ user.pyramid_step }}" class="icon_pyramid icon_pyramid_{{ user.pyramid_step }}"/>
+            {% endif %}
+        </dd>
+    </dl>
 
-	{% if user.hof_message %}
-	<dl>
-		<dt class="wordsFame">Ses dernières paroles au <a href="/halloffame.html">Panthéon</a>
-			<div class="wordsFameInfo">Dites le {{ user.hof_message_date | pretty_hof_date }}</div>
-		</dt>
-		<dd class="wordsFameUser">{{ user.hof_message }}</dd>
-	</dl>
-	{% endif %}
+    {% if user.hof_message %}
+    <dl>
+        <dt class="wordsFame">Ses dernières paroles au <a href="/halloffame.html">Panthéon</a>
+            <div class="wordsFameInfo">Dites le {{ user.hof_message_date | pretty_hof_date }}</div>
+        </dt>
+        <dd class="wordsFameUser">{{ user.hof_message }}</dd>
+    </dl>
+    {% endif %}
 
-	<div class="clear"></div>
+    <div class="clear"></div>
 
-	<div class="profileQuests">
-		<h3>Quêtes</h3>
-		<h4>Quêtes completées</h4>
-		<ul class="profileQuestsTitle">
-			{% if (completed_quests | length) == 0 %}
-			<li class="nothing">Aucune quête completée!</li>
-			{% else %}
-			{% for quest in completed_quests %}
-			<li>{{ quest }}</li>
-			{% endfor %}
-			{% endif %}
-		</ul>
+    <div class="profileQuests">
+        <h3>Quêtes</h3>
+        <h4>Quêtes completées</h4>
+        <ul class="profileQuestsTitle">
+            {% if (completed_quests | length) == 0 %}
+            <li class="nothing">Aucune quête completée!</li>
+            {% else %}
+            {% for quest in completed_quests %}
+            <li>{{ quest }}</li>
+            {% endfor %}
+            {% endif %}
+        </ul>
 
-		<h4>Quêtes en cours</h4>
-		<ul class="profileQuestsTitle">
-			{% if (current_quests | length) == 0 %}
-			<li class="nothing">Aucune! Il va falloir jouer plus!</li>
-			{% else %}
-			{% for quest in current_quests %}
-			<li>{{ quest }}</li>
-			{% endfor %}
-			{% endif %}
-		</ul>
-	</div>
+        <h4>Quêtes en cours</h4>
+        <ul class="profileQuestsTitle">
+            {% if (current_quests | length) == 0 %}
+            <li class="nothing">Aucune! Il va falloir jouer plus!</li>
+            {% else %}
+            {% for quest in current_quests %}
+            <li>{{ quest }}</li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
 
-	<div class="profileItems">
-		<h3>Objets du réfrigérateur</h3>
-		<h4><span>{{ user_items | length }}</span> objet{% if user_items | length %}<span class="sspecial">s</span>{% endif %} sur <span>353</span></h4>
-		<div>
-			{% for item in SORTED_PROFILE_ITEMS %}{% if item in user_items %}<img alt="objet" src="/img/items/small/{{ item }}.gif"/>{% else %}<img alt="objet" src="/img/items/small/a.gif"/>{% endif %}{% endfor %}
-		</div>
-	</div>
+    <div class="profileItems">
+        <h3>Objets du réfrigérateur</h3>
+        <h4><span>{{ user_items | length }}</span> objet{% if user_items | length %}<span class="sspecial">s</span>{% endif %} sur <span>353</span></h4>
+        <div>
+            {% for item in SORTED_PROFILE_ITEMS %}{% if item in user_items %}<img alt="objet" src="/img/items/small/{{ item }}.gif"/>{% else %}<img alt="objet" src="/img/items/small/a.gif"/>{% endif %}{% endfor %}
+        </div>
+    </div>
 
-	<div class="clear"></div>
+    <div class="clear"></div>
 </div>
 {% endblock %}

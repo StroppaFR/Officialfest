@@ -13,7 +13,7 @@
             </tr>
 
             {% for result in results %}
-            <tr class="thread												mode" onclick="document.location = '/forum.html/message/{{ result.message_id }}';">
+            <tr class="thread" onclick="document.location = '/forum.html/message/{{ result.message_id }}';">
                 <td class="subject">
                     <a href="/forum.html/message/{{ result.message_id }}/">{{ result.thread_name }}</a>
                 </td>

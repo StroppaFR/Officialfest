@@ -2,88 +2,89 @@
 {% block title %} - Forum (répondre){% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
-	<div class="forum">
-		<h1>
-			<a href="/forum.html">Forum</a> &gt;
-			<a href="/forum.html/theme/{{ thread.theme_id }}">{{ thread.theme_name }}</a> &gt;
-			<a href="/forum.html/thread/{{ thread.thread_id }}">répondre</a>
-		</h1>
+    <div class="forum">
+        <h1>
+            <a href="/forum.html">Forum</a> &gt;
+            <a href="/forum.html/theme/{{ thread.theme_id }}">{{ thread.theme_name }}</a> &gt;
+            <a href="/forum.html/thread/{{ thread.thread_id }}">répondre</a>
+        </h1>
 
-		<h2>En réponse à</h2>
-
-
-		<div>
-			<div class="message">
-				<div class="header">
-					<div class="statut">
-						{% if message.author_pyramid_step == 0 %}
-						<img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/> <span>1</span>
-						{% else %}
-						<img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ message.author_pyramid_step }}" title="Niveau Pyramide : {{ message.author_pyramid_step }}" class="icon_pyramid icon_pyramid_{{ message.author_pyramid_step }}"/> <span>{{ message.author_pyramid_rank or "--" }}</span>
-						{% endif %}
-					</div>
-					<div class="author">
-						<a href="/user.html/{{ message.author }}">{{ message.author_name }}</a>
-						{% if message.author_has_carrot %}
-						<span><img src="/img/design/icon_endGame.gif" alt="Carotte" title="{{ message.author_name }} a terminé le jeu !"/></span>
-						{% endif %}
-						{% if message.author_is_moderator %}
-						<span class="rank" title="Modérateur !"> <img src="/img/design/icon_moderator.gif" alt="*"/> {%if message.author_is_admin %}<img src="/img/design/icon_moderator.gif" alt="*"/> <img src="/img/design/icon_moderator.gif" alt="*"/>{% endif %} </span>
-						{% endif %}
-					</div>
-					<div class="date">{{ message.created_at | pretty_message_date }}</div>
-
-				</div>
-				<div class="content">{{ message.html_content | safe }}</div>
-			</div>
-		</div>
-		<div class="edit">
+        <h2>En réponse à</h2>
 
 
-			<script type="text/javascript" src="/js/forum.js"></script>
+        <div>
+            <div class="message">
+                <div class="header">
+                    <div class="statut">
+                        {% if message.author_pyramid_step == 0 %}
+                        <img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/> <span>1</span>
+                        {% else %}
+                        <img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ message.author_pyramid_step }}" title="Niveau Pyramide : {{ message.author_pyramid_step }}" class="icon_pyramid icon_pyramid_{{ message.author_pyramid_step }}"/> <span>{{ message.author_pyramid_rank or "--" }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="author">
+                        <a href="/user.html/{{ message.author }}">{{ message.author_name }}</a>
+                        {% if message.author_has_carrot %}
+                        <span><img src="/img/design/icon_endGame.gif" alt="Carotte" title="{{ message.author_name }} a terminé le jeu !"/></span>
+                        {% endif %}
+                        {% if message.author_is_moderator %}
+                        <span class="rank" title="Modérateur !"> <img src="/img/design/icon_moderator.gif" alt="*"/> {%if message.author_is_admin %}<img src="/img/design/icon_moderator.gif" alt="*"/> <img src="/img/design/icon_moderator.gif" alt="*"/>{% endif %} </span>
+                        {% endif %}
+                    </div>
+                    <div class="date">{{ message.created_at | pretty_message_date }}</div>
 
-			<form action="/forum.html/thread/{{ thread.thread_id }}/reply" method="post" id="form" name="form">
-
-				<input type="hidden" name="title" value="{{ thread.name }}"/>
-				<div class="designButtons">
-					<label>Style :</label>
-					<input type="button" value="G" class="button" onClick="insertTag('[g]','[/g]');"/>
-					<input type="button" value="S" class="button" onClick="insertTag('[s]','[/s]');"/>
-					<input type="button" value="I" class="button" onClick="insertTag('[i]','[/i]');"/>
-					<input type="button" value="Cite" class="button" onClick="insertTag('[cite]','[/cite]');"/>
-					<input type="button" value="Lien" class="button" onClick="insertUrl();"/>
-				</div>
+                </div>
+                <div class="content">{{ message.html_content | safe }}</div>
+            </div>
+        </div>
+        <div class="edit">
 
 
+            <script type="text/javascript" src="/js/forum.js"></script>
 
+            <form action="/forum.html/thread/{{ thread.thread_id }}/reply" method="post" id="form" name="form">
 
-				<div class="smileyBox">
-					<label>Smileys</label>
-					<a href="javascript:insertText(':timide: ');"><img src="/img/forum/icon_redface.gif" alt=":timide:"/></a><a href="javascript:insertText(':pleure: ');"><img src="/img/forum/icon_cry.gif" alt=":pleure:"/></a><a href="javascript:insertText(':mechant: ');"><img src="/img/forum/icon_evil.gif" alt=":mechant:"/></a><a href="javascript:insertText(':sadique: ');"><img src="/img/forum/icon_twisted.gif" alt=":sadique:"/></a><a href="javascript:insertText(':innocent: ');"><img src="/img/forum/icon_rolleyes.gif" alt=":innocent:"/></a><a href="javascript:insertText(':wink: ');"><img src="/img/forum/icon_wink2.gif" alt=":wink:"/></a><a href="javascript:insertText(':keepcool: ');"><img src="/img/forum/icon_keepcool.gif" alt=":keepcool:"/></a><a href="javascript:insertText(':dontcare: ');"><img src="/img/forum/icon_dontcare.gif" alt=":dontcare:"/></a><a href="javascript:insertText(':huh: ');"><img src="/img/forum/icon_huh.gif" alt=":huh:"/></a><a href="javascript:insertText(':noon: ');"><img src="/img/forum/icon_nooo.gif" alt=":noon:"/></a><a href="javascript:insertText(':youpi: ');"><img src="/img/forum/icon_yeah.gif" alt=":youpi:"/></a><a href="javascript:insertText(':idee: ');"><img src="/img/forum/icon_idea.gif" alt=":idee:"/></a><a href="javascript:insertText(':charte: ');"><img src="/img/forum/icon_chart.gif" alt=":charte:"/></a><a href="javascript:insertText(':fleche: ');"><img src="/img/forum/icon_arrow.gif" alt=":fleche:"/></a><a href="javascript:insertText(':croix: ');"><img src="/img/forum/icon_cross.gif" alt=":croix:"/></a><a href="javascript:insertText(':lol: ');"><img src="/img/forum/icon_lol.gif" alt=":lol:"/></a><a href="javascript:insertText(';) ');"><img src="/img/forum/icon_wink.gif" alt=";)"/></a><a href="javascript:insertText(':!: ');"><img src="/img/forum/icon_exclaim.gif" alt=":!:"/></a><a href="javascript:insertText(':quoi: ');"><img src="/img/forum/icon_question.gif" alt=":quoi:"/></a><a href="javascript:insertText(':D ');"><img src="/img/forum/icon_biggrin.gif" alt=":D"/></a><a href="javascript:insertText(':) ');"><img src="/img/forum/icon_smile.gif" alt=":)"/></a><a href="javascript:insertText(':( ');"><img src="/img/forum/icon_sad.gif" alt=":("/></a><a href="javascript:insertText(':o ');"><img src="/img/forum/icon_surprised.gif" alt=":o"/></a><a href="javascript:insertText('8O ');"><img src="/img/forum/icon_eek.gif" alt="8O"/></a><a href="javascript:insertText(':? ');"><img src="/img/forum/icon_confused.gif" alt=":?"/></a><a href="javascript:insertText('8) ');"><img src="/img/forum/icon_cool.gif" alt="8)"/></a><a href="javascript:insertText(':x ');"><img src="/img/forum/icon_mad.gif" alt=":x"/></a><a href="javascript:insertText(':P ');"><img src="/img/forum/icon_razz.gif" alt=":P"/></a>		</div>
-
-				<div class="editor">
-					<label for="content">Message :</label>
-					<textarea name="content" rows="20" tabindex="2"></textarea>
-				</div>
-
-				<div class="itemBox">
-					<label>Objets</label>{% for picto in pictos %}<a href="javascript:insertText(':item{{ picto }}: ');"><img src="/img/items/small/{{ picto }}.gif" alt=":item{{ picto }}:"/></a>{% endfor %}
-				</div>
-				<p class="readmepls">
-				<strong>Avez-vous déjà cherché votre question dans l&#039;aide du jeu ?</strong>
-				<br/>
-				<a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank">Cliquez ici pour lire la Foire Aux Questions de Hammerfest</a>.
-				</p>
+                <input type="hidden" name="title" value="{{ thread.name }}"/>
+                <div class="designButtons">
+                    <label>Style :</label>
+                    <input type="button" value="G" class="button" onClick="insertTag('[g]','[/g]');"/>
+                    <input type="button" value="S" class="button" onClick="insertTag('[s]','[/s]');"/>
+                    <input type="button" value="I" class="button" onClick="insertTag('[i]','[/i]');"/>
+                    <input type="button" value="Cite" class="button" onClick="insertTag('[cite]','[/cite]');"/>
+                    <input type="button" value="Lien" class="button" onClick="insertUrl();"/>
+                </div>
 
 
 
-				<div class="row submit">
-					<input type="submit" name="preview" value=" Aperçu " tabindex="3" class="button"/>
-					<input type="submit" name="create" value=" Je me suis bien relu, je valide" tabindex="4" class="button"/>
-				</div>
 
-			</form>
-		</div>
-	</div>
+                <div class="smileyBox">
+                    <label>Smileys</label>
+                    <a href="javascript:insertText(':timide: ');"><img src="/img/forum/icon_redface.gif" alt=":timide:"/></a><a href="javascript:insertText(':pleure: ');"><img src="/img/forum/icon_cry.gif" alt=":pleure:"/></a><a href="javascript:insertText(':mechant: ');"><img src="/img/forum/icon_evil.gif" alt=":mechant:"/></a><a href="javascript:insertText(':sadique: ');"><img src="/img/forum/icon_twisted.gif" alt=":sadique:"/></a><a href="javascript:insertText(':innocent: ');"><img src="/img/forum/icon_rolleyes.gif" alt=":innocent:"/></a><a href="javascript:insertText(':wink: ');"><img src="/img/forum/icon_wink2.gif" alt=":wink:"/></a><a href="javascript:insertText(':keepcool: ');"><img src="/img/forum/icon_keepcool.gif" alt=":keepcool:"/></a><a href="javascript:insertText(':dontcare: ');"><img src="/img/forum/icon_dontcare.gif" alt=":dontcare:"/></a><a href="javascript:insertText(':huh: ');"><img src="/img/forum/icon_huh.gif" alt=":huh:"/></a><a href="javascript:insertText(':noon: ');"><img src="/img/forum/icon_nooo.gif" alt=":noon:"/></a><a href="javascript:insertText(':youpi: ');"><img src="/img/forum/icon_yeah.gif" alt=":youpi:"/></a><a href="javascript:insertText(':idee: ');"><img src="/img/forum/icon_idea.gif" alt=":idee:"/></a><a href="javascript:insertText(':charte: ');"><img src="/img/forum/icon_chart.gif" alt=":charte:"/></a><a href="javascript:insertText(':fleche: ');"><img src="/img/forum/icon_arrow.gif" alt=":fleche:"/></a><a href="javascript:insertText(':croix: ');"><img src="/img/forum/icon_cross.gif" alt=":croix:"/></a><a href="javascript:insertText(':lol: ');"><img src="/img/forum/icon_lol.gif" alt=":lol:"/></a><a href="javascript:insertText(';) ');"><img src="/img/forum/icon_wink.gif" alt=";)"/></a><a href="javascript:insertText(':!: ');"><img src="/img/forum/icon_exclaim.gif" alt=":!:"/></a><a href="javascript:insertText(':quoi: ');"><img src="/img/forum/icon_question.gif" alt=":quoi:"/></a><a href="javascript:insertText(':D ');"><img src="/img/forum/icon_biggrin.gif" alt=":D"/></a><a href="javascript:insertText(':) ');"><img src="/img/forum/icon_smile.gif" alt=":)"/></a><a href="javascript:insertText(':( ');"><img src="/img/forum/icon_sad.gif" alt=":("/></a><a href="javascript:insertText(':o ');"><img src="/img/forum/icon_surprised.gif" alt=":o"/></a><a href="javascript:insertText('8O ');"><img src="/img/forum/icon_eek.gif" alt="8O"/></a><a href="javascript:insertText(':? ');"><img src="/img/forum/icon_confused.gif" alt=":?"/></a><a href="javascript:insertText('8) ');"><img src="/img/forum/icon_cool.gif" alt="8)"/></a><a href="javascript:insertText(':x ');"><img src="/img/forum/icon_mad.gif" alt=":x"/></a><a href="javascript:insertText(':P ');"><img src="/img/forum/icon_razz.gif" alt=":P"/></a>
+                </div>
+
+                <div class="editor">
+                    <label for="content">Message :</label>
+                    <textarea name="content" rows="20" tabindex="2"></textarea>
+                </div>
+
+                <div class="itemBox">
+                    <label>Objets</label>{% for picto in pictos %}<a href="javascript:insertText(':item{{ picto }}: ');"><img src="/img/items/small/{{ picto }}.gif" alt=":item{{ picto }}:"/></a>{% endfor %}
+                </div>
+                <p class="readmepls">
+                <strong>Avez-vous déjà cherché votre question dans l&#039;aide du jeu ?</strong>
+                <br/>
+                <a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank">Cliquez ici pour lire la Foire Aux Questions de Hammerfest</a>.
+                </p>
+
+
+
+                <div class="row submit">
+                    <input type="submit" name="preview" value=" Aperçu " tabindex="3" class="button"/>
+                    <input type="submit" name="create" value=" Je me suis bien relu, je valide" tabindex="4" class="button"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
