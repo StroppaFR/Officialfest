@@ -11,19 +11,32 @@ bp = Blueprint('forum', __name__, url_prefix='/forum.html')
 THREADS_PER_PAGE = 15
 MESSAGES_PER_PAGE = 10
 ALLOWED_PICTOS = list(chain(range(115), range(116, 118), range(1000, 1186), range(1190, 1239)))
+
 MAX_SEARCH_STRINGS = 5
 MAX_SEARCH_RESULTS = 1000
+MIN_SEARCH_DATE = datetime.strptime("2006-02-27", "%Y-%m-%d")
+MAX_SEARCH_DATE = datetime.strptime("2023-12-31", "%Y-%m-%d")
 
 @bp.app_template_filter('pretty_thread_date')
-def pretty_thread_date_filter(date: datetime) -> str:
+def pretty_thread_date_filter(date) -> str:
+    if isinstance(date, str):
+        date = dateutil.parser.parse(date)
     # TODO: translations
     return format_datetime(date, 'EEEE dd LLLL YYYY', locale='fr_FR')
 
 @bp.app_template_filter('pretty_message_date')
-def pretty_thread_date_filter(date_str: str) -> str:
-    date = dateutil.parser.parse(date_str)
+def pretty_thread_date_filter(date) -> str:
+    if isinstance(date, str):
+        date = dateutil.parser.parse(date)
     # TODO: translations
     return format_datetime(date, 'EEEE dd LLL YYYY HH:mm', locale='fr_FR')
+
+@bp.app_template_filter('short_date')
+def pretty_thread_date_filter(date) -> str:
+    if isinstance(date, str):
+        date = dateutil.parser.parse(date)
+    # TODO: translations
+    return format_datetime(date, 'dd LLL YYYY', locale='fr_FR')
 
 @bp.route('/', methods=['GET'], strict_slashes=False)
 def get_forum():
@@ -204,10 +217,35 @@ def get_redirect():
 @bp.route('/search', methods=['GET'])
 def get_search():
     search_arg = request.args.get("search")
-    # Show default search page with exemples
-    if not search_arg:
-        return render_template('forum/search.html')
+    author_arg = request.args.get("author")
+    from_date_arg = request.args.get("from_date")
+    to_date_arg = request.args.get("to_date")
+
+    # If no parameters is supplied, render default search page
+    if not search_arg and not author_arg and not from_date_arg and not to_date_arg:
+        return render_template('forum/search.html', min_date=MIN_SEARCH_DATE.strftime("%Y-%m-%d"), max_date=MAX_SEARCH_DATE.strftime("%Y-%m-%d"))
+
+    # Parse date arguments
+    from_date = MIN_SEARCH_DATE
+    to_date = MAX_SEARCH_DATE
+    try:
+        from_date = dateutil.parser.parse(from_date_arg)
+    except Exception as e:
+        pass
+    try:
+        to_date = dateutil.parser.parse(to_date_arg)
+    except Exception as e:
+        pass
+    to_date = to_date.replace(hour=23, minute=59, second=59)
+
     db = get_db()
+    # If author arg is supplied, first check that the user exists and get his user_id
+    if author_arg:
+        user_id = db.execute('SELECT user_id FROM users WHERE LOWER(username) = LOWER(?) ORDER BY user_id DESC', (author_arg,)).fetchone()
+        if not user_id:
+            return render_template('evni.html', error=f'404: Utilisateur {author_arg} introuvable'), 404
+        else:
+            user_id = user_id[0]
 
     inside_quotes = False
     plus = False
@@ -269,31 +307,42 @@ def get_search():
     forbidden_strings = [s[0] for s in found_strings if s[2]]
     optional_strings = [s[0] for s in found_strings if (not s[1] and not s[2])]
 
-    # Avoid returning the entire forum if there are only forbidden strings
-    if len(required_strings) == 0 and len(optional_strings) == 0:
-        return render_template('evni.html', error=f'403: aucun filtre optionnel ou obligatoire dans la recherche ; merci de préciser au moins 1 filtre optionnel ou obligatoire'), 403
-
     # Build SQL prepared statement
-    query = 'SELECT forum_messages.html_content, forum_messages.message_id, forum_threads.name AS "thread_name", users.user_id, users.username \
+    query = 'SELECT forum_messages.*, forum_threads.name AS "thread_name", users.user_id, users.username \
              FROM forum_messages INNER JOIN forum_threads USING (thread_id) INNER JOIN forum_themes USING (theme_id) INNER JOIN users ON forum_messages.author = users.user_id \
-             WHERE (NOT forum_themes.is_restricted) AND '
+             WHERE (NOT forum_themes.is_restricted) '
     filter_statement_parameters = []
     # Build required filter
     if len(required_strings) > 0:
-        query += ' (' + ' AND '.join('instr(lower(html_content), lower(?))' for _ in required_strings) + ') '
+        query += 'AND (' + ' AND '.join('instr(lower(html_content), lower(?))' for _ in required_strings) + ') '
         filter_statement_parameters.extend(required_strings)
     # Build forbidden filter
     if len(forbidden_strings) > 0:
-        query += (' AND ' if filter_statement_parameters else '') + ' (' + ' AND '.join('NOT instr(lower(html_content), lower(?))' for _ in forbidden_strings) + ') '
+        query += ' AND (' + ' AND '.join('NOT instr(lower(html_content), lower(?))' for _ in forbidden_strings) + ') '
         filter_statement_parameters.extend(forbidden_strings)
     # Build optional filter. It is useless if there is any required string
     if len(required_strings) == 0 and len(optional_strings) > 0:
-        query += (' AND ' if filter_statement_parameters else '') + ' (' + ' OR '.join('instr(lower(html_content), lower(?))' for _ in optional_strings) + ') '
+        query += ' AND (' + ' OR '.join('instr(lower(html_content), lower(?))' for _ in optional_strings) + ') '
         filter_statement_parameters.extend(optional_strings)
     assert len(filter_statement_parameters) == query.count('?')
+
+    # Add author filter
+    if author_arg:
+        query += ' AND forum_messages.author = ? '
+        filter_statement_parameters.append(user_id)
+
+    # Add date filters
+    query += ' AND forum_messages.created_at <= ? AND forum_messages.created_at >= ?'
+    filter_statement_parameters.append(to_date)
+    filter_statement_parameters.append(from_date)
 
     query += ' ORDER BY message_id DESC LIMIT ?'
     filter_statement_parameters.append(MAX_SEARCH_RESULTS)
     results = db.execute(query, filter_statement_parameters).fetchall()
 
-    return render_template('forum/search_results.html', results=results, max_results=MAX_SEARCH_RESULTS, max_reached=(len(results) == MAX_SEARCH_RESULTS))
+    search_arg = request.args.get("search")
+    author_arg = request.args.get("author")
+    from_date_arg = request.args.get("from_date")
+    to_date_arg = request.args.get("to_date")
+    return render_template('forum/search_results.html', results=results, search_arg=search_arg, author_arg=author_arg, from_date=from_date, to_date=to_date,
+                           max_results=MAX_SEARCH_RESULTS, max_reached=(len(results) == MAX_SEARCH_RESULTS))

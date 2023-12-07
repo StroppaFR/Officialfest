@@ -65,9 +65,18 @@ Again, you will not be able to play the game with this server. Also, since this 
 - post new threads and messages in the forum,
 - improve your score, go up the rankings, etc. anything related to playing the actual game.
 
+## Other differences with the original website
+
+- banner shows non-affiliation with Motion Twin
+- forum displays the year when a message was posted
+- search function parameters include author and dates
+- search function results lead to the right thread page
+- search function results show date
+- search function results include a previsualisation item
+- timeattack score is always displayed correctly
+
 ## TODO
 
 - Implement missing routes (see TODO in code)
-- Implement search function
 - Implement access to private forum themes
 - Add translations to EN and ES

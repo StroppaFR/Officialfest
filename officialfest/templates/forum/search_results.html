@@ -5,11 +5,25 @@
     <div class="forum">
         <h1><a href="/forum.html">Forum</a> :: recherche</h1>
 
-        <h3>Résultat de votre recherche {% if max_reached %}(limité à {{ max_results }} résultats){% endif %}:</h3>
+        <h3>Paramètres de votre recherche :</h3>
+        <p class="info">
+        {% if search_arg %}
+        Contenu : {{ search_arg }}<br>
+        {% endif %}
+        {% if (from_date | pretty_thread_date) == (to_date | pretty_thread_date) %}
+        Posté {% if author_arg %}par {{ author_arg }} {% endif %}le {{ from_date | pretty_thread_date }}.
+        {% else %}
+        Posté {% if author_arg %}par {{ author_arg }} {% endif %}entre le {{ from_date | pretty_thread_date }} et le {{ to_date | pretty_thread_date }}.
+        {% endif %}
+        </p>
+
+        <h3>Résultat de votre recherche {% if max_reached %}(limité aux {{ max_results }} résultats les plus récents){% endif %}:</h3>
         <table class="searchResult">
             <tr>
                 <th>Sujet</th>
                 <th>Auteur</th>
+                <th>Date</th>
+                <th>Voir</th>
             </tr>
 
             {% for result in results %}
@@ -19,6 +33,22 @@
                 </td>
                 <td class="author">
                     <a href="/user.html/{{ result.user_id }}">{{ result.username }}</a>
+                    <!--{{ result.html_content | safe }}-->
+                </td>
+                <td>
+                    {{ result.created_at | short_date }}
+                </td>
+                <td onmouseover="messageContent{{ loop.index }}.style.visibility='visible';" onmouseleave="messageContent{{ loop.index }}.style.visibility='hidden';" style="background-color:#d5e8f8;">
+                    <div style="display:flex;justify-content:center;">
+                        <img src="/img/items/small/1215.gif" style="display:flex;justify-content:center"/>
+                    </div>
+                    <div id="messageContent{{ loop.index }}" style="visibility:hidden;position:absolute;pointer-events:none;margin-left:30px;">
+                        <div class="message">
+                            <div class="content" style="border:solid 1px #a47ac2;">
+                                {{ result.html_content | safe }}
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
             {% endfor %}
