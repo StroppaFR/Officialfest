@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %} - Forum (recherche){% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+    <div class="forum">
+        <h1><a href="/forum.html">Forum</a> :: recherche</h1>
+
+        <h3>Résultat de votre recherche {% if max_reached %}(limité à {{ max_results }} résultats){% endif %}:</h3>
+        <table class="searchResult">
+            <tr>
+                <th>Sujet</th>
+                <th>Auteur</th>
+            </tr>
+
+            {% for result in results %}
+            <tr class="thread												mode" onclick="document.location = '/forum.html/message/{{ result.message_id }}';">
+                <td class="subject">
+                    <a href="/forum.html/message/{{ result.message_id }}/">{{ result.thread_name }}</a>
+                </td>
+                <td class="author">
+                    <a href="/user.html/{{ result.user_id }}">{{ result.username }}</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    </div>
+</div>
+{% endblock %}

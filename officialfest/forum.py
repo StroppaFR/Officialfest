@@ -11,6 +11,8 @@ bp = Blueprint('forum', __name__, url_prefix='/forum.html')
 THREADS_PER_PAGE = 15
 MESSAGES_PER_PAGE = 10
 ALLOWED_PICTOS = list(chain(range(115), range(116, 118), range(1000, 1186), range(1190, 1239)))
+MAX_SEARCH_STRINGS = 5
+MAX_SEARCH_RESULTS = 1000
 
 @bp.app_template_filter('pretty_thread_date')
 def pretty_thread_date_filter(date: datetime) -> str:
@@ -201,4 +203,97 @@ def get_redirect():
 
 @bp.route('/search', methods=['GET'])
 def get_search():
-    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
+    search_arg = request.args.get("search")
+    # Show default search page with exemples
+    if not search_arg:
+        return render_template('forum/search.html')
+    db = get_db()
+
+    inside_quotes = False
+    plus = False
+    minus = False
+    i = 0
+    curr_string = ""
+    found_strings = []
+    # Parse the search string according to MT rules
+    for i, c in enumerate(search_arg):
+        if c == '+' or c == '-':
+            # + / - is part of a string
+            if inside_quotes:
+                curr_string += c
+            else:
+                # + / - ends the current string
+                if curr_string:
+                    found_strings.append((curr_string, plus, minus))
+                    curr_string = ''
+                # and sets the + / - state
+                plus = c == '+'
+                minus = c == '-'
+        elif c == '"':
+            # " ends the current string
+            if curr_string:
+                found_strings.append((curr_string, plus, minus))
+                curr_string = ''
+            # and switches inside_quotes state
+            inside_quotes = not inside_quotes
+            # and resets + / - state if leaving quoted string
+            if not inside_quotes:
+                plus = False
+                minus = False
+        elif c == " ":
+            # space inside string
+            if inside_quotes:
+                curr_string += c
+            else:
+                # space ends the current string
+                if curr_string:
+                    found_strings.append((curr_string, plus, minus))
+                    curr_string = ''
+                # and resets + / -
+                plus = False
+                minus = False
+        else:
+            curr_string += c
+    # close the last string
+    if curr_string:
+        found_strings.append((curr_string, plus, minus))
+        curr_string = ''
+
+    # Remove duplicates
+    found_strings = set(found_strings)
+    # Avoid DoS
+    if len(found_strings) > MAX_SEARCH_STRINGS:
+        return render_template('evni.html', error=f'403: trop de filtres dans la recherche ; merci de vous limiter à {MAX_SEARCH_STRINGS} filtres maximum !'), 403
+
+    required_strings = [s[0] for s in found_strings if s[1]]
+    forbidden_strings = [s[0] for s in found_strings if s[2]]
+    optional_strings = [s[0] for s in found_strings if (not s[1] and not s[2])]
+
+    # Avoid returning the entire forum if there are only forbidden strings
+    if len(required_strings) == 0 and len(optional_strings) == 0:
+        return render_template('evni.html', error=f'403: aucun filtre optionnel ou obligatoire dans la recherche ; merci de préciser au moins 1 filtre optionnel ou obligatoire'), 403
+
+    # Build SQL prepared statement
+    query = 'SELECT forum_messages.html_content, forum_messages.message_id, forum_threads.name AS "thread_name", users.user_id, users.username \
+             FROM forum_messages INNER JOIN forum_threads USING (thread_id) INNER JOIN forum_themes USING (theme_id) INNER JOIN users ON forum_messages.author = users.user_id \
+             WHERE (NOT forum_themes.is_restricted) AND '
+    filter_statement_parameters = []
+    # Build required filter
+    if len(required_strings) > 0:
+        query += ' (' + ' AND '.join('instr(lower(html_content), lower(?))' for _ in required_strings) + ') '
+        filter_statement_parameters.extend(required_strings)
+    # Build forbidden filter
+    if len(forbidden_strings) > 0:
+        query += (' AND ' if filter_statement_parameters else '') + ' (' + ' AND '.join('NOT instr(lower(html_content), lower(?))' for _ in forbidden_strings) + ') '
+        filter_statement_parameters.extend(forbidden_strings)
+    # Build optional filter. It is useless if there is any required string
+    if len(required_strings) == 0 and len(optional_strings) > 0:
+        query += (' AND ' if filter_statement_parameters else '') + ' (' + ' OR '.join('instr(lower(html_content), lower(?))' for _ in optional_strings) + ') '
+        filter_statement_parameters.extend(optional_strings)
+    assert len(filter_statement_parameters) == query.count('?')
+
+    query += ' ORDER BY message_id DESC LIMIT ?'
+    filter_statement_parameters.append(MAX_SEARCH_RESULTS)
+    results = db.execute(query, filter_statement_parameters).fetchall()
+
+    return render_template('forum/search_results.html', results=results, max_results=MAX_SEARCH_RESULTS, max_reached=(len(results) == MAX_SEARCH_RESULTS))

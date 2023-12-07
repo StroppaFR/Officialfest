@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block title %} - Forum (recherche){% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+    <div class="forum">
+        <h1><a href="/forum.html">Forum</a> :: recherche</h1>
+
+
+        <p>
+        Cette page vous permet de rechercher des messages dans le forum.
+        </p>
+
+        <form method="get" action="/forum.html/search" class="formSearch">
+            <input type="text" value="" name="search"/>
+            <input type="submit" value="Rechercher" class="forumButton"/>
+        </form>
+
+
+        <p>
+        Vous pouvez <strong>affiner</strong> votre recherche en utilisant les signes
+        <code>+</code> et <code>-</code> devant chaque mot de votre
+        recherche.
+        </p>
+
+        <h3>Quelques exemples de recherche :</h3>
+
+        <dl>
+            <dt class="first"><code>quête</code></dt>
+            <dd><p>rechercher tous les messages traitant de <span>quête</span></p></dd>
+
+            <dt><code>quête réfrigérateur</code></dt>
+            <dd><p>rechercher tous les messages traitant de <span>quête</span> OU de <span>réfrigérateur</span></p></dd>
+
+            <dt><code>+quête +réfrigérateur</code></dt>
+            <dd><p>rechercher tous les messages traitant de <span>quête</span> ET de <span>réfrigérateur</span></p></dd>
+
+            <dt><code>+quête -réfrigérateur</code></dt>
+            <dd><p>rechercher tous les messages traitant de <span>quête</span> MAIS PAS de <span>réfrigérateur</span></p></dd>
+
+            <dt><code>+quête +&quot;je les ai tous trouvés&quot;</code></dt>
+            <dd><p>rechercher tous les messages traitant de <span>quête</span> et contenant texto &quot;<span>je les ai tous trouvés</span>&quot;</p></dd>
+        </dl>
+
+    </div>
+</div>
+{% endblock %}
