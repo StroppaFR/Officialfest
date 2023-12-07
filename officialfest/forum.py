@@ -256,17 +256,17 @@ def get_search():
     # Parse the search string according to MT rules
     for i, c in enumerate(search_arg):
         if c == '+' or c == '-':
-            # + / - is part of a string
+            # + / - is part of a quoted string
             if inside_quotes:
                 curr_string += c
             else:
-                # + / - ends the current string
+                # + / - is part of an unquoted string (example: t-shirt)
                 if curr_string:
-                    found_strings.append((curr_string, plus, minus))
-                    curr_string = ''
-                # and sets the + / - state
-                plus = c == '+'
-                minus = c == '-'
+                    curr_string += c
+                # + / - as a special character for required / forbidden string
+                else:
+                    plus = c == '+'
+                    minus = c == '-'
         elif c == '"':
             # " ends the current string
             if curr_string:
