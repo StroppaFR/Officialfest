@@ -340,9 +340,5 @@ def get_search():
     filter_statement_parameters.append(MAX_SEARCH_RESULTS)
     results = db.execute(query, filter_statement_parameters).fetchall()
 
-    search_arg = request.args.get("search")
-    author_arg = request.args.get("author")
-    from_date_arg = request.args.get("from_date")
-    to_date_arg = request.args.get("to_date")
     return render_template('forum/search_results.html', results=results, search_arg=search_arg, author_arg=author_arg, from_date=from_date, to_date=to_date,
                            max_results=MAX_SEARCH_RESULTS, max_reached=(len(results) == MAX_SEARCH_RESULTS))
