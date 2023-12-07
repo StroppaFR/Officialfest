@@ -17,7 +17,7 @@
         {% endif %}
         </p>
 
-        <h3>Résultat de votre recherche {% if max_reached %}(limité aux {{ max_results }} résultats les plus récents){% endif %}:</h3>
+        <h3>Résultat de votre recherche {% if max_reached %}(limité aux {{ max_results }} résultats les plus récents){% else %}({{ results | length }} message{% if (results | length) > 1 %}s{% endif%}){% endif %}:</h3>
         <table class="searchResult">
             <tr>
                 <th>Sujet</th>
