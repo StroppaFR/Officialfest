@@ -11,9 +11,9 @@
         Contenu : {{ search_arg }}<br>
         {% endif %}
         {% if (from_date | pretty_thread_date) == (to_date | pretty_thread_date) %}
-        Posté {% if author_arg %}par {{ author_arg }} {% endif %}le {{ from_date | pretty_thread_date }}.
+        Posté {% if author %}par <a href="/user.html/{{ author_id }}">{{ author }}</a> {% endif %}le {{ from_date | pretty_thread_date }}.
         {% else %}
-        Posté {% if author_arg %}par {{ author_arg }} {% endif %}entre le {{ from_date | pretty_thread_date }} et le {{ to_date | pretty_thread_date }}.
+        Posté {% if author %}par <a href="/user.html/{{ author_id }}">{{ author }}</a> {% endif %}entre le {{ from_date | pretty_thread_date }} et le {{ to_date | pretty_thread_date }}.
         {% endif %}
         </p>
 

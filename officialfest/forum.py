@@ -240,12 +240,14 @@ def get_search():
 
     db = get_db()
     # If author arg is supplied, first check that the user exists and get his user_id
+    user_id = None
+    username = None
     if author_arg:
-        user_id = db.execute('SELECT user_id FROM users WHERE LOWER(username) = LOWER(?) ORDER BY user_id DESC', (author_arg,)).fetchone()
-        if not user_id:
+        user = db.execute('SELECT user_id, username FROM users WHERE LOWER(username) = LOWER(?) ORDER BY user_id DESC', (author_arg,)).fetchone()
+        if not user:
             return render_template('evni.html', error=f'404: Utilisateur {author_arg} introuvable'), 404
         else:
-            user_id = user_id[0]
+            user_id, username = user
 
     inside_quotes = False
     plus = False
@@ -340,5 +342,5 @@ def get_search():
     filter_statement_parameters.append(MAX_SEARCH_RESULTS)
     results = db.execute(query, filter_statement_parameters).fetchall()
 
-    return render_template('forum/search_results.html', results=results, search_arg=search_arg, author_arg=author_arg, from_date=from_date, to_date=to_date,
-                           max_results=MAX_SEARCH_RESULTS, max_reached=(len(results) == MAX_SEARCH_RESULTS))
+    return render_template('forum/search_results.html', results=results, search_arg=search_arg, author=username, from_date=from_date, to_date=to_date,
+                           author_id=user_id, max_results=MAX_SEARCH_RESULTS, max_reached=(len(results) == MAX_SEARCH_RESULTS))
