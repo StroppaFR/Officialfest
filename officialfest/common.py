@@ -9,10 +9,10 @@ def pretty_score_filter(score: int) -> str:
     return f'{score:,}'.replace(',', '.')
 
 @bp.app_template_filter('pretty_hof_date')
-def pretty_hof_date_filter(date_str: str) -> str:
-    date = dateutil.parser.parse(date_str)
-    # TODO: handle other locales
-    return format_datetime(date, 'YYYY-MM-dd', locale='fr_FR')
+def pretty_hof_date_filter(date) -> str:
+    if isinstance(date, str):
+        date = dateutil.parser.parse(date)
+    return format_datetime(date, 'YYYY-MM-dd')
 
 @bp.route('/', methods=['GET'])
 @bp.route('/index.html', methods=['GET'])

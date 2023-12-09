@@ -23,4 +23,3 @@ def sanitized_page_arg(args: dict, max_page: int):
     if page < 1 or page > max_page:
         page = 1
     return page
-
