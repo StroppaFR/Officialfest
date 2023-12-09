@@ -1,10 +1,10 @@
 import dateutil.parser
 from . import utils
-from flask import Blueprint, current_app, redirect, render_template, request
-from officialfest.db import get_db
-from babel.dates import format_datetime
 from datetime import datetime
 from itertools import chain
+from flask import Blueprint, current_app, redirect, render_template, request
+from flask_babel import format_datetime
+from officialfest.db import get_db
 
 bp = Blueprint('forum', __name__, url_prefix='/forum.html')
 
@@ -12,22 +12,20 @@ bp = Blueprint('forum', __name__, url_prefix='/forum.html')
 def pretty_thread_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
-    # TODO: translations
-    return format_datetime(date, 'EEEE dd LLLL YYYY', locale=current_app.config['LOCALE'])
+    return format_datetime(date, 'EEEE dd LLLL YYYY')
 
 @bp.app_template_filter('pretty_message_date')
 def pretty_thread_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
-    # TODO: translations
-    return format_datetime(date, 'EEEE dd LLL YYYY HH:mm', locale=current_app.config['LOCALE'])
+    return format_datetime(date, 'EEEE dd LLL YYYY HH:mm')
 
 @bp.app_template_filter('short_date')
 def short_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
     # TODO: translations
-    return format_datetime(date, 'dd LLL YYYY', locale=current_app.config['LOCALE'])
+    return format_datetime(date, 'dd LLL YYYY')
 
 @bp.route('/', methods=['GET'], strict_slashes=False)
 def get_forum():

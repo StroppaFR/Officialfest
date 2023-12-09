@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template
+from flask_babel import Babel
 
 def page_not_found(e):
     # TODO: translations
@@ -44,5 +45,7 @@ def create_app(test_config=None):
 
     from . import static
     app.register_blueprint(static.bp)
+
+    babel = Babel(app, locale_selector=lambda: app.config['LOCALE'])
 
     return app

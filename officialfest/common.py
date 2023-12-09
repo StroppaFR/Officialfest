@@ -1,6 +1,6 @@
 import dateutil.parser
-from babel.dates import format_datetime
 from flask import Blueprint, redirect, request, render_template
+from flask_babel import format_datetime
 
 bp = Blueprint('common', __name__, url_prefix='/')
 
