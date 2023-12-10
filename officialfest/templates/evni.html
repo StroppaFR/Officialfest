@@ -2,13 +2,13 @@
 {% set layout_hide_user_bar = true %}
 {% set layout_hide_left_menu = true %}
 {% block site_content %}
-<h1>Ooops !</h1>
+<h1>{{ _("Ooops !") }}</h1>
 <div class="minSpace">
-    <h2 class="evni">EVNI</h2>
-    <p class="evni">erreur volante non identifiée !</p>
+    <h2 class="evni">{{ _("EVNI") }}</h2>
+    <p class="evni">{{ _("erreur volante non identifiée !") }}</p>
     {% if error %}
     <p class="evni">{{ error }}</p>
     {% endif %}
 </div>
-<p><a href="/index.html">Retour</a></p>
+<p><a href="/index.html">{{ _("Retour") }}</a></p>
 {% endblock %}

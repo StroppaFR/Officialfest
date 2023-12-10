@@ -14,11 +14,16 @@ If you want to play Hammerfest, you can go to [Eternalfest](https://eternalfest.
 
 Python3 is required to run the server.
 
-```
+```bash
 python3 -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
+# If you want to run the server in ES or EN language, you must compile translations
+pybabel compile -d officialfest/translations/
 ```
+
+## Optional: building for EN or ES language
+
 
 ## Creating the database
 
@@ -26,7 +31,7 @@ The SQL file `officialfest/schema.sql` contains a script to initialize the sqlit
 
 You can initialize the database from from scratch with the following command:
 
-```
+```bash
 flask --app officialfest init-db
 ```
 
@@ -36,13 +41,13 @@ You can start the server in a few different ways.
 
 Using Flask development server:
 
-```
+```bash
 flask --app officialfest run
 ```
 
 Using the Gunicorn HTTP WSGI server:
 
-```
+```bash
 gunicorn 'officialfest:create_app()'
 ```
 
@@ -79,4 +84,4 @@ Again, you will not be able to play the game with this server. Also, since this 
 
 - Implement missing routes (see TODO in code)
 - Implement access to private forum themes
-- Add translations to EN and ES
+- Add missing translations to EN and ES

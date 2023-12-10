@@ -1,5 +1,5 @@
 import dateutil.parser
-from flask import Blueprint, redirect, request, render_template
+from flask import Blueprint, current_app, redirect, request, render_template
 from flask_babel import format_datetime, gettext
 
 bp = Blueprint('common', __name__, url_prefix='/')
@@ -13,6 +13,10 @@ def pretty_hof_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
     return format_datetime(date, 'YYYY-MM-dd')
+
+@bp.app_context_processor
+def inject_lang():
+    return dict(LANG=current_app.config['LANG'])
 
 @bp.route('/', methods=['GET'])
 @bp.route('/index.html', methods=['GET'])

@@ -1,37 +1,39 @@
 {% extends 'layout.html' %}
-{% block title %} - Jeu aventure en ligne{% endblock %}
+{% block title %} - {{ _("Jeu aventure en ligne") }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
-    <h1>Suivez Igor dans <strong>ses aventures !</strong></h1>
+    <h1>{{ _("Suivez Igor dans <strong>ses aventures !</strong>") }}</h1>
 
     <div class="firstText">
         <img src="img/design/screens_home3.gif" alt="Hammerfest" class="introimage"/>
         <p>
-        Jouez à <strong>Hammerfest</strong>, un jeu vidéo complet disponible exclusivement depuis ce site internet !
+        {{ _("Jouez à <strong>Hammerfest</strong>, un jeu vidéo complet disponible exclusivement depuis ce site internet !") | safe }}
         </p>
 
         <ul>
-            <li>Plus de 200 niveaux !</li>
-            <li>Une grande variété d&#039;ennemis très très méchants !</li>
-            <li>Plus de 70 quêtes !</li>
-            <li>Plus de 350 objets à découvrir !</li>
-            <li>Des secrets à gogo !</li>
+            <li>{{ _("Plus de 200 niveaux !") }}</li>
+            <li>{{ _("Une grande variété d'ennemis très très méchants !") }}</li>
+            <li>{{ _("Plus de 70 quêtes !") }}</li>
+            {% if LANG != 'es' %}
+            <li>{{ _("Plus de 350 objets à découvrir !") }}</li>
+            <li>{{ _("Des secrets à gogo !") }}</li>
+            {% endif %}
         </ul>
         <p>
-        <span>Inscrivez-vous et jouez gratuitement maintenant!</span>
+        <span>{{ _("Inscrivez-vous et jouez gratuitement maintenant!") }}</span>
         </p>
 
-        <p class="smallfont">Et en plus, Hammerfest est un jeu gratuit : nous vous offrons 5 parties lors de votre inscription. Une fois ces parties jouées, vous recevrez 1 partie par jour.</p>
+        <p class="smallfont">{{ _("Et en plus, Hammerfest est un jeu gratuit : nous vous offrons 5 parties lors de votre inscription. Une fois ces parties jouées, vous recevrez 1 partie par jour.") }}</p>
 
-        <p class="smallfont">Et si ce n&#039;est pas assez, vous pourrez acheter des parties supplémentaires, lesquelles pourront être cumulées !</p>
+        <p class="smallfont">{{ _("Et si ce n'est pas assez, vous pourrez acheter des parties supplémentaires, lesquelles pourront être cumulées !") }}</p>
     </div>
 
     <div class="clear"></div>
 
 
     <div class="choice choiceLogged">
-        <a href="/intro.html" class="introd">Intro</a>
-        <a href="/try.html#play" class="try">Essayer</a>
+        <a href="/intro.html" class="introd">{{ _("Intro") }}</a>
+        <a href="/try.html#play" class="try">{{ _("Essayer") }}</a>
     </div>
 
 
@@ -41,17 +43,17 @@
     <table class="features">
         <tr>
             <td class="feature01">
-                Collectionnez plus de 300 objets répartis dans 221 niveaux !
+                {{ _("Collectionnez plus de 300 objets répartis dans 221 niveaux !") }}
             </td>
         </tr>
         <tr>
             <td class="feature02">
-                Découvrez de nombreux pouvoirs dévastateurs...
+                {{ _("Découvrez de nombreux pouvoirs dévastateurs...") }}
             </td>
         </tr>
         <tr>
             <td class="feature03">
-                Grimpez dans le classement et gagnez votre place au sommet !
+                {{ _("Grimpez dans le classement et gagnez votre place au sommet !") }}
             </td>
         </tr>
 

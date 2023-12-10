@@ -2,7 +2,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>Les Cavernes de Hammerfest{% block title %}{% endblock %}</title>
+        <title>{{ _("Les Cavernes de Hammerfest") }}{% block title %}{% endblock %}</title>
         <script type="text/javascript" src="/js/flashobject.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/main.css?version=77"/>
         <!--[if IE]>
@@ -27,8 +27,8 @@
         <div id="creditBanner" style="position:absolute;width:100%;height:62px;background-color:#002855;opacity:0.9;">
             <div style="width:850px;text-align:center;line-height:20px;color:white;margin:10px;">
                 <span>
-                    Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>
-                    Il n'est pas possible de jouer à Hammerfest ici. <a href="https://github.com/StroppaFR/Officialfest">Plus d'infos.</a>
+                    {{ _("Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>
+                    Il n'est pas possible de jouer à Hammerfest ici. <a href='https://github.com/StroppaFR/Officialfest'>Plus d'infos.</a>") | safe }}
                 </span>
             </div>
         </div>
@@ -44,18 +44,18 @@
                         <div class="playerInfo">
                             {% if not layout_hide_user_bar %}
                             <a href="/user.html/0">Igor</a> <span>~</span>
-                            <a href="/shop.html" title="Plus de Parties">∞</a>
+                            <a href="/shop.html" title="{{ _('Plus de Parties') }}">∞</a>
                             <div class="iconSnowFlake">
-                                <a href="/shop.html" title="Plus de Parties">
-                                    <img src="/img/design/snow_flake.gif" alt="Flocons"/>
+                                <a href="/shop.html" title="{{ _('Plus de Parties') }}">
+                                    <img src="/img/design/snow_flake.gif" alt="{{ _('Flocons') }}"/>
                                 </a>
                             </div>
                             <span>~</span>
-                            <a href="/scores.html/mypos#myself" title="Voir ma Position">Position : ∞</a>
+                            <a href="/scores.html/mypos#myself" title="{{ _('Voir ma Position') }}">{{ _("Position :") }} ∞</a>
                             <span>~</span>
                             <div class="iconPyramid">
                                 <a href="/scores.html">
-                                    <img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/>
+                                    <img src="/img/design/pixel.gif" alt="{{ _('Le Panthéon !') }}" title="{{ _('Le Panthéon !') }}" class="icon_pyramid icon_pyramid_hof"/>
                                 </a>
                             </div>
                             {% endif %}
@@ -70,31 +70,31 @@
                     <div class="icons">
                         {% if not layout_hide_left_menu %}
                         <div class="iconPlay">
-                            <a href="/play.html"><img src="/img/design/pixel.gif" alt="Jouer" title="Jouer"/></a>
+                            <a href="/play.html"><img src="/img/design/pixel.gif" alt="{{ _('Jouer') }}" title="{{ _('Jouer') }}"/></a>
                         </div>
                         <div class="iconInventory">
-                            <a href="/user.html/inventory"><img src="/img/design/pixel.gif" alt="Réfrigérateur" title="Réfrigérateur"/></a>
+                            <a href="/user.html/inventory"><img src="/img/design/pixel.gif" alt="{{ _('Réfrigérateur') }}" title="{{ _('Réfrigérateur') }}"/></a>
                         </div>
                         <div class="iconQuests">
-                            <a href="/user.html/quests"><img src="/img/design/pixel.gif" alt="Quêtes" title="Quêtes"/></a>
+                            <a href="/user.html/quests"><img src="/img/design/pixel.gif" alt="{{ _('Quêtes') }}" title="{{ _('Quêtes') }}"/></a>
                         </div>
                         <div class="iconScore">
-                            <a href="/scores.html"><img src="/img/design/pixel.gif" alt="Score" title="Classement"/></a>
+                            <a href="/scores.html"><img src="/img/design/pixel.gif" alt="{{ _('Score') }}" title="{{ _('Classement') }}"/></a>
                         </div>
                         <div class="iconAccount">
-                            <a href="/user.html"><img src="/img/design/pixel.gif" alt="Mon compte" title="Mon compte"/></a>
+                            <a href="/user.html"><img src="/img/design/pixel.gif" alt="{{ _('Mon compte') }}" title="{{ _('Mon compte') }}"/></a>
                         </div>
                         <div class="iconShop">
-                            <a href="/shop.html"><img src="/img/design/pixel.gif" alt="Plus de Parties" title="Plus de Parties"/></a>
+                            <a href="/shop.html"><img src="/img/design/pixel.gif" alt="{{ _('Plus de Parties') }}" title="{{ _('Plus de Parties') }}"/></a>
                         </div>
                         <div class="iconSponsor">
-                            <a href="/user.html/godChildren"><img src="/img/design/pixel.gif" alt="Parrainage" title="Parrainage"/></a>
+                            <a href="/user.html/godChildren"><img src="/img/design/pixel.gif" alt="{{ _('Parrainage') }}" title="{{ _('Parrainage') }}"/></a>
                         </div>
                         <div class="iconLogout">
-                            <a href="/login.html/logout" onclick="return confirm('Quitter le site ?');"><img src="/img/design/pixel.gif" alt="Déconnecter" title="Déconnecter"/></a>
+                            <a href="/login.html/logout" onclick="return confirm('{{ _("Quitter le site ?") }}');"><img src="/img/design/pixel.gif" alt="{{ _('Déconnecter') }}" title="{{ _('Déconnecter') }}"/></a>
                         </div>
                         <div class="buttonForum">
-                            <a href="/forum.html"><img src="/img/design/pixel.gif" alt="Forum" title=""/></a>
+                            <a href="/forum.html"><img src="/img/design/pixel.gif" alt="{{ _('Forum') }}" title=""/></a>
                         </div>
                         {% endif %}
                     </div>
@@ -102,10 +102,10 @@
                     <div class="bottomMenu">
                         <div class="bottomMenuContent">
                             <a href="http://www.motion-twin.com" target="_blank"><img src="/img/design/motiontwin.gif" alt="Motion Twin" class="firefox"/></a> ~
-                            <a href="/guide.html">guide du jeu</a> ~
-                            <a href="http://www.motion-twin.com/cgu.php?s=hfest" target="_blank">règlement</a> ~
-                            <a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank">FAQ et contact</a> ~
-                            <a href="http://www.getfirefox.com/" target="_blank"><img src="/img/design/icon_firefox.png" class="firefox" alt="Firefox" title="Igor aime Firefox"/></a>
+                            <a href="/guide.html">{{ _("guide du jeu") }}</a> ~
+                            <a href="http://www.motion-twin.com/cgu.php?s=hfest" target="_blank">{{ _("règlement") }}</a> ~
+                            <a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank">{{ _("FAQ et contact") }}</a> ~
+                            <a href="http://www.getfirefox.com/" target="_blank"><img src="/img/design/icon_firefox.png" class="firefox" alt="Firefox" title="{{ _('Igor aime Firefox') }}"/></a>
                         </div>
                     </div>
                 </div>

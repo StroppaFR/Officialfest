@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-10 01:27+0100\n"
+"POT-Creation-Date: 2023-12-10 03:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: officialfest/common.py:53
+#: officialfest/common.py:57
 #, python-format
 msgid "404 : Mode %(mode)s introuvable"
 msgstr ""
 
-#: officialfest/common.py:63
+#: officialfest/common.py:67
 #, python-format
 msgid "404 : Terrain %(level)s introuvable"
 msgstr ""
@@ -66,5 +66,189 @@ msgstr ""
 
 #: officialfest/user.py:199 officialfest/user.py:204
 msgid "501 : Pas encore implémenté"
+msgstr ""
+
+#: officialfest/templates/evni.html:5
+msgid "Ooops !"
+msgstr ""
+
+#: officialfest/templates/evni.html:7
+msgid "EVNI"
+msgstr ""
+
+#: officialfest/templates/evni.html:8
+msgid "erreur volante non identifiée !"
+msgstr ""
+
+#: officialfest/templates/evni.html:13
+msgid "Retour"
+msgstr ""
+
+#: officialfest/templates/layout.html:5
+msgid "Les Cavernes de Hammerfest"
+msgstr ""
+
+#: officialfest/templates/layout.html:30
+msgid ""
+"Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST "
+"PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>\n"
+"                    Il n'est pas possible de jouer à Hammerfest ici. <a "
+"href='https://github.com/StroppaFR/Officialfest'>Plus d'infos.</a>"
+msgstr ""
+
+#: officialfest/templates/layout.html:47 officialfest/templates/layout.html:49
+#: officialfest/templates/layout.html:88
+msgid "Plus de Parties"
+msgstr ""
+
+#: officialfest/templates/layout.html:50
+msgid "Flocons"
+msgstr ""
+
+#: officialfest/templates/layout.html:54
+msgid "Voir ma Position"
+msgstr ""
+
+#: officialfest/templates/layout.html:54
+msgid "Position :"
+msgstr ""
+
+#: officialfest/templates/layout.html:58
+msgid "Le Panthéon !"
+msgstr ""
+
+#: officialfest/templates/layout.html:73
+msgid "Jouer"
+msgstr ""
+
+#: officialfest/templates/layout.html:76
+msgid "Réfrigérateur"
+msgstr ""
+
+#: officialfest/templates/layout.html:79
+msgid "Quêtes"
+msgstr ""
+
+#: officialfest/templates/layout.html:82
+msgid "Score"
+msgstr ""
+
+#: officialfest/templates/layout.html:82
+msgid "Classement"
+msgstr ""
+
+#: officialfest/templates/layout.html:85
+msgid "Mon compte"
+msgstr ""
+
+#: officialfest/templates/layout.html:91
+msgid "Parrainage"
+msgstr ""
+
+#: officialfest/templates/layout.html:94
+msgid "Quitter le site ?"
+msgstr ""
+
+#: officialfest/templates/layout.html:94
+msgid "Déconnecter"
+msgstr ""
+
+#: officialfest/templates/layout.html:97
+msgid "Forum"
+msgstr ""
+
+#: officialfest/templates/layout.html:105
+msgid "guide du jeu"
+msgstr ""
+
+#: officialfest/templates/layout.html:106
+msgid "règlement"
+msgstr ""
+
+#: officialfest/templates/layout.html:107
+msgid "FAQ et contact"
+msgstr ""
+
+#: officialfest/templates/layout.html:108
+msgid "Igor aime Firefox"
+msgstr ""
+
+#: officialfest/templates/common/credits.html:5
+msgid "Vous avez terminé Hammerfest !"
+msgstr ""
+
+#: officialfest/templates/common/credits.html:23
+msgid "Passer la séquence"
+msgstr ""
+
+#: officialfest/templates/common/index.html:2
+msgid "Jeu aventure en ligne"
+msgstr ""
+
+#: officialfest/templates/common/index.html:5
+msgid "Suivez Igor dans <strong>ses aventures !</strong>"
+msgstr ""
+
+#: officialfest/templates/common/index.html:10
+msgid ""
+"Jouez à <strong>Hammerfest</strong>, un jeu vidéo complet disponible "
+"exclusivement depuis ce site internet !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:14
+msgid "Plus de 200 niveaux !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:15
+msgid "Une grande variété d'ennemis très très méchants !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:16
+msgid "Plus de 70 quêtes !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:18
+msgid "Plus de 350 objets à découvrir !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:19
+msgid "Des secrets à gogo !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:23
+msgid "Inscrivez-vous et jouez gratuitement maintenant!"
+msgstr ""
+
+#: officialfest/templates/common/index.html:26
+msgid ""
+"Et en plus, Hammerfest est un jeu gratuit : nous vous offrons 5 parties "
+"lors de votre inscription. Une fois ces parties jouées, vous recevrez 1 "
+"partie par jour."
+msgstr ""
+
+#: officialfest/templates/common/index.html:28
+msgid ""
+"Et si ce n'est pas assez, vous pourrez acheter des parties "
+"supplémentaires, lesquelles pourront être cumulées !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:35
+msgid "Intro"
+msgstr ""
+
+#: officialfest/templates/common/index.html:36
+msgid "Essayer"
+msgstr ""
+
+#: officialfest/templates/common/index.html:46
+msgid "Collectionnez plus de 300 objets répartis dans 221 niveaux !"
+msgstr ""
+
+#: officialfest/templates/common/index.html:51
+msgid "Découvrez de nombreux pouvoirs dévastateurs..."
+msgstr ""
+
+#: officialfest/templates/common/index.html:56
+msgid "Grimpez dans le classement et gagnez votre place au sommet !"
 msgstr ""
 

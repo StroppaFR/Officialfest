@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-10 01:27+0100\n"
+"POT-Creation-Date: 2023-12-10 03:06+0100\n"
 "PO-Revision-Date: 2023-12-10 01:01+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: officialfest/common.py:53
+#: officialfest/common.py:57
 #, python-format
 msgid "404 : Mode %(mode)s introuvable"
 msgstr ""
 
-#: officialfest/common.py:63
+#: officialfest/common.py:67
 #, python-format
 msgid "404 : Terrain %(level)s introuvable"
 msgstr ""
@@ -69,27 +69,193 @@ msgstr ""
 msgid "501 : Pas encore implémenté"
 msgstr ""
 
-#~ msgid "404 : Utilisateur %{author}s introuvable"
-#~ msgstr ""
+#: officialfest/templates/evni.html:5
+msgid "Ooops !"
+msgstr "¡Ay!"
 
-#~ msgid ""
-#~ "403 : trop de filtres dans la "
-#~ "recherche ; merci de vous limiter "
-#~ "à %{max_strings} filtres maximum !"
-#~ msgstr ""
+#: officialfest/templates/evni.html:7
+msgid "EVNI"
+msgstr "EVNI"
 
-#~ msgid ""
-#~ "403 : trop de filtres dans la "
-#~ "recherche ; merci de vous limiter "
-#~ "à %(max_strings) filtres maximum !"
-#~ msgstr ""
+#: officialfest/templates/evni.html:8
+msgid "erreur volante non identifiée !"
+msgstr "¡error volante no identificado!"
 
-#~ msgid "404 : Utilisateur %(author) introuvable"
-#~ msgstr ""
+#: officialfest/templates/evni.html:13
+msgid "Retour"
+msgstr "Volver"
 
-#~ msgid ""
-#~ "403 : trop de filtres dans la "
-#~ "recherche ; merci de vous limiter "
-#~ "à %(max_strings)s filtres maximum !"
-#~ msgstr ""
+#: officialfest/templates/layout.html:5
+msgid "Les Cavernes de Hammerfest"
+msgstr "Las Cavernas de Hammerfest"
+
+#: officialfest/templates/layout.html:30
+msgid ""
+"Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST "
+"PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>\n"
+"                    Il n'est pas possible de jouer à Hammerfest ici. <a "
+"href='https://github.com/StroppaFR/Officialfest'>Plus d'infos.</a>"
+msgstr ""
+
+#: officialfest/templates/layout.html:47 officialfest/templates/layout.html:49
+#: officialfest/templates/layout.html:88
+msgid "Plus de Parties"
+msgstr "Más partidas"
+
+#: officialfest/templates/layout.html:50
+msgid "Flocons"
+msgstr "Copos"
+
+#: officialfest/templates/layout.html:54
+msgid "Voir ma Position"
+msgstr "Ver mi posición"
+
+#: officialfest/templates/layout.html:54
+msgid "Position :"
+msgstr "Posición:"
+
+#: officialfest/templates/layout.html:58
+msgid "Le Panthéon !"
+msgstr ""
+
+#: officialfest/templates/layout.html:73
+msgid "Jouer"
+msgstr "Jugar"
+
+#: officialfest/templates/layout.html:76
+msgid "Réfrigérateur"
+msgstr "Frigorífico"
+
+#: officialfest/templates/layout.html:79
+msgid "Quêtes"
+msgstr "Exploraciones"
+
+#: officialfest/templates/layout.html:82
+msgid "Score"
+msgstr "Clasificación"
+
+#: officialfest/templates/layout.html:82
+msgid "Classement"
+msgstr "Clasificación"
+
+#: officialfest/templates/layout.html:85
+msgid "Mon compte"
+msgstr "Mi cuenta"
+
+#: officialfest/templates/layout.html:91
+msgid "Parrainage"
+msgstr "Recomendar"
+
+#: officialfest/templates/layout.html:94
+msgid "Quitter le site ?"
+msgstr "¿Quieres desconectarte?"
+
+#: officialfest/templates/layout.html:94
+msgid "Déconnecter"
+msgstr "Desconectarse"
+
+#: officialfest/templates/layout.html:97
+msgid "Forum"
+msgstr "Foro"
+
+#: officialfest/templates/layout.html:105
+msgid "guide du jeu"
+msgstr "guía del juego"
+
+#: officialfest/templates/layout.html:106
+msgid "règlement"
+msgstr "reglamento"
+
+#: officialfest/templates/layout.html:107
+msgid "FAQ et contact"
+msgstr "FAQ y contacto"
+
+#: officialfest/templates/layout.html:108
+msgid "Igor aime Firefox"
+msgstr "a Igor le gusta Firefox"
+
+#: officialfest/templates/common/credits.html:5
+msgid "Vous avez terminé Hammerfest !"
+msgstr ""
+
+#: officialfest/templates/common/credits.html:23
+msgid "Passer la séquence"
+msgstr ""
+
+#: officialfest/templates/common/index.html:2
+msgid "Jeu aventure en ligne"
+msgstr "Juego de aventuras en línea"
+
+#: officialfest/templates/common/index.html:5
+msgid "Suivez Igor dans <strong>ses aventures !</strong>"
+msgstr "¡Ayuda a Igor en sus <strong>aventuras!</strong>"
+
+#: officialfest/templates/common/index.html:10
+msgid ""
+"Jouez à <strong>Hammerfest</strong>, un jeu vidéo complet disponible "
+"exclusivement depuis ce site internet !"
+msgstr ""
+"Descubre Hammerfest, un gran videojuego completo disponible "
+"exclusivamente en Internet."
+
+#: officialfest/templates/common/index.html:14
+msgid "Plus de 200 niveaux !"
+msgstr "¡Más de 200 niveles!"
+
+#: officialfest/templates/common/index.html:15
+msgid "Une grande variété d'ennemis très très méchants !"
+msgstr "¡Un sinfín de enemigos!"
+
+#: officialfest/templates/common/index.html:16
+msgid "Plus de 70 quêtes !"
+msgstr ""
+"Decenas de aventuras, centenares de objetos, nuevos efectos y secretos "
+"por descubrir"
+
+#: officialfest/templates/common/index.html:18
+msgid "Plus de 350 objets à découvrir !"
+msgstr " "
+
+#: officialfest/templates/common/index.html:19
+msgid "Des secrets à gogo !"
+msgstr " "
+
+#: officialfest/templates/common/index.html:23
+msgid "Inscrivez-vous et jouez gratuitement maintenant!"
+msgstr "¡Inscríbete y juega gratis ya!"
+
+#: officialfest/templates/common/index.html:26
+msgid ""
+"Et en plus, Hammerfest est un jeu gratuit : nous vous offrons 5 parties "
+"lors de votre inscription. Une fois ces parties jouées, vous recevrez 1 "
+"partie par jour."
+msgstr ""
+"Hammerfest es un juego gratuito: Al suscribirte tienes 5 partidas gratis."
+" Una vez agotadas, recibes 1 partida no acumulable gratis al día."
+
+#: officialfest/templates/common/index.html:28
+msgid ""
+"Et si ce n'est pas assez, vous pourrez acheter des parties "
+"supplémentaires, lesquelles pourront être cumulées !"
+msgstr "También puedes comprar partidas extra, ¡las cuales pueden ser acumuladas!"
+
+#: officialfest/templates/common/index.html:35
+msgid "Intro"
+msgstr "Ver la Intro"
+
+#: officialfest/templates/common/index.html:36
+msgid "Essayer"
+msgstr "Probar juego"
+
+#: officialfest/templates/common/index.html:46
+msgid "Collectionnez plus de 300 objets répartis dans 221 niveaux !"
+msgstr "¡Colecciona más de 300 objetos repartidos en 221 niveles!"
+
+#: officialfest/templates/common/index.html:51
+msgid "Découvrez de nombreux pouvoirs dévastateurs..."
+msgstr "Descubre numerosos poderes devastadores..."
+
+#: officialfest/templates/common/index.html:56
+msgid "Grimpez dans le classement et gagnez votre place au sommet !"
+msgstr "¡Trepa y gana en la clasificación para llegar a la cima!"
 
