@@ -22,9 +22,6 @@ pip install -r requirements.txt
 pybabel compile -d officialfest/translations/
 ```
 
-## Optional: building for EN or ES language
-
-
 ## Creating the database
 
 The SQL file `officialfest/schema.sql` contains a script to initialize the sqlite3 database.

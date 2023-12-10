@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-10 03:06+0100\n"
+"POT-Creation-Date: 2023-12-10 14:45+0100\n"
 "PO-Revision-Date: 2023-12-10 01:01+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -16,39 +16,39 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.13.1\n"
-
-#: officialfest/common.py:57
-#, python-format
-msgid "404 : Mode %(mode)s introuvable"
-msgstr ""
+"Generated-By: Babel 2.12.1\n"
 
 #: officialfest/common.py:67
 #, python-format
+msgid "404 : Mode %(mode)s introuvable"
+msgstr "404 : Modo %(mode)s no encontrado"
+
+#: officialfest/common.py:77
+#, python-format
 msgid "404 : Terrain %(level)s introuvable"
-msgstr ""
+msgstr "404 : Tierra %(level)s no encontrado"
 
 #: officialfest/forum.py:50 officialfest/forum.py:154
 msgid "404 : Thème introuvable"
-msgstr ""
+msgstr "404 : Tema no encontrado"
 
 #: officialfest/forum.py:53 officialfest/forum.py:112 officialfest/forum.py:132
 #: officialfest/forum.py:157 officialfest/forum.py:177
 msgid "403 : Accès interdit"
-msgstr ""
+msgstr "403 : Acceso prohibido"
 
 #: officialfest/forum.py:109 officialfest/forum.py:174
 msgid "404 : Thread introuvable"
-msgstr ""
+msgstr "404 : Hilo no encontrado"
 
 #: officialfest/forum.py:129
 msgid "404 : Message introuvable"
-msgstr ""
+msgstr "404 : Mensaje no encontrado"
 
 #: officialfest/forum.py:246
 #, python-format
 msgid "404 : Utilisateur %(author)s introuvable"
-msgstr ""
+msgstr "404 : Usuario %(author)s no encontrado"
 
 #: officialfest/forum.py:304
 #, python-format
@@ -56,18 +56,20 @@ msgid ""
 "403 : trop de filtres dans la recherche ; merci de vous limiter à "
 "%(max_strings)d filtres maximum !"
 msgstr ""
+"403 : Demasiados filtros en la búsqueda ; por favor limítese a 5 filtros "
+"como máximo !"
 
 #: officialfest/user.py:173
 msgid "404 : Utilisateur introuvable"
-msgstr ""
+msgstr "404 : Usuario no encontrado"
 
 #: officialfest/user.py:182
 msgid "QUETE INCONNUE"
-msgstr ""
+msgstr "BUSQUEDA DESCONOCIDA"
 
 #: officialfest/user.py:199 officialfest/user.py:204
 msgid "501 : Pas encore implémenté"
-msgstr ""
+msgstr "501 : Aun no implementado"
 
 #: officialfest/templates/evni.html:5
 msgid "Ooops !"
@@ -89,98 +91,102 @@ msgstr "Volver"
 msgid "Les Cavernes de Hammerfest"
 msgstr "Las Cavernas de Hammerfest"
 
-#: officialfest/templates/layout.html:30
+#: officialfest/templates/layout.html:36
 msgid ""
 "Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST "
 "PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>\n"
 "                    Il n'est pas possible de jouer à Hammerfest ici. <a "
 "href='https://github.com/StroppaFR/Officialfest'>Plus d'infos.</a>"
 msgstr ""
+"Este sitio es una <b>reproducción</b> de www.hammerfest.es. <b>No "
+"está</b> afiliado a Motion Twin (los creadores de Hammerfest).<br/>\n"
+"No es posible jugar al Hammerfest aquí. <a "
+"href='https://github.com/StroppaFR/Officialfest'>Mas información.</a>"
 
-#: officialfest/templates/layout.html:47 officialfest/templates/layout.html:49
-#: officialfest/templates/layout.html:88
+#: officialfest/templates/layout.html:53 officialfest/templates/layout.html:55
+#: officialfest/templates/layout.html:94
 msgid "Plus de Parties"
 msgstr "Más partidas"
 
-#: officialfest/templates/layout.html:50
+#: officialfest/templates/layout.html:56
 msgid "Flocons"
 msgstr "Copos"
 
-#: officialfest/templates/layout.html:54
+#: officialfest/templates/layout.html:60
 msgid "Voir ma Position"
 msgstr "Ver mi posición"
 
-#: officialfest/templates/layout.html:54
+#: officialfest/templates/layout.html:60
 msgid "Position :"
 msgstr "Posición:"
 
-#: officialfest/templates/layout.html:58
+#: officialfest/templates/layout.html:64
 msgid "Le Panthéon !"
-msgstr ""
+msgstr "El Panteón !"
 
-#: officialfest/templates/layout.html:73
+#: officialfest/templates/layout.html:79
 msgid "Jouer"
 msgstr "Jugar"
 
-#: officialfest/templates/layout.html:76
+#: officialfest/templates/layout.html:82
 msgid "Réfrigérateur"
 msgstr "Frigorífico"
 
-#: officialfest/templates/layout.html:79
+#: officialfest/templates/layout.html:85
 msgid "Quêtes"
 msgstr "Exploraciones"
 
-#: officialfest/templates/layout.html:82
+#: officialfest/templates/layout.html:88
 msgid "Score"
 msgstr "Clasificación"
 
-#: officialfest/templates/layout.html:82
+#: officialfest/templates/layout.html:88
 msgid "Classement"
 msgstr "Clasificación"
 
-#: officialfest/templates/layout.html:85
+#: officialfest/templates/layout.html:91
 msgid "Mon compte"
 msgstr "Mi cuenta"
 
-#: officialfest/templates/layout.html:91
+#: officialfest/templates/layout.html:97
 msgid "Parrainage"
 msgstr "Recomendar"
 
-#: officialfest/templates/layout.html:94
+#: officialfest/templates/layout.html:100
 msgid "Quitter le site ?"
 msgstr "¿Quieres desconectarte?"
 
-#: officialfest/templates/layout.html:94
+#: officialfest/templates/layout.html:100
 msgid "Déconnecter"
 msgstr "Desconectarse"
 
-#: officialfest/templates/layout.html:97
+#: officialfest/templates/layout.html:103
 msgid "Forum"
 msgstr "Foro"
 
-#: officialfest/templates/layout.html:105
+#: officialfest/templates/layout.html:111
 msgid "guide du jeu"
 msgstr "guía del juego"
 
-#: officialfest/templates/layout.html:106
+#: officialfest/templates/layout.html:112
 msgid "règlement"
 msgstr "reglamento"
 
-#: officialfest/templates/layout.html:107
+#: officialfest/templates/layout.html:113
 msgid "FAQ et contact"
 msgstr "FAQ y contacto"
 
-#: officialfest/templates/layout.html:108
+#: officialfest/templates/layout.html:114
 msgid "Igor aime Firefox"
 msgstr "a Igor le gusta Firefox"
 
 #: officialfest/templates/common/credits.html:5
 msgid "Vous avez terminé Hammerfest !"
-msgstr ""
+msgstr "¡Has completado Hammerfest!"
 
 #: officialfest/templates/common/credits.html:23
 msgid "Passer la séquence"
-msgstr ""
+msgstr "Pasar la secuencia"
 
 #: officialfest/templates/common/index.html:2
 msgid "Jeu aventure en ligne"
@@ -214,11 +220,11 @@ msgstr ""
 
 #: officialfest/templates/common/index.html:18
 msgid "Plus de 350 objets à découvrir !"
-msgstr " "
+msgstr ""
 
 #: officialfest/templates/common/index.html:19
 msgid "Des secrets à gogo !"
-msgstr " "
+msgstr ""
 
 #: officialfest/templates/common/index.html:23
 msgid "Inscrivez-vous et jouez gratuitement maintenant!"
@@ -258,4 +264,117 @@ msgstr "Descubre numerosos poderes devastadores..."
 #: officialfest/templates/common/index.html:56
 msgid "Grimpez dans le classement et gagnez votre place au sommet !"
 msgstr "¡Trepa y gana en la clasificación para llegar a la cima!"
+
+#: officialfest/templates/common/intro.html:2
+msgid "Intro du jeu"
+msgstr "intro del juego"
+
+#: officialfest/templates/common/intro.html:6
+msgid "intro du <strong>jeu</strong>"
+msgstr "intro del <strong>juego</strong>"
+
+#: officialfest/templates/common/intro.html:27
+msgid "Passer l'intro et essayer le jeu"
+msgstr "Pasar la intro y jugar"
+
+#: officialfest/templates/common/play_mode.html:2
+msgid "Jouer !"
+msgstr "¡Jugar!"
+
+#: officialfest/templates/common/play_mode.html:32
+#: officialfest/templates/common/soccer.html:36
+#: officialfest/templates/common/try.html:31
+msgid "Sites amis:"
+msgstr "Otros juegos de Motion Twin"
+
+#: officialfest/templates/common/shop.html:2
+msgid "Plus de parties !"
+msgstr "¡Más partidas!"
+
+#: officialfest/templates/common/shop.html:6
+msgid "plus de <strong>parties</strong>"
+msgstr "màs <strong>partidas</strong>"
+
+#: officialfest/templates/common/shop.html:11
+msgid "Mardi matin, à minuit, vous recevrez 6 parties gratuites !"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:18
+msgid "Parties achetées"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:19
+msgid "Prochain palier"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:19
+msgid "parties"
+msgstr "partidas"
+
+#: officialfest/templates/common/shop.html:22
+msgid "Achetez encore <strong>72 parties </strong>"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:23
+msgid "pour débloquer 7 parties gratuites à vie chaque semaine."
+msgstr ""
+
+#: officialfest/templates/common/shop.html:25
+msgid ""
+"Vous aurez <strong>une nouvelle partie gratuite à "
+"minuit</strong>&nbsp;!<br/>(heure française, partie non cumulable)"
+msgstr ""
+"Tendrás <strong>una nueva partida gratis cada día a "
+"medianoche</strong><br/> (hora peninsular española: GMT +1h, partidas no "
+"acumulables)."
+
+#: officialfest/templates/common/shop.html:26
+msgid ""
+"Consultez le <a href=\"/guide.html#adventure\">guide du joueur</a> pour "
+"plus d'informations."
+msgstr ""
+"Consulta la <a href=\"/guide.html#adventure\">guía del juego</a> para más"
+" información."
+
+#: officialfest/templates/common/shop.html:30
+msgid "Quête"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:31
+#, python-format
+msgid ""
+"Vous disposez d'un bonus de <strong>25%%</strong> sur tous vos achats de "
+"parties !"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:34
+msgid "Parrainer des amis"
+msgstr "Recomendar"
+
+#: officialfest/templates/common/shop.html:36
+#, python-format
+msgid ""
+"Vous pouvez recevoir gratuitement 15%% des parties achetées par toutes\n"
+"        les personnes que vous parrainerez sur Hammerfest ! Pour en "
+"savoir plus,\n"
+"        visitez la\n"
+"        <a href=\"/user.html/godChildren\">section Parrainage</a> à "
+"gauche du site (icone\n"
+"        \"coeur\")."
+msgstr ""
+"Si recomiendas Hammerfest, ¡recibes gratuitamente el 15%% de las partidas"
+" compradas\n"
+"         por las personas que se hayan inscrito siguiendo tu "
+"recomendación!\n"
+"Para saber más, ve a la\n"
+"<a href=\"/user.html/godChildren\">sección Recomienda</a>, icono del "
+"corazón en la izquierda."
+
+#: officialfest/templates/common/soccer.html:2
+msgid "Jouer au Soccerfest !"
+msgstr "¡Jugar el Soccerfest!"
+
+#: officialfest/templates/common/try.html:2
+msgid "Découvrir le jeu"
+msgstr "Descubrir el juego"
 

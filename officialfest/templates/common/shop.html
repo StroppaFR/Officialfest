@@ -1,43 +1,43 @@
 {% extends 'layout.html' %}
-{% block title %} - Plus de parties !{% endblock %}
+{% block title %} - {{ _("Plus de parties !") }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
     <div class="bank">
-        <h1>plus de <strong>parties</strong></h1>
+        <h1>{{ _("plus de <strong>parties</strong>") | safe }}</h1>
 
 
         <div class="freeDays">
             <div class="weeklyStatus">
-                Mardi matin, à minuit, vous recevrez 6 parties gratuites !
+                {{ _("Mardi matin, à minuit, vous recevrez 6 parties gratuites !") }}
             </div>
             <div class="stepBar">
                 <div class="limit" style="margin-left : 5px"></div><div class="limit" style="margin-left : 10px"></div><div class="limit" style="margin-left : 15px"></div><div class="limit" style="margin-left : 48px"></div><div class="limit" style="margin-left : 96px"></div><div class="limit" style="margin-left : 160px"></div>
                 <div class="bar" style="width : 114px"></div>
             </div>
             <div class="stepLabel">
-                Parties achetées: 178 |
-                Prochain palier: 250 parties
+                {{ _("Parties achetées") }}: 178 |
+                {{ _("Prochain palier") }}: 250 {{ _("parties") }}
             </div>
             <span>
-                Achetez encore <strong>72 parties</strong>
-                pour débloquer 7 parties gratuites à vie chaque semaine.
+                {{ _("Achetez encore <strong>72 parties </strong>") | safe }}
+                {{ _("pour débloquer 7 parties gratuites à vie chaque semaine.") }}
             </span>
-            <p class="helpShop">Vous aurez <strong>une nouvelle partie gratuite à minuit</strong>&nbsp;!<br/>(heure française, partie non cumulable)</p>
-            <p class="helpShop">Consultez le <a href="/guide.html#adventure">guide du joueur</a> pour plus d&#039;informations.</p>
+            <p class="helpShop">{{ _("Vous aurez <strong>une nouvelle partie gratuite à minuit</strong>&nbsp;!<br/>(heure française, partie non cumulable)") | safe }}</p>
+            <p class="helpShop">{{ _("Consultez le <a href=\"/guide.html#adventure\">guide du joueur</a> pour plus d'informations.") | safe }}</p>
         </div>
 
         <div class="bankBonus">
-            <div class="pic"><img src="/img/items/10.gif" alt="Bonus"/> <span>Quête</span></div>
-            <span>Vous disposez d&#039;un bonus de <strong>25%</strong> sur tous vos achats de parties !</span>
+            <div class="pic"><img src="/img/items/10.gif" alt="Bonus"/> <span>{{ _("Quête") }}</span></div>
+            <span>{{ _("Vous disposez d'un bonus de <strong>25%%</strong> sur tous vos achats de parties !") | safe }}</span>
         </div>
 
-        <h2>Parrainer des amis</h2>
+        <h2>{{ _("Parrainer des amis") }}</h2>
         <p>
-        Vous pouvez recevoir gratuitement 15% des parties achetées par toutes
+        {{ _('Vous pouvez recevoir gratuitement 15%% des parties achetées par toutes
         les personnes que vous parrainerez sur Hammerfest ! Pour en savoir plus,
         visitez la
         <a href="/user.html/godChildren">section Parrainage</a> à gauche du site (icone
-        &quot;coeur&quot;).
+        "coeur").') | safe }}
         </p>
     </div>
 </div>

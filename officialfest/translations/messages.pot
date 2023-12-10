@@ -8,21 +8,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-10 03:06+0100\n"
+"POT-Creation-Date: 2023-12-10 14:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.13.1\n"
+"Generated-By: Babel 2.12.1\n"
 
-#: officialfest/common.py:57
+#: officialfest/common.py:67
 #, python-format
 msgid "404 : Mode %(mode)s introuvable"
 msgstr ""
 
-#: officialfest/common.py:67
+#: officialfest/common.py:77
 #, python-format
 msgid "404 : Terrain %(level)s introuvable"
 msgstr ""
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Les Cavernes de Hammerfest"
 msgstr ""
 
-#: officialfest/templates/layout.html:30
+#: officialfest/templates/layout.html:36
 msgid ""
 "Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST "
 "PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>\n"
@@ -96,80 +96,80 @@ msgid ""
 "href='https://github.com/StroppaFR/Officialfest'>Plus d'infos.</a>"
 msgstr ""
 
-#: officialfest/templates/layout.html:47 officialfest/templates/layout.html:49
-#: officialfest/templates/layout.html:88
+#: officialfest/templates/layout.html:53 officialfest/templates/layout.html:55
+#: officialfest/templates/layout.html:94
 msgid "Plus de Parties"
 msgstr ""
 
-#: officialfest/templates/layout.html:50
+#: officialfest/templates/layout.html:56
 msgid "Flocons"
 msgstr ""
 
-#: officialfest/templates/layout.html:54
+#: officialfest/templates/layout.html:60
 msgid "Voir ma Position"
 msgstr ""
 
-#: officialfest/templates/layout.html:54
+#: officialfest/templates/layout.html:60
 msgid "Position :"
 msgstr ""
 
-#: officialfest/templates/layout.html:58
+#: officialfest/templates/layout.html:64
 msgid "Le Panthéon !"
 msgstr ""
 
-#: officialfest/templates/layout.html:73
+#: officialfest/templates/layout.html:79
 msgid "Jouer"
 msgstr ""
 
-#: officialfest/templates/layout.html:76
+#: officialfest/templates/layout.html:82
 msgid "Réfrigérateur"
 msgstr ""
 
-#: officialfest/templates/layout.html:79
+#: officialfest/templates/layout.html:85
 msgid "Quêtes"
 msgstr ""
 
-#: officialfest/templates/layout.html:82
+#: officialfest/templates/layout.html:88
 msgid "Score"
 msgstr ""
 
-#: officialfest/templates/layout.html:82
+#: officialfest/templates/layout.html:88
 msgid "Classement"
 msgstr ""
 
-#: officialfest/templates/layout.html:85
+#: officialfest/templates/layout.html:91
 msgid "Mon compte"
 msgstr ""
 
-#: officialfest/templates/layout.html:91
+#: officialfest/templates/layout.html:97
 msgid "Parrainage"
 msgstr ""
 
-#: officialfest/templates/layout.html:94
+#: officialfest/templates/layout.html:100
 msgid "Quitter le site ?"
 msgstr ""
 
-#: officialfest/templates/layout.html:94
+#: officialfest/templates/layout.html:100
 msgid "Déconnecter"
 msgstr ""
 
-#: officialfest/templates/layout.html:97
+#: officialfest/templates/layout.html:103
 msgid "Forum"
 msgstr ""
 
-#: officialfest/templates/layout.html:105
+#: officialfest/templates/layout.html:111
 msgid "guide du jeu"
 msgstr ""
 
-#: officialfest/templates/layout.html:106
+#: officialfest/templates/layout.html:112
 msgid "règlement"
 msgstr ""
 
-#: officialfest/templates/layout.html:107
+#: officialfest/templates/layout.html:113
 msgid "FAQ et contact"
 msgstr ""
 
-#: officialfest/templates/layout.html:108
+#: officialfest/templates/layout.html:114
 msgid "Igor aime Firefox"
 msgstr ""
 
@@ -250,5 +250,106 @@ msgstr ""
 
 #: officialfest/templates/common/index.html:56
 msgid "Grimpez dans le classement et gagnez votre place au sommet !"
+msgstr ""
+
+#: officialfest/templates/common/intro.html:2
+msgid "Intro du jeu"
+msgstr ""
+
+#: officialfest/templates/common/intro.html:6
+msgid "intro du <strong>jeu</strong>"
+msgstr ""
+
+#: officialfest/templates/common/intro.html:27
+msgid "Passer l'intro et essayer le jeu"
+msgstr ""
+
+#: officialfest/templates/common/play_mode.html:2
+msgid "Jouer !"
+msgstr ""
+
+#: officialfest/templates/common/play_mode.html:32
+#: officialfest/templates/common/soccer.html:36
+#: officialfest/templates/common/try.html:31
+msgid "Sites amis:"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:2
+msgid "Plus de parties !"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:6
+msgid "plus de <strong>parties</strong>"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:11
+msgid "Mardi matin, à minuit, vous recevrez 6 parties gratuites !"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:18
+msgid "Parties achetées"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:19
+msgid "Prochain palier"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:19
+msgid "parties"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:22
+msgid "Achetez encore <strong>72 parties </strong>"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:23
+msgid "pour débloquer 7 parties gratuites à vie chaque semaine."
+msgstr ""
+
+#: officialfest/templates/common/shop.html:25
+msgid ""
+"Vous aurez <strong>une nouvelle partie gratuite à "
+"minuit</strong>&nbsp;!<br/>(heure française, partie non cumulable)"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:26
+msgid ""
+"Consultez le <a href=\"/guide.html#adventure\">guide du joueur</a> pour "
+"plus d'informations."
+msgstr ""
+
+#: officialfest/templates/common/shop.html:30
+msgid "Quête"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:31
+#, python-format
+msgid ""
+"Vous disposez d'un bonus de <strong>25%%</strong> sur tous vos achats de "
+"parties !"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:34
+msgid "Parrainer des amis"
+msgstr ""
+
+#: officialfest/templates/common/shop.html:36
+#, python-format
+msgid ""
+"Vous pouvez recevoir gratuitement 15%% des parties achetées par toutes\n"
+"        les personnes que vous parrainerez sur Hammerfest ! Pour en "
+"savoir plus,\n"
+"        visitez la\n"
+"        <a href=\"/user.html/godChildren\">section Parrainage</a> à "
+"gauche du site (icone\n"
+"        \"coeur\")."
+msgstr ""
+
+#: officialfest/templates/common/soccer.html:2
+msgid "Jouer au Soccerfest !"
+msgstr ""
+
+#: officialfest/templates/common/try.html:2
+msgid "Découvrir le jeu"
 msgstr ""
 

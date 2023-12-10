@@ -5,6 +5,12 @@
         <title>{{ _("Les Cavernes de Hammerfest") }}{% block title %}{% endblock %}</title>
         <script type="text/javascript" src="/js/flashobject.js"></script>
         <link rel="stylesheet" type="text/css" href="/css/main.css?version=77"/>
+        {% if LANG == 'es' %}
+		<link rel="stylesheet" type="text/css" href="/css/lang/es.css?version=77"/>
+        {% endif %}
+        {% if LANG == 'en' %}
+		<link rel="stylesheet" type="text/css" href="/css/lang/en.css?version=77"/>
+        {% endif %}
         <!--[if IE]>
             <link rel="stylesheet" type="text/css" href="/css/ie.css?version=10"/>
         <![endif]-->
@@ -33,7 +39,7 @@
             </div>
         </div>
         <div class="siteHeaderBg">
-            <div class="siteHeader headernew ">
+            <div class="siteHeader {% if LANG == 'fr' %}headernew{% endif %} ">
                 <a href="/index.html" class="index"><img src="/img/design/pixel.gif" alt="" title=""/></a>
                 <div class="siteBanner">
                     <div class="topMainBar">

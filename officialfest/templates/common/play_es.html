@@ -1,0 +1,372 @@
+{% extends 'layout.html' %}
+{% block title %} - ¡Jugar!{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var current=null;
+
+        function show( id )
+        {
+            if (current != null){
+                current.style.display='none';
+            }
+            current = document.getElementById(id);
+            current.style.display='block';
+        }
+
+        //]]>
+    </script>
+
+    <div class="cache">
+        <img src="/img/design/menu/iadv_over.gif" alt=""/>
+        <img src="/img/design/menu/itutorial_over.gif" alt=""/>
+        <img src="/img/design/menu/isoccer_over.gif" alt=""/>
+        <img src="/img/design/menu/imulticoop_over.gif" alt=""/>
+        <img src="/img/design/menu/itatt_over.gif" alt=""/>
+    </div>
+
+    <div class="menu">
+        <div class="menuTop"></div>
+        <div class="menuMiddle">
+            <div class="menuContLeft">
+                <h2><a href="/play.html">Modos de juego</a></h2>
+                <ul>
+                    <li class="iadv">
+                        <a href="#" onclick="show('adventure'); return false;"><span>Aventura</span>
+                            <img src="/img/design/pixel.gif" alt="" title=""/></a>
+                    </li>
+                    <li class="itutorial">
+                        <a href="#" onclick="show('tutorial'); return false;"><span>Aprendizaje</span>
+                            <img src="/img/design/pixel.gif" alt="" title=""/></a>
+                    </li>
+                    <li class="itatt">
+                        <a href="#" onclick="show('time'); return false;"><span>Contrarreloj</span>
+                            <img src="/img/design/pixel.gif" alt="" title=""/></a>
+                    </li>
+                    <li class="imulticoop">
+                        <a href="#" onclick="show('multicop'); return false;"><span>Cooperativo</span>
+                            <img src="/img/design/pixel.gif" alt="" title=""/></a>
+                    </li>
+                    <li class="isoccer">
+                        <a href="#" onclick="show('soccer'); return false;"><span>Fútbolfest</span>
+                            <img src="/img/design/pixel.gif" alt="" title=""/></a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="menuContRight">
+
+                <div class="menuInfo" id="bienvenue">
+
+                    <div class="news">
+                        <h2>Feliz Año 2011</h2>
+                        <h3>31 de diciembre de 2010</h3>
+                        <div class="image"><img src="/img/design/menu/news/endgame.gif" alt=""/></div>
+                        <p>Otro año más e Igor sigue incansable recorriendo las Cavernas... ¡gracias a vosotros!</p>
+
+                        <p>¡El equipo de Hammerfest os desea un Feliz Año 2011!</p>						</div>
+                    <div class="clear"></div>
+
+                    <div class="borderarrow"></div>
+
+                    <div class="arrow">Elige un modo de juego</div>
+                </div>
+
+                <div class="menuInfo" id="adventure">
+                    <h2>Aventura</h2>
+                    <p>
+                    ¡Juega a la Aventura principal! ¡Libera a las frutas!
+                    </p>
+                    <form action="/play.html/solo#play" method="post" id="avent">
+                        <div class="mopt">
+                            <span>OPCIONES ADICIONALES :</span>
+                            <ul class="moptl">
+                                <li>
+                                    <label for="mir"><input type="checkbox" name="options[]" value="mirror" class="checkbox" id="mir"/> Espejo</label>
+                                </li>
+
+                                <li>
+                                    <label for="nig"><input type="checkbox" name="options[]" value="nightmare" class="checkbox" id="nig"/> Pesadilla</label>
+                                </li>
+
+                                <li>
+                                    <label for="nin"><input type="checkbox" name="options[]" value="ninja" class="checkbox" id="nin"/> Ninjutsu</label>
+                                </li>
+                                <li>
+                                    <label for="bexp"><input type="checkbox" name="options[]" value="bombexpert" class="checkbox" id="bexp"/> Explosivos inestables</label>
+                                </li>
+
+                                <li>
+                                    <label for="boost"><input type="checkbox" name="options[]" value="boost" class="checkbox" id="boost"/> Tornado</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <p>
+                        <a href="#" class="button" onclick="document.getElementById('avent').submit(); return false;">Comenzar</a>
+                        </p>
+                    </form>
+                    <img src="/img/design/menu/adventure1.gif" class="scra" alt=""/>
+                    <img src="/img/design/menu/adventure2.gif" class="scrb" alt=""/>
+                    <p>
+                    <img src="/img/design/menu/smarrow.gif" alt=""/> Este modo cuesta <strong>1</strong> <img src="/img/design/snow_flake.gif" alt=""/>
+                    </p>
+                </div>
+
+                <div class="menuInfo" id="tutorial">
+                    <h2>Aprendizaje</h2>
+                    <p>
+                    ¡Aprende a jugar en unos minutos!
+                    </p>
+                    <p class="butp">
+                    <a href="/try.html#play" class="button">Comenzar</a>
+                    </p>
+                    <img src="/img/design/menu/tutorial1.gif" class="scra" alt=""/>
+                    <img src="/img/design/menu/tutorial2.gif" class="scrb" alt=""/>
+                    <div class="clear"></div>
+                    <p>
+                    <img src="/img/design/menu/smarrow.gif" alt=""/> Este modo es <strong>gratis e ilimitado</strong>
+                    </p>
+                </div>
+
+                <div class="menuInfo" id="time">
+                    <h2>Contrarreloj</h2>
+                    <p>Juega lo más rápido posible... ¡Termina los 6 niveles en el menor tiempo posible y entra en la clasificación!</p>
+                    <form action="/play.html/timeattack#play" method="post" id="tm" class="fomrtimeattack">
+                        <div class="descn">
+                            <select id="tattackSelect" name="options[]" class="slc" onchange="tattackChange()">
+                                <option value="set_ta_0">Colina Verde</option>
+                            </select>
+                            <div id="txt1" class="txtnv">
+                                Texte 1 qui se remplace
+                            </div>
+                        </div>
+                        <img id="img1" class="scrz" alt="pouett"/>
+                        <div class="clear"></div>
+                        <p class="butp">
+                        <a href="/play.html/timeattack#play" class="button" onclick="document.getElementById('tm').submit(); return false;">Comenzar</a>
+                        </p>
+                    </form>
+
+                    <p>
+                    <a href="/scores.html/timeattack">-- Acceso a la clasificación Contrarreloj --</a>
+                    </p>
+
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        function tattackChange(){
+                            var select = document.getElementById("tattackSelect");
+                            var img1 = document.getElementById("img1");
+                            img1.src = "/img/design/menu/"+select.value+".gif";
+
+                            var txt1 = document.getElementById("txt1");
+                            switch( select.value ){
+                                case "set_ta_0":
+                                    txt1.innerHTML = "Calcula cada uno de tus pasos, ¡un fallo puede costar segundos!";
+                                    break;
+                                case "set_ta_1":
+                                    txt1.innerHTML = "Ce temple, caché au plus profond des Cavernes de Hammerfest, sert aujourd'hui de piste pour l'épreuve du Time Attack !";
+                                    break;
+                                case "set_ta_2":
+                                    txt1.innerHTML = "Description du mode C";
+                                    break;
+                            }
+
+                        }
+                        tattackChange();
+                        //]]>
+                    </script>
+                    <div class="clear"></div>
+                    <p>
+                    <img src="/img/design/menu/smarrow.gif" alt=""/> Este modo cuesta <strong>1</strong> <img src="/img/design/snow_flake.gif" alt=""/>
+                    </p>
+                </div>
+
+                <div class="menuInfo" id="multicop">
+                    <h2>Cooperativo</h2>
+                    <p>
+                    ¡El modo Aventura para <strong>2 jugadores</strong>!
+                    Juega con un amigo en el mismo ordenador.
+                    </p>
+
+                    <form action="/play.html/multi#play" method="post" id="mcp">
+                        <div class="mopt moptlmul">
+                            <span>OPCIONES:</span>
+                            <ul class="moptl">
+                                <li>
+                                    <label for="mirmulti"><input type="checkbox" name="options[]" value="mirrormulti" class="checkbox" id="mirmulti"/> Espejo</label>
+                                </li>
+
+                                <li>
+                                    <label for="nightmulti"><input type="checkbox" name="options[]" value="nightmaremulti" class="checkbox" id="nightmulti"/> Pesadillas</label>
+                                </li>
+
+                                <li>
+                                    <label for="lifesh"><input type="checkbox" name="options[]" value="lifesharing" class="checkbox" id="lifesh"/> Compartir vidas</label>
+                                </li>
+
+                                <li class="lidis">
+                                    <input type="checkbox" value="#" class="checkbox" disabled="disabled"/> Bombotopia!
+                                </li>
+                            </ul>
+                        </div>
+                        <p>
+                        <a href="#" class="button" onclick="document.getElementById('mcp').submit(); return false;">Comenzar</a>
+                        </p>
+                    </form>
+
+                    <img src="/img/design/menu/multiscreen01.jpg" class="scra" alt=""/>
+                    <img src="/img/design/menu/multiscreen02.jpg" class="scrb" alt=""/>
+
+                    <div class="clear"></div>
+                    <p>
+                    <img src="/img/design/menu/smarrow.gif" alt=""/> Este modo cuesta <strong>1</strong> <img src="/img/design/snow_flake.gif" alt=""/>
+                    </p>
+                </div>
+
+
+                <div class="menuInfo" id="soccer">
+                    <h2>Fútbolfest</h2>
+                    <p>
+                    Este modo es para <strong>2 jugadores</strong>.
+                    ¡Juega al fútbol contra un amigo! Elige el nivel:
+                    </p>
+                    <form action="/soccer.html#play" method="post" id="soc">
+                        <div class="mopt moptsoccer">
+                            <span>OPCIONES:</span>
+                            <ul class="moptl">
+
+                                <li class="lidis">
+                                    <input type="checkbox" class="checkbox" disabled="disabled"/> Control avanzado del balón
+                                </li>
+                                <li>
+                                    <label for="bom"><input type="checkbox" name="options[]" value="soccerbomb" class="checkbox" id="bom" checked="checked"/> Bombas</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="descn">
+                            <select id="soccerSelect" name="level" class="slc" onchange="soccerChange()">
+                                <option value="set_soc_0">Césped maldito</option>
+                                <option value="set_soc_1">Templo del Balón</option>
+                                <option value="set_soc_2">Volleyfest</option>
+                                <option value="set_soc_3">Control aéreo</option>
+                            </select>
+                            <div id="txt3" class="txtnv">
+                                Texte 3 qui se remplace
+                            </div>
+                        </div>
+                        <img id="img3" class="scrz" alt=""/>
+                        <div class="clear"></div>
+
+
+                        <p class="butp">
+                        <a href="#" class="button" onclick="document.getElementById('soc').submit(); return false;">Comenzar</a>
+                        </p>
+                    </form>
+
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        function soccerChange(){
+                            var select = document.getElementById("soccerSelect");
+                            var img3 = document.getElementById("img3");
+                            img3.src = "/img/design/menu/"+select.value+".gif";
+
+                            var txt3 = document.getElementById("txt3");
+                            switch( select.value ){
+                                case "set_soc_0":
+                                    txt3.innerHTML = "El nivel en el que el Fútbolfest fue inventado. ";
+                                    break;
+                                case "set_soc_1":
+                                    txt3.innerHTML = "Un antiguo templo ¡transformado en terreno de juego profesional!";
+                                    break;
+                                case "set_soc_2":
+                                    txt3.innerHTML = "Un variante del volley-ball en un terreno especial. ¡Defiende bien tu campo!";
+                                    break;
+                                case "set_soc_3":
+                                    txt3.innerHTML = "Terreno para alta acrobacia, ¡el control vertical es indispensable!";
+                                    break;
+                            }
+
+                        }
+                        soccerChange();
+                        //]]>
+                    </script>
+
+                    <div class="clear"></div>
+                    <p>
+                    <img src="/img/design/menu/smarrow.gif" alt=""/> Este modo es <strong>gratis e ilimitado</strong>.
+                    </p>
+
+                </div>
+
+
+                <div class="menuInfo" id="options">
+                    <h2>Opciones</h2>
+                    <form action="/user.html/parameters" method="post">
+                        <ul class="opt">
+                            <li>
+                                <input name="detail" type="checkbox" value="1" class="checkbox" checked="checked"/> Detalles gráficos elevados [ <a href="/guide.html#options">ayuda</a> ]
+                            </li>
+                            <li>
+                                <input name="shake" type="checkbox" value="1" class="checkbox" checked="checked"/> Vibraciones frecuentes [ <a href="/guide.html#options">ayuda</a> ]
+                            </li>
+                            <li>
+                                <input name="sound" type="checkbox" value="1" class="checkbox" checked="checked"/> Sonido
+                            </li>
+                            <li>
+                                <input name="music" type="checkbox" value="1" class="checkbox" checked="checked"/> Musica
+                            </li>
+                            <li>
+                                <select name="volume" class="...">
+                                    <option value="100" selected="selected">100%</option>
+                                    <option value="75">75%</option>
+                                    <option value="50">50%</option>
+                                    <option value="25">25%</option>
+                                </select>
+                                Volumen
+                            </li>
+                        </ul>
+
+                        <input type="submit" name="submit" value="Guardar" class="submitConfig"/>
+
+
+                    </form>					</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="menuBottom"></div>
+
+        <div class="menubTop"></div>
+        <div class="menubMiddle">
+            <div class="menubMiddleContent">
+                <ul>
+                    <li><a href="#" onclick="show('options')">Opciones</a></li>
+                    <li><a href="/intro.html">Ver la intro</a></li>
+                    <li><a href="/guide.html">Guía del Juego</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="menubBottom"></div>
+
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="friends">			
+        <h2>Otros juegos de Motion Twin:</h2>
+        <script src="http://trax.motion-twin.com/words/hfest_es/2?rnd=1" type="text/javascript"></script>    
+    </div>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        show('bienvenue');
+        //]]>
+    </script>
+
+
+</div>
+{% endblock %}

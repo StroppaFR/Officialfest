@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% block title %} - Découvrir le jeu{% endblock %}
+{% block title %} - {{ _("Découvrir le jeu") }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
     <a name="play"></a>
@@ -8,7 +8,7 @@
         <script type="text/javascript">
             //<![CDATA[
             var fo = new FlashObject("/swf/loader.swf?v=96", "game", 420, 520, 7);
-            fo.addVariable("$lang",		"fr");
+            fo.addVariable("$lang",		"{{ LANG }}");
             fo.addVariable("$out",		"/play.html");
             fo.addVariable("swf",		"game.swf?v=101");
             fo.addVariable("$shake",	"1");
@@ -28,7 +28,7 @@
     </div>
 
     <div class="friends">
-        <h2>Sites amis:</h2>
+        <h2>{{ _("Sites amis:") }}</h2>
         <!-- <script src="http://trax.motion-twin.com/words/hfest/0?rnd=1" type="text/javascript"></script> -->
     </div>
 

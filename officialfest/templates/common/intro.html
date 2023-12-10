@@ -1,9 +1,9 @@
 {% extends 'layout.html' %}
-{% block title %} - Intro du jeu{% endblock %}
+{% block title %} - {{ _("Intro du jeu") }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
 
-    <h1>intro du <strong>jeu</strong></h1>
+    <h1>{{ _("intro du <strong>jeu</strong>") | safe }}</h1>
 
     <a name="play"></a>
     <div class="intro">
@@ -14,7 +14,7 @@
                 var o = new FlashObject('swf/intro.swf?v=10', "title", '420', '325', 7 ,'#000000');
                 o.addParam("allowScriptAccess", "always");
                 o.addVariable("url", "/try.html#play");
-                o.addVariable("lang", "fr");
+                o.addVariable("lang", "{{ LANG }}");
                 o.write();
                 // ]]>
             </script>
@@ -24,7 +24,7 @@
 
 
     <div class="joystick">
-        <a href="/try.html#play">Passer l&#039;intro et essayer le jeu</a>
+        <a href="/try.html#play">{{ _("Passer l'intro et essayer le jeu") }}</a>
     </div>
 </div>
 {% endblock %}

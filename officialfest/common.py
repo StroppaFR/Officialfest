@@ -37,7 +37,13 @@ def get_try():
 
 @bp.route('/guide.html', methods=['GET'])
 def get_guide():
-    return render_template('common/guide.html')
+    if current_app.config.get('LANG') == 'es':
+        return render_template('common/guide_es.html')
+    elif current_app.config.get('LANG') == 'en':
+        return render_template('common/guide_en.html')
+    else:
+        return render_template('common/guide_fr.html')
+
 
 @bp.route('/shop.html', methods=['GET'])
 def get_shop():
@@ -45,7 +51,11 @@ def get_shop():
 
 @bp.route('/play.html', methods=['GET'])
 def get_play():
-    return render_template('common/play.html')
+    # TODO: add missing en version of the play page
+    if current_app.config.get('LANG') == 'es':
+        return render_template('common/play_es.html')
+    else:
+        return render_template('common/play_fr.html')
 
 @bp.route('/play.html/credits', methods=['GET'])
 def get_credits():
