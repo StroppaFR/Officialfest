@@ -1,22 +1,22 @@
 {% extends 'layout.html' %}
-{% block title %} - Forum {{ theme.name }}{% endblock %}
+{% block title %} - {{ _("Forum") }} {{ theme.name }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
     <div class="forum">
-        <h1><a href="/forum.html">Forum</a> &gt; {{ theme.name }}</h1>
+        <h1><a href="/forum.html">{{ _("Forum") }}</a> &gt; {{ theme.name }}</h1>
 
         <ul class="menuactions">
-            <li><a href="/forum.html/search" class="button2">Rechercher</a></li>
-            <li><a href="/forum.html/theme/{{ theme.theme_id }}/createThreadForm" class="button2">Nouveau message</a></li>
-            <li><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank" class="button2">Lire la FAQ</a></li>
+            <li><a href="/forum.html/search" class="button2">{{ _("Rechercher") }}</a></li>
+            <li><a href="/forum.html/theme/{{ theme.theme_id }}/createThreadForm" class="button2">{{ _("Nouveau message") }}</a></li>
+            <li><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank" class="button2">{{ _("Lire la FAQ") }}</a></li>
         </ul>
         <div class="clear"></div>
 
         <table class="threads">
             <tr>
-                <th class="subject">Sujet</th>
-                <th class="author">Auteur</th>
-                <th class="replies">Msg</th>
+                <th class="subject">{{ _("Sujet") }}</th>
+                <th class="author">{{ _("Auteur") }}</th>
+                <th class="replies">{{ _("Msg") }}</th>
             </tr>
             {% for thread in sticky_threads %}
             <tr class="thread sticky{% if thread.author_is_moderator %} mode{% endif %}{%if thread.author_is_admin %} admin{% endif %}{%if thread.is_closed %} closed{% endif %}" onclick="document.location = '/forum.html/thread/{{ thread.thread_id }}';">
@@ -50,22 +50,22 @@
         </table>
 
         <div class="paginateBox">
-            <div class="currentPage">page {{ page }}/{{ max_page }}</div>
+            <div class="currentPage">{{ _("page") }} {{ page }}/{{ max_page }}</div>
 
             <div class="paginate">
                 &lt;
-                {% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page=1">début</a>{% else %}début{% endif %} | {% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page - 1 }}">précédent</a>{% else %}précédent{% endif %} |
+                {% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page=1">début</a>{% else %}{{ _("début") }}{% endif %} | {% if page != 1 %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page - 1 }}">{{ _("précédent") }}</a>{% else %}{{ _("précédent") }}{% endif %} |
                 {% set min_page_link = [1, page - 5] | max %}
                 {% set max_page_link = [max_page, min_page_link + 10] | min %}
                 {% for a_page in range(min_page_link, max_page_link + 1) %}{% if a_page == page %}<strong>{{ a_page }}</strong>{% else %}<a href="/forum.html/theme/{{ theme.theme_id }}?page={{ a_page }}">{{ a_page }}</a>{% endif %}{% if a_page != max_page %}&middot;{% endif %}{% endfor %} |
-                {% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page + 1 }}">suivant</a>{% else %}suivant{% endif %} | {% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ max_page }}">fin</a>{% else %}fin{% endif %} &gt;
+                {% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ page + 1 }}">suivant</a>{% else %}{{ _("suivant") }}{% endif %} | {% if page != max_page %}<a href="/forum.html/theme/{{ theme.theme_id }}/?;page={{ max_page }}">{{ _("fin") }}</a>{% else %}{{ _("fin") }}{% endif %} &gt;
             </div>
         </div>
 
         <ul class="menuactions">
-            <li><a href="/forum.html/search" class="button2">Rechercher</a></li>
-            <li><a href="/forum.html/theme/{{ theme.theme_id }}/createThreadForm" class="button2">Nouveau message</a></li>
-            <li><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank" class="button2">Lire la FAQ</a></li>
+            <li><a href="/forum.html/search" class="button2">{{ _("Rechercher") }}</a></li>
+            <li><a href="/forum.html/theme/{{ theme.theme_id }}/createThreadForm" class="button2">{{ _("Nouveau message") }}</a></li>
+            <li><a href="http://support.motion-twin.com/user/login?site=hfest;sid=1" target="_blank" class="button2">{{ _("Lire la FAQ") }}</a></li>
         </ul>
         <div class="clear"></div>
     </div>

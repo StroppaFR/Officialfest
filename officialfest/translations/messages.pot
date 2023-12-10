@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-10 14:45+0100\n"
+"POT-Creation-Date: 2023-12-10 17:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,29 +27,29 @@ msgstr ""
 msgid "404 : Terrain %(level)s introuvable"
 msgstr ""
 
-#: officialfest/forum.py:50 officialfest/forum.py:154
+#: officialfest/forum.py:49 officialfest/forum.py:153
 msgid "404 : Thème introuvable"
 msgstr ""
 
-#: officialfest/forum.py:53 officialfest/forum.py:112 officialfest/forum.py:132
-#: officialfest/forum.py:157 officialfest/forum.py:177
+#: officialfest/forum.py:52 officialfest/forum.py:111 officialfest/forum.py:131
+#: officialfest/forum.py:156 officialfest/forum.py:176
 msgid "403 : Accès interdit"
 msgstr ""
 
-#: officialfest/forum.py:109 officialfest/forum.py:174
+#: officialfest/forum.py:108 officialfest/forum.py:173
 msgid "404 : Thread introuvable"
 msgstr ""
 
-#: officialfest/forum.py:129
+#: officialfest/forum.py:128
 msgid "404 : Message introuvable"
 msgstr ""
 
-#: officialfest/forum.py:246
+#: officialfest/forum.py:245
 #, python-format
 msgid "404 : Utilisateur %(author)s introuvable"
 msgstr ""
 
-#: officialfest/forum.py:304
+#: officialfest/forum.py:303
 #, python-format
 msgid ""
 "403 : trop de filtres dans la recherche ; merci de vous limiter à "
@@ -113,6 +113,8 @@ msgstr ""
 msgid "Position :"
 msgstr ""
 
+#: officialfest/templates/forum/replyForm.html:20
+#: officialfest/templates/forum/thread.html:23
 #: officialfest/templates/layout.html:64
 msgid "Le Panthéon !"
 msgstr ""
@@ -153,6 +155,13 @@ msgstr ""
 msgid "Déconnecter"
 msgstr ""
 
+#: officialfest/templates/forum/createThreadForm.html:7
+#: officialfest/templates/forum/forum.html:2
+#: officialfest/templates/forum/forum.html:6
+#: officialfest/templates/forum/replyForm.html:7
+#: officialfest/templates/forum/search.html:6
+#: officialfest/templates/forum/theme.html:2
+#: officialfest/templates/forum/theme.html:6
 #: officialfest/templates/layout.html:103
 msgid "Forum"
 msgstr ""
@@ -351,5 +360,314 @@ msgstr ""
 
 #: officialfest/templates/common/try.html:2
 msgid "Découvrir le jeu"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:9
+msgid "nouveau message"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:19
+msgid "Titre :"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:35
+#: officialfest/templates/forum/replyForm.html:61
+msgid "Smileys"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:40
+#: officialfest/templates/forum/replyForm.html:66
+msgid "Message :"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:45
+#: officialfest/templates/forum/replyForm.html:71
+msgid "Objets"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:49
+#: officialfest/templates/forum/replyForm.html:74
+msgid "Avez-vous déjà cherché votre question dans l'aide du jeu ?"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:51
+#: officialfest/templates/forum/replyForm.html:76
+msgid "Cliquez ici pour lire la Foire Aux Questions de Hammerfest"
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:57
+#: officialfest/templates/forum/replyForm.html:82
+msgid "Aperçu "
+msgstr ""
+
+#: officialfest/templates/forum/createThreadForm.html:58
+#: officialfest/templates/forum/replyForm.html:83
+msgid "Je me suis bien relu, je valide"
+msgstr ""
+
+#: officialfest/templates/forum/forum.html:11
+msgid ""
+"<strong>Attention:</strong> Avant de poster une question\n"
+"            sur le forum, utilisez la fonction <a "
+"href=\"/forum.html/search\">rechercher</a> !\n"
+"            Vous trouverez sans doute votre réponse dans les messages\n"
+"            existants."
+msgstr ""
+
+#: officialfest/templates/forum/forum.html:17
+#: officialfest/templates/forum/thread.html:15
+#: officialfest/templates/forum/thread.html:45
+msgid "rechercher"
+msgstr ""
+
+#: officialfest/templates/forum/forum.html:21
+msgid "Questions fréquemment posées"
+msgstr ""
+
+#: officialfest/templates/forum/forum.html:22
+msgid ""
+"Cliquez ici pour accéder à notre site d'aide et lire les Questions "
+"fréquemment posées (site externe)"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:2
+msgid "Forum (répondre)"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:9
+#: officialfest/templates/forum/thread.html:14
+#: officialfest/templates/forum/thread.html:45
+msgid "répondre"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:12
+msgid "En réponse à"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:22
+#: officialfest/templates/forum/thread.html:25
+msgid "Niveau Pyramide :"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:28
+#: officialfest/templates/forum/thread.html:31
+msgid "Carotte"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:28
+msgid "a terminé le jeu !"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:31
+#: officialfest/templates/forum/thread.html:34
+msgid "Modérateur !"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:49
+msgid "Style :"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:53
+msgid "Cite"
+msgstr ""
+
+#: officialfest/templates/forum/replyForm.html:54
+msgid "Lien"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:2
+#: officialfest/templates/forum/search_results.html:2
+msgid "Forum (recherche)"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:6
+#: officialfest/templates/forum/search_results.html:6
+msgid "recherche"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:10
+msgid "Cette page vous permet de rechercher des messages dans le forum."
+msgstr ""
+
+#: officialfest/templates/forum/search.html:30
+#: officialfest/templates/forum/search_results.html:11
+msgid "Contenu :"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:34
+msgid "Auteur :"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:38
+msgid "Posté entre le"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:40
+#: officialfest/templates/forum/search_results.html:16
+msgid "et le"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:54
+msgid ""
+"Vous pouvez <strong>affiner</strong> votre recherche en utilisant les "
+"signes\n"
+"        <code>+</code> et <code>-</code> devant chaque mot de votre\n"
+"        recherche."
+msgstr ""
+
+#: officialfest/templates/forum/search.html:59
+msgid "Quelques exemples de recherche :"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:62
+msgid "quête"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:63
+msgid "rechercher tous les messages traitant de <span>quête</span>"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:65
+msgid "quête réfrigérateur"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:66
+msgid ""
+"rechercher tous les messages traitant de <span>quête</span> OU de "
+"<span>réfrigérateur</span>"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:68
+msgid "+quête +réfrigérateur"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:69
+msgid ""
+"rechercher tous les messages traitant de <span>quête</span> ET de "
+"<span>réfrigérateur</span>"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:71
+msgid "+quête -réfrigérateur"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:72
+msgid ""
+"rechercher tous les messages traitant de <span>quête</span> MAIS PAS de "
+"<span>réfrigérateur</span>"
+msgstr ""
+
+#: officialfest/templates/forum/search.html:74
+msgid "+quête +\"je les ai tous trouvés\""
+msgstr ""
+
+#: officialfest/templates/forum/search.html:75
+msgid ""
+"rechercher tous les messages traitant de <span>quête</span> et contenant "
+"texto \"<span>je les ai tous trouvés</span>\""
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:8
+msgid "Paramètres de votre recherche :"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:14
+#: officialfest/templates/forum/search_results.html:16
+msgid "Posté"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:14
+#: officialfest/templates/forum/search_results.html:16
+msgid "par"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:14
+msgid "le"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:16
+msgid "entre le"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:20
+msgid "Résultat de votre recherche"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:20
+msgid "limité aux"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:20
+msgid "résultats les plus récents"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:20
+msgid "message"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:23
+#: officialfest/templates/forum/theme.html:17
+msgid "Sujet"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:24
+#: officialfest/templates/forum/theme.html:18
+msgid "Auteur"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:25
+msgid "Date"
+msgstr ""
+
+#: officialfest/templates/forum/search_results.html:26
+msgid "Voir"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:9
+#: officialfest/templates/forum/theme.html:66
+msgid "Rechercher"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:10
+#: officialfest/templates/forum/theme.html:67
+msgid "Nouveau message"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:11
+#: officialfest/templates/forum/theme.html:68
+msgid "Lire la FAQ"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:19
+msgid "Msg"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:53
+#: officialfest/templates/forum/thread.html:50
+msgid "page"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:57
+#: officialfest/templates/forum/thread.html:53
+msgid "début"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:57
+#: officialfest/templates/forum/thread.html:53
+msgid "précédent"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:61
+#: officialfest/templates/forum/thread.html:57
+msgid "suivant"
+msgstr ""
+
+#: officialfest/templates/forum/theme.html:61
+#: officialfest/templates/forum/thread.html:57
+msgid "fin"
+msgstr ""
+
+#: officialfest/templates/forum/thread.html:9
+msgid "fil de discussion"
 msgstr ""
 

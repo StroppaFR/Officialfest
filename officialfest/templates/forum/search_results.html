@@ -1,29 +1,29 @@
 {% extends 'layout.html' %}
-{% block title %} - Forum (recherche){% endblock %}
+{% block title %} - {{ _("Forum (recherche)") }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
     <div class="forum">
-        <h1><a href="/forum.html">Forum</a> :: recherche</h1>
+        <h1><a href="/forum.html">Forum</a> :: {{ _("recherche") }}</h1>
 
-        <h3>Paramètres de votre recherche :</h3>
+        <h3>{{ _("Paramètres de votre recherche :") }}</h3>
         <p class="info">
         {% if search_arg %}
-        Contenu : {{ search_arg }}<br>
+        {{ _("Contenu :") }} {{ search_arg }}<br>
         {% endif %}
         {% if (from_date | pretty_thread_date) == (to_date | pretty_thread_date) %}
-        Posté {% if author %}par <a href="/user.html/{{ author_id }}">{{ author }}</a> {% endif %}le {{ from_date | pretty_thread_date }}.
+        {{ _("Posté") }} {% if author %}{{ _("par") }} <a href="/user.html/{{ author_id }}">{{ author }}</a> {% endif %}{{ _("le") }} {{ from_date | pretty_thread_date }}.
         {% else %}
-        Posté {% if author %}par <a href="/user.html/{{ author_id }}">{{ author }}</a> {% endif %}entre le {{ from_date | pretty_thread_date }} et le {{ to_date | pretty_thread_date }}.
+        {{ _("Posté") }} {% if author %}{{ _("par") }} <a href="/user.html/{{ author_id }}">{{ author }}</a> {% endif %}{{ _("entre le") }} {{ from_date | pretty_thread_date }} {{ _("et le") }} {{ to_date | pretty_thread_date }}.
         {% endif %}
         </p>
 
-        <h3>Résultat de votre recherche {% if max_reached %}(limité aux {{ max_results }} résultats les plus récents){% else %}({{ results | length }} message{% if (results | length) > 1 %}s{% endif%}){% endif %}:</h3>
+        <h3>{{ _("Résultat de votre recherche") }} {% if max_reached %}({{ _("limité aux") }} {{ max_results }} {{ _("résultats les plus récents") }}){% else %}({{ results | length }} {{ _("message") }}{% if (results | length) > 1 %}s{% endif%}){% endif %}:</h3>
         <table class="searchResult">
             <tr>
-                <th>Sujet</th>
-                <th>Auteur</th>
-                <th>Date</th>
-                <th>Voir</th>
+                <th>{{ _("Sujet") }}</th>
+                <th>{{ _("Auteur") }}</th>
+                <th>{{ _("Date") }}</th>
+                <th>{{ _("Voir") }}</th>
             </tr>
 
             {% for result in results %}
