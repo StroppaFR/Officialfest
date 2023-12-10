@@ -3,7 +3,7 @@ from . import utils
 from datetime import datetime
 from itertools import chain
 from flask import Blueprint, current_app, redirect, render_template, request
-from flask_babel import format_datetime
+from flask_babel import format_datetime, gettext
 from officialfest.db import get_db
 
 bp = Blueprint('forum', __name__, url_prefix='/forum.html')
@@ -24,7 +24,6 @@ def pretty_thread_date_filter(date) -> str:
 def short_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
-    # TODO: translations
     return format_datetime(date, 'dd LLL YYYY')
 
 @bp.route('/', methods=['GET'], strict_slashes=False)
@@ -48,12 +47,10 @@ def get_theme(theme_id):
                         FROM forum_themes LEFT OUTER JOIN forum_threads USING (theme_id) \
                         WHERE theme_id = ?', (theme_id,)).fetchone()
     if theme['theme_id'] is None:
-        # TODO: translations
-        return render_template('evni.html', error='404 : Thème introuvable'), 404
+        return render_template('evni.html', error=gettext('404 : Thème introuvable')), 404
     # TODO: allow access to restricted area
     if theme['is_restricted']:
-        # TODO: translations
-        return render_template('evni.html', error='403 : Accès interdit'), 403
+        return render_template('evni.html', error=gettext('403 : Accès interdit')), 403
     # Fetch sticky threads
     sticky_threads = db.execute('SELECT forum_threads.*, users.user_id AS "author_id", users.username AS "author_name", users.is_moderator AS "author_is_moderator" \
                                  FROM forum_threads INNER JOIN users ON forum_threads.author = users.user_id \
@@ -109,12 +106,10 @@ def get_thread(thread_id):
                          FROM forum_threads INNER JOIN forum_themes USING (theme_id) INNER JOIN forum_messages USING (thread_id) \
                          WHERE thread_id = ?', (thread_id,)).fetchone()
     if thread['thread_id'] is None:
-        # TODO: translations
-        return render_template('evni.html', error='404 : Thread introuvable'), 404
+        return render_template('evni.html', error=gettext('404 : Thread introuvable')), 404
     # TODO: allow access to restricted area
     if thread['is_restricted']:
-        # TODO: translations
-        return render_template('evni.html', error='403 : Accès interdit'), 403
+        return render_template('evni.html', error=gettext('403 : Accès interdit')), 403
     # Fetch page of messages to show
     messages_count = thread['messages_count']
     max_page = 1 + ((messages_count - 2) // FORUM_MESSAGES_PER_PAGE)
@@ -131,12 +126,10 @@ def get_message(message_id):
                          FROM forum_messages INNER JOIN forum_threads USING (thread_id) INNER JOIN forum_themes USING (theme_id) \
                          WHERE thread_id = (SELECT thread_id FROM forum_messages WHERE message_id = ?)', (message_id,)).fetchone()
     if thread['thread_id'] is None:
-        # TODO: translations
-        return render_template('evni.html', error='404 : Message introuvable'), 404
+        return render_template('evni.html', error=gettext('404 : Message introuvable')), 404
     # TODO: allow access to restricted area
     if thread['is_restricted']:
-        # TODO: translations
-        return render_template('evni.html', error='403 : Accès interdit'), 403
+        return render_template('evni.html', error=gettext('403 : Accès interdit')), 403
     # Fetch message rank in thread
     message_rank = db.execute('SELECT COUNT(*) \
                                FROM forum_messages \
@@ -158,12 +151,10 @@ def get_createThreadForm(theme_id):
                         FROM forum_themes \
                         WHERE theme_id = ?', (theme_id,)).fetchone()
     if theme is None:
-        # TODO: translations
-        return render_template('evni.html', error='404 : Thème introuvable'), 404
+        return render_template('evni.html', error=gettext('404 : Thème introuvable')), 404
     # TODO: allow access to restricted area
     if theme['is_restricted']:
-        # TODO: translations
-        return render_template('evni.html', error='403 : Accès interdit'), 403
+        return render_template('evni.html', error=gettext('403 : Accès interdit')), 403
     return render_template('forum/createThreadForm.html', theme=theme, pictos=FORUM_ALLOWED_PICTOS)
 
 @bp.route('/theme/<int:theme_id>/createThread', methods=['POST'])
@@ -180,12 +171,10 @@ def get_replyForm(thread_id):
                         FROM forum_threads INNER JOIN forum_themes USING (theme_id) \
                         WHERE thread_id = ?', (thread_id,)).fetchone()
     if thread is None:
-        # TODO: translations
-        return render_template('evni.html', error='404 : Thread introuvable'), 404
+        return render_template('evni.html', error=gettext('404 : Thread introuvable')), 404
     # TODO: allow access to restricted area
     if thread['is_restricted']:
-        # TODO: translations
-        return render_template('evni.html', error='403 : Accès interdit'), 403
+        return render_template('evni.html', error=gettext('403 : Accès interdit')), 403
     message = db.execute('SELECT forum_messages.*, users.username AS "author_name", users.pyramid_step AS "author_pyramid_step", users.pyramid_rank as "author_pyramid_rank", users.has_carrot AS "author_has_carrot", \
                            users.is_moderator AS "author_is_moderator", users.is_admin AS "author_is_admin" \
                            FROM forum_messages INNER JOIN users ON (forum_messages.author = users.user_id) \
@@ -253,7 +242,8 @@ def get_search():
     if author_arg:
         user = db.execute('SELECT user_id, username FROM users WHERE LOWER(username) = LOWER(?)', (author_arg,)).fetchone()
         if not user:
-            return render_template('evni.html', error=f'404: Utilisateur {author_arg} introuvable'), 404
+
+            return render_template('evni.html', error=gettext('404 : Utilisateur %(author)s introuvable', author=author_arg)), 404
         else:
             user_id, username = user
 
@@ -311,7 +301,7 @@ def get_search():
     # Avoid DoS
     print(FORUM_SEARCH_MAX_STRINGS)
     if len(found_strings) > FORUM_SEARCH_MAX_STRINGS:
-        return render_template('evni.html', error=f'403: trop de filtres dans la recherche ; merci de vous limiter à {FORUM_SEARCH_MAX_STRINGS} filtres maximum !'), 403
+        return render_template('evni.html', error=gettext('403 : trop de filtres dans la recherche ; merci de vous limiter à %(max_strings)d filtres maximum !', max_strings=FORUM_SEARCH_MAX_STRINGS)), 403
 
     required_strings = [s[0] for s in found_strings if s[1]]
     forbidden_strings = [s[0] for s in found_strings if s[2]]

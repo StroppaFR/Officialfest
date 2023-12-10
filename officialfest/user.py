@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, render_template
+from flask_babel import gettext
 from itertools import chain
 from officialfest.db import get_db
 
@@ -169,8 +170,7 @@ def show_profile(user_id):
                        FROM users LEFT OUTER JOIN hof_messages ON user_id = author LEFT OUTER JOIN user_weekly_scores USING (user_id) \
                        WHERE user_id = ?', (user_id,)).fetchone()
     if user is None:
-        # TODO: translations
-        return render_template('evni.html', error='404 : Utilisateur introuvable'), 404
+        return render_template('evni.html', error=gettext('404 : Utilisateur introuvable')), 404
     # Fetch user quests
     user_quests = db.execute('SELECT quest_id, completed \
                               FROM user_quests INNER JOIN users USING (user_id) \
@@ -179,8 +179,7 @@ def show_profile(user_id):
     current_quests = []
     for user_quest in user_quests:
         quest_id = user_quest['quest_id']
-        # TODO: translations
-        quest_name = QUEST_NAMES[quest_id] if quest_id < len(QUEST_NAMES) else 'Quête inconnue'
+        quest_name = QUEST_NAMES[quest_id] if quest_id < len(QUEST_NAMES) else gettext('QUETE INCONNUE')
         if user_quest['completed']:
             completed_quests.append(quest_name)
         else:
@@ -197,9 +196,9 @@ def show_profile(user_id):
 # TODO: show full fridge
 @bp.route('/inventory', methods=['GET'])
 def get_inventory():
-    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
+    return render_template('evni.html', error=gettext('501 : Pas encore implémenté')), 501
 
 # TODO: show full quests
 @bp.route('/quests', methods=['GET'])
 def get_quests():
-    return render_template('evni.html', error='501 : Pas encore implémenté'), 501
+    return render_template('evni.html', error=gettext('501 : Pas encore implémenté')), 501

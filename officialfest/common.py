@@ -1,6 +1,6 @@
 import dateutil.parser
 from flask import Blueprint, redirect, request, render_template
-from flask_babel import format_datetime
+from flask_babel import format_datetime, gettext
 
 bp = Blueprint('common', __name__, url_prefix='/')
 
@@ -50,7 +50,7 @@ def get_credits():
 @bp.route('/play.html/<mode>', methods=['POST'])
 def post_play_mode(mode):
     if mode not in ['solo', 'timeattack', 'multi']:
-        return render_template('evni.html', error='404 : Mode introuvable'), 404
+        return render_template('evni.html', error=gettext(u'404 : Mode %(mode)s introuvable', mode=mode)), 404
     if mode == 'multi':
         mode = 'multicoop'
     options = ','.join(request.form.getlist('options[]'))
@@ -60,7 +60,7 @@ def post_play_mode(mode):
 def post_soccer():
     level = request.form.get('level')
     if level not in ['set_soc_0', 'set_soc_1', 'set_soc_2', 'set_soc_3']:
-        return render_template('evni.html', error='404 : Terrain introuvable'), 404
+        return render_template('evni.html', error=gettext('404 : Terrain %(level)s introuvable', level=level)), 404
     options = ','.join(request.form.getlist('options[]'))
     options += ',' + level
     return render_template('common/soccer.html', options=options)
