@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template
 from flask_babel import Babel
+from officialfest import items_data
 
 def page_not_found(e):
     # TODO: translations
@@ -25,6 +26,9 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    # load items data before everything else
+    items_data.load_data(app, app.config['LANG'])
     
     app.register_error_handler(404, page_not_found)
 

@@ -56,7 +56,7 @@
             <li class="nothing">Aucune quête completée!</li>
             {% else %}
             {% for quest in completed_quests %}
-            <li>{{ quest }}</li>
+            <li>{{ ALL_QUESTS.get(quest).name }}</li>
             {% endfor %}
             {% endif %}
         </ul>
@@ -67,7 +67,7 @@
             <li class="nothing">Aucune! Il va falloir jouer plus!</li>
             {% else %}
             {% for quest in current_quests %}
-            <li>{{ quest }}</li>
+            <li>{{ ALL_QUESTS.get(quest).name }}</li>
             {% endfor %}
             {% endif %}
         </ul>
@@ -77,7 +77,7 @@
         <h3>Objets du réfrigérateur</h3>
         <h4><span>{{ user_items | length }}</span> objet{% if user_items | length %}<span class="sspecial">s</span>{% endif %} sur <span>353</span></h4>
         <div>
-            {% for item in SORTED_PROFILE_ITEMS %}{% if item in user_items %}<img alt="objet" src="/img/items/small/{{ item }}.gif"/>{% else %}<img alt="objet" src="/img/items/small/a.gif"/>{% endif %}{% endfor %}
+            {% for item in ALL_ITEMS %}{% if item in user_items %}<img alt="objet" src="/img/items/small/{{ item }}.gif"/>{% else %}<img alt="objet" src="/img/items/small/a.gif"/>{% endif %}{% endfor %}
         </div>
     </div>
 
