@@ -1,16 +1,16 @@
 {% extends 'layout.html' %}
-{% block title %} - Fiche utilisateur{% endblock %}
+{% block title %} - {{ _('Fiche utilisateur') }}{% endblock %}
 {% block site_content %}
 <div class="siteMinHeight">
-    <h1>fiche de <strong>{{ user.username }}</strong></h1>
+    {% if LANG != 'en' %}<h1>{{ _('fiche de') }} <strong>{{ user.username }}</strong></h1>{% else %}<h1><strong>{{ user.username }}'s sheet</strong></h1>{% endif %}
 
     <dl class="profile">
-        <dt>Nom du joueur</dt>
+        <dt>{{ _('Nom du joueur') }}</dt>
         <dd>{{ user.username }}</dd>
 
         {% if user.email %}
         <dt>
-            E-mail
+            {{ _('E-mail') }}
         </dt>
         <dd>
             <a href="mailto:{{ user.email }}">{{ user.email }}</a>
@@ -18,29 +18,29 @@
         {% endif %}
 
 
-        <dt>Meilleur score</dt>
+        <dt>{{ _('Meilleur score') }}</dt>
         <dd>{{ user.best_score | pretty_score }}</dd>
 
-        <dt>Meilleur niveau</dt>
-        <dd> {{ user.best_level or "" }} {% if user.has_carrot %}<span><img src="/img/design/icon_endGame.gif" alt="Carotte recuperée !" title="Carotte recuperée !"/></span>{% endif %}</dd>
+        <dt>{{ _('Meilleur niveau') }}</dt>
+        <dd> {{ user.best_level or "" }} {% if user.has_carrot %}<span><img src="/img/design/icon_endGame.gif" alt="{{ _('Carotte recuperée !') }}" title="{{ _('Carotte recuperée !') }}"/></span>{% endif %}</dd>
 
-        <dt>Score de la semaine</dt>
+        <dt>{{ _('Score de la semaine') }}</dt>
         <dd>{{ (user.weekly_score or 0) | pretty_score }}</dd>
 
-        <dt>Pyramide</dt>
+        <dt>{{ _('Pyramide') }}</dt>
         <dd>
             {% if user.pyramid_step == 0 %}
-            <img src="/img/design/pixel.gif" alt="Le Panthéon !" title="Le Panthéon !" class="icon_pyramid icon_pyramid_hof"/>
+            <img src="/img/design/pixel.gif" alt="{{ _('Le Panthéon !') }}" title="{{ _('Le Panthéon !') }}" class="icon_pyramid icon_pyramid_hof"/>
             {% else %}
-            <img src="/img/design/pixel.gif" alt="Niveau Pyramide : {{ user.pyramid_step }}" title="Niveau Pyramide : {{ user.pyramid_step }}" class="icon_pyramid icon_pyramid_{{ user.pyramid_step }}"/>
+            <img src="/img/design/pixel.gif" alt="{{ _('Niveau Pyramide :') }} {{ user.pyramid_step }}" title="{{ _('Niveau Pyramide :') }} {{ user.pyramid_step }}" class="icon_pyramid icon_pyramid_{{ user.pyramid_step }}"/>
             {% endif %}
         </dd>
     </dl>
 
     {% if user.hof_message %}
     <dl>
-        <dt class="wordsFame">Ses dernières paroles au <a href="/halloffame.html">Panthéon</a>
-            <div class="wordsFameInfo">Dites le {{ user.hof_message_date | pretty_hof_date }}</div>
+        <dt class="wordsFame">{{ _('Ses dernières paroles au <a href="/halloffame.html">Panthéon</a>') }}
+            <div class="wordsFameInfo">{{ _('Dites le') }} {{ user.hof_message_date | pretty_hof_date }}</div>
         </dt>
         <dd class="wordsFameUser">{{ user.hof_message }}</dd>
     </dl>
@@ -49,11 +49,11 @@
     <div class="clear"></div>
 
     <div class="profileQuests">
-        <h3>Quêtes</h3>
-        <h4>Quêtes completées</h4>
+        <h3>{{ _('Quêtes') }}</h3>
+        <h4>{{ _('Quêtes completées') }}</h4>
         <ul class="profileQuestsTitle">
             {% if (completed_quests | length) == 0 %}
-            <li class="nothing">Aucune quête completée!</li>
+            <li class="nothing">{{ _('Aucune quête completée!') }}</li>
             {% else %}
             {% for quest in completed_quests %}
             <li>{{ ALL_QUESTS.get(quest).name }}</li>
@@ -61,10 +61,10 @@
             {% endif %}
         </ul>
 
-        <h4>Quêtes en cours</h4>
+        <h4>{{ _('Quêtes en cours') }}</h4>
         <ul class="profileQuestsTitle">
             {% if (current_quests | length) == 0 %}
-            <li class="nothing">Aucune! Il va falloir jouer plus!</li>
+            <li class="nothing">{{ _('Aucune! Il va falloir jouer plus!') }}</li>
             {% else %}
             {% for quest in current_quests %}
             <li>{{ ALL_QUESTS.get(quest).name }}</li>
@@ -74,10 +74,10 @@
     </div>
 
     <div class="profileItems">
-        <h3>Objets du réfrigérateur</h3>
-        <h4><span>{{ user_items | length }}</span> objet{% if user_items | length %}<span class="sspecial">s</span>{% endif %} sur <span>353</span></h4>
+        <h3>{{ _('Objets du réfrigérateur') }}</h3>
+        <h4><span>{{ user_items | length }}</span> {{ _('objet') }}{% if user_items | length %}<span class="sspecial">s</span>{% endif %} {{ _('sur') }} <span>353</span></h4>
         <div>
-            {% for item in ALL_ITEMS %}{% if item in user_items %}<img alt="objet" src="/img/items/small/{{ item }}.gif"/>{% else %}<img alt="objet" src="/img/items/small/a.gif"/>{% endif %}{% endfor %}
+            {% for item in ALL_ITEMS %}{% if item in user_items %}<img alt="{{ _('objet') }}" src="/img/items/small/{{ item }}.gif"/>{% else %}<img alt="{{ _('objet') }}" src="/img/items/small/a.gif"/>{% endif %}{% endfor %}
         </div>
     </div>
 

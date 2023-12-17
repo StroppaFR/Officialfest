@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-10 17:34+0100\n"
+"POT-Creation-Date: 2023-12-17 01:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.12.1\n"
+"Generated-By: Babel 2.13.1\n"
 
 #: officialfest/common.py:67
 #, python-format
@@ -56,15 +56,11 @@ msgid ""
 "%(max_strings)d filtres maximum !"
 msgstr ""
 
-#: officialfest/user.py:173
+#: officialfest/user.py:41
 msgid "404 : Utilisateur introuvable"
 msgstr ""
 
-#: officialfest/user.py:182
-msgid "QUETE INCONNUE"
-msgstr ""
-
-#: officialfest/user.py:199 officialfest/user.py:204
+#: officialfest/user.py:66 officialfest/user.py:71
 msgid "501 : Pas encore implémenté"
 msgstr ""
 
@@ -116,6 +112,7 @@ msgstr ""
 #: officialfest/templates/forum/replyForm.html:20
 #: officialfest/templates/forum/thread.html:23
 #: officialfest/templates/layout.html:64
+#: officialfest/templates/user/user.html:33
 msgid "Le Panthéon !"
 msgstr ""
 
@@ -128,6 +125,7 @@ msgid "Réfrigérateur"
 msgstr ""
 
 #: officialfest/templates/layout.html:85
+#: officialfest/templates/user/user.html:52
 msgid "Quêtes"
 msgstr ""
 
@@ -144,6 +142,7 @@ msgid "Mon compte"
 msgstr ""
 
 #: officialfest/templates/layout.html:97
+#: officialfest/templates/user/godChildren.html:2
 msgid "Parrainage"
 msgstr ""
 
@@ -446,6 +445,7 @@ msgstr ""
 
 #: officialfest/templates/forum/replyForm.html:22
 #: officialfest/templates/forum/thread.html:25
+#: officialfest/templates/user/user.html:35
 msgid "Niveau Pyramide :"
 msgstr ""
 
@@ -669,5 +669,150 @@ msgstr ""
 
 #: officialfest/templates/forum/thread.html:9
 msgid "fil de discussion"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:6
+msgid "parrainage"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:8
+msgid "Pourquoi parrainer ?"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:11
+#, python-format
+msgid ""
+"Pour gagner des parties <img src=\"/img/design/snow_flake_blue.gif\" "
+"alt=\"\"/>\n"
+"    gratuites ! En devenant parrain, à chaque fois que l&#039;un de vos\n"
+"    filleuls achète des parties sur Hammerfest, vous recevrez\n"
+"    <strong>15%% de son achat en parties supplémentaires</strong>."
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:17
+msgid "Comment parrainer ?"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:20
+msgid ""
+"La méthode la plus simple consiste à demander aux\n"
+"    personnes à qui vous conseillez Hammerfest d&#039;<strong>indiquer "
+"votre pseudonyme\n"
+"        (<em>Igor</em>) dans la case &quot;Parrain&quot; lors de leur\n"
+"        inscription</strong>."
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:26
+msgid "Lien de parrainage"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:29
+msgid ""
+"Si vous souhaitez mettre un lien vers Hammerfest, vous pouvez aussi\n"
+"    utiliser l&#039;adresse ci-dessous.\n"
+"    <br/><br/>\n"
+"    Les personnes qui s&#039;inscriront en\n"
+"    ayant suivi ce lien deviendront automatiquement vos filleuls :"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:40
+msgid "Webmasters et utilisateurs des forums"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:43
+msgid ""
+"<strong>Webmasters et utilisateurs des forums</strong>,\n"
+"    <a href=\"/webmasters.html\">cliquez ici</a> pour voir comment "
+"insérer des jolies\n"
+"    animations sur votre site ou signature de forum!"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:48
+msgid "Liste de vos filleuls"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:54
+msgid "Nom"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:55
+msgid "Parties obtenues"
+msgstr ""
+
+#: officialfest/templates/user/godChildren.html:61
+msgid "aucune !"
+msgstr ""
+
+#: officialfest/templates/user/user.html:2
+msgid "Fiche utilisateur"
+msgstr ""
+
+#: officialfest/templates/user/user.html:5
+msgid "fiche de"
+msgstr ""
+
+#: officialfest/templates/user/user.html:8
+msgid "Nom du joueur"
+msgstr ""
+
+#: officialfest/templates/user/user.html:13
+msgid "E-mail"
+msgstr ""
+
+#: officialfest/templates/user/user.html:21
+msgid "Meilleur score"
+msgstr ""
+
+#: officialfest/templates/user/user.html:24
+msgid "Meilleur niveau"
+msgstr ""
+
+#: officialfest/templates/user/user.html:25
+msgid "Carotte recuperée !"
+msgstr ""
+
+#: officialfest/templates/user/user.html:27
+msgid "Score de la semaine"
+msgstr ""
+
+#: officialfest/templates/user/user.html:30
+msgid "Pyramide"
+msgstr ""
+
+#: officialfest/templates/user/user.html:42
+msgid "Ses dernières paroles au <a href=\"/halloffame.html\">Panthéon</a>"
+msgstr ""
+
+#: officialfest/templates/user/user.html:43
+msgid "Dites le"
+msgstr ""
+
+#: officialfest/templates/user/user.html:53
+msgid "Quêtes completées"
+msgstr ""
+
+#: officialfest/templates/user/user.html:56
+msgid "Aucune quête completée!"
+msgstr ""
+
+#: officialfest/templates/user/user.html:64
+msgid "Quêtes en cours"
+msgstr ""
+
+#: officialfest/templates/user/user.html:67
+msgid "Aucune! Il va falloir jouer plus!"
+msgstr ""
+
+#: officialfest/templates/user/user.html:77
+msgid "Objets du réfrigérateur"
+msgstr ""
+
+#: officialfest/templates/user/user.html:78
+#: officialfest/templates/user/user.html:80
+msgid "objet"
+msgstr ""
+
+#: officialfest/templates/user/user.html:78
+msgid "sur"
 msgstr ""
 
