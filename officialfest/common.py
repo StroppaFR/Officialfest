@@ -12,7 +12,7 @@ def pretty_score_filter(score: int) -> str:
 def pretty_hof_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
-    return format_datetime(date, 'YYYY-MM-dd')
+    return format_datetime(date, 'yyyy-MM-dd')
 
 @bp.app_context_processor
 def inject_lang():

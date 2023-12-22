@@ -12,19 +12,19 @@ bp = Blueprint('forum', __name__, url_prefix='/forum.html')
 def pretty_thread_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
-    return format_datetime(date, 'EEEE dd LLLL YYYY')
+    return format_datetime(date, 'EEEE dd LLLL yyyy')
 
 @bp.app_template_filter('pretty_message_date')
 def pretty_thread_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
-    return format_datetime(date, 'EEEE dd LLL YYYY HH:mm')
+    return format_datetime(date, 'EEEE dd LLL yyyy HH:mm')
 
 @bp.app_template_filter('short_date')
 def short_date_filter(date) -> str:
     if isinstance(date, str):
         date = dateutil.parser.parse(date)
-    return format_datetime(date, 'dd LLL YYYY')
+    return format_datetime(date, 'dd LLL yyyy')
 
 @bp.route('/', methods=['GET'], strict_slashes=False)
 def get_forum():
