@@ -18,6 +18,10 @@ def pretty_hof_date_filter(date) -> str:
 def inject_lang():
     return dict(LANG=current_app.config['LANG'])
 
+@bp.app_context_processor
+def inject_websites_urls():
+    return dict(HAMMERFEST_FR_URL=current_app.config['HAMMERFEST_FR_URL'], HAMMERFEST_ES_URL=current_app.config['HAMMERFEST_ES_URL'], HAMMERFEST_EN_URL=current_app.config['HAMMERFEST_EN_URL'])
+
 @bp.route('/', methods=['GET'])
 @bp.route('/index.html', methods=['GET'])
 def get_index():

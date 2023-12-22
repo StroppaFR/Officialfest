@@ -30,11 +30,12 @@
             <img src="/img/design/icon_play.png" alt=""/>
             <img src="/img/design/icon_play_on.png" alt=""/>
         </div>
-        <div id="creditBanner" style="position:absolute;width:100%;height:62px;background-color:#002855;opacity:0.9;">
+        <div id="creditBanner" style="position:absolute;width:100%;height:80px;background-color:black;opacity:0.8;">
             <div style="width:850px;text-align:center;line-height:20px;color:white;margin:10px;">
                 <span>
                     {{ _("Ce site est une <b>reproduction</b> de www.hammerfest.fr. Il <b>N'EST PAS</b> affilié à Motion Twin (les créateurs d'Hammerfest).<br/>
-                    Il n'est pas possible de jouer à Hammerfest ici. <a href='https://github.com/StroppaFR/Officialfest'>Plus d'infos.</a>") | safe }}
+                    Il n'est pas possible de jouer à Hammerfest ici. <a href='https://github.com/StroppaFR/Officialfest'>Plus d'infos.</a>") | safe }}<br/>
+                    {{ _('Cliquez sur un drapeau pour changer de site :') }} <a style="text-decoration:none" href="{{ HAMMERFEST_FR_URL }}">&#127467;&#127479;</a>&nbsp;&nbsp;<a style="text-decoration:none" href="{{ HAMMERFEST_ES_URL }}">&#127466;&#127480;</a>&nbsp;&nbsp;<a style="text-decoration:none" href="{{ HAMMERFEST_EN_URL }}">&#127482;&#127480;</a></pre>
                 </span>
             </div>
         </div>

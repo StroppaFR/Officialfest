@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-17 01:10+0100\n"
+"POT-Creation-Date: 2023-12-17 01:31+0100\n"
 "PO-Revision-Date: 2023-12-10 00:58+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.13.1\n"
 
-#: officialfest/common.py:67
+#: officialfest/common.py:71
 #, python-format
 msgid "404 : Mode %(mode)s introuvable"
 msgstr "404: Mode %(mode)s not found"
 
-#: officialfest/common.py:77
+#: officialfest/common.py:81
 #, python-format
 msgid "404 : Terrain %(level)s introuvable"
 msgstr "404: Field %(level)s not found"
@@ -97,65 +97,69 @@ msgstr ""
 "You will not be able to play Hammerfest here. <a "
 "href='https://github.com/StroppaFR/Officialfest'>More information.</a>"
 
-#: officialfest/templates/layout.html:53 officialfest/templates/layout.html:55
-#: officialfest/templates/layout.html:94
+#: officialfest/templates/layout.html:38
+msgid "Cliquez sur un drapeau pour changer de site :"
+msgstr "Click on a flag to switch website:"
+
+#: officialfest/templates/layout.html:54 officialfest/templates/layout.html:56
+#: officialfest/templates/layout.html:95
 msgid "Plus de Parties"
 msgstr "More games"
 
-#: officialfest/templates/layout.html:56
+#: officialfest/templates/layout.html:57
 msgid "Flocons"
 msgstr "Snowflakes"
 
-#: officialfest/templates/layout.html:60
+#: officialfest/templates/layout.html:61
 msgid "Voir ma Position"
 msgstr "See my Position"
 
-#: officialfest/templates/layout.html:60
+#: officialfest/templates/layout.html:61
 msgid "Position :"
 msgstr "Position:"
 
 #: officialfest/templates/forum/replyForm.html:20
 #: officialfest/templates/forum/thread.html:23
-#: officialfest/templates/layout.html:64
+#: officialfest/templates/layout.html:65
 #: officialfest/templates/user/user.html:33
 msgid "Le Panthéon !"
 msgstr "The Hall of Fame!"
 
-#: officialfest/templates/layout.html:79
+#: officialfest/templates/layout.html:80
 msgid "Jouer"
 msgstr "Play"
 
-#: officialfest/templates/layout.html:82
+#: officialfest/templates/layout.html:83
 msgid "Réfrigérateur"
 msgstr "Fridge"
 
-#: officialfest/templates/layout.html:85
+#: officialfest/templates/layout.html:86
 #: officialfest/templates/user/user.html:52
 msgid "Quêtes"
 msgstr "Quests"
 
-#: officialfest/templates/layout.html:88
+#: officialfest/templates/layout.html:89
 msgid "Score"
 msgstr "Score"
 
-#: officialfest/templates/layout.html:88
+#: officialfest/templates/layout.html:89
 msgid "Classement"
 msgstr "Score"
 
-#: officialfest/templates/layout.html:91
+#: officialfest/templates/layout.html:92
 msgid "Mon compte"
 msgstr "My account"
 
-#: officialfest/templates/layout.html:97
+#: officialfest/templates/layout.html:98
 #: officialfest/templates/user/godChildren.html:2
 msgid "Parrainage"
 msgstr ""
 
-#: officialfest/templates/layout.html:100
+#: officialfest/templates/layout.html:101
 msgid "Quitter le site ?"
 msgstr ""
 
-#: officialfest/templates/layout.html:100
+#: officialfest/templates/layout.html:101
 msgid "Déconnecter"
 msgstr "Disconnect"
 
@@ -166,23 +170,23 @@ msgstr "Disconnect"
 #: officialfest/templates/forum/search.html:6
 #: officialfest/templates/forum/theme.html:2
 #: officialfest/templates/forum/theme.html:6
-#: officialfest/templates/layout.html:103
+#: officialfest/templates/layout.html:104
 msgid "Forum"
 msgstr "Forum"
 
-#: officialfest/templates/layout.html:111
+#: officialfest/templates/layout.html:112
 msgid "guide du jeu"
 msgstr "game guide"
 
-#: officialfest/templates/layout.html:112
+#: officialfest/templates/layout.html:113
 msgid "règlement"
 msgstr "rules"
 
-#: officialfest/templates/layout.html:113
+#: officialfest/templates/layout.html:114
 msgid "FAQ et contact"
 msgstr "FAQ and contact"
 
-#: officialfest/templates/layout.html:114
+#: officialfest/templates/layout.html:115
 msgid "Igor aime Firefox"
 msgstr "Igor loves firefox"
 
