@@ -29,9 +29,9 @@
             </tr>
             <tr>
                 <td><label>{{ _("Posté entre le") }}</label></td>
-                <td><input type="date" value="{{ from_date }}" min="{{ from_date }}" max="{{ to_date }}" name="from_date" size="8" max/></td>
+                <td><input type="date" value="{{ from_date }}" min="{{ min_date }}" max="{{ max_date }}" name="from_date" size="8" max/></td>
                 <td style="text-align:center;"><label>{{ _("et le") }}</label></td>
-                <td><input type="date" value="{{ to_date }}" min="{{ from_date }}" max="{{ to_date }}" name="to_date" size="8" max/></td>
+                <td><input type="date" value="{{ to_date }}" min="{{ min_date }}" max="{{ max_date }}" name="to_date" size="8" max/></td>
             </tr>
             <tr>
                 <td colspan="5"><input type="submit" value="Rechercher" class="forumButton"/></td>
