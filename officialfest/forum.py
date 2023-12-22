@@ -219,8 +219,8 @@ def get_search():
 
     # If no parameters is supplied, render default search page
     if not search_arg and not author_arg and not from_date_arg and not to_date_arg:
-        return render_template('forum/search.html', min_date=FORUM_SEARCH_DEFAULT_MIN_DATE.strftime(FORUM_SEARCH_DATE_FORMAT),
-                               max_date=FORUM_SEARCH_DEFAULT_MAX_DATE.strftime(FORUM_SEARCH_DATE_FORMAT))
+        return render_template('forum/search.html', from_date=FORUM_SEARCH_DEFAULT_MIN_DATE.strftime(FORUM_SEARCH_DATE_FORMAT),
+                               to_date=FORUM_SEARCH_DEFAULT_MAX_DATE.strftime(FORUM_SEARCH_DATE_FORMAT))
 
     # Parse date arguments
     from_date = FORUM_SEARCH_DEFAULT_MIN_DATE
@@ -299,7 +299,6 @@ def get_search():
     # Remove duplicates
     found_strings = set(found_strings)
     # Avoid DoS
-    print(FORUM_SEARCH_MAX_STRINGS)
     if len(found_strings) > FORUM_SEARCH_MAX_STRINGS:
         return render_template('evni.html', error=gettext('403 : trop de filtres dans la recherche ; merci de vous limiter à %(max_strings)d filtres maximum !', max_strings=FORUM_SEARCH_MAX_STRINGS)), 403
 
@@ -341,5 +340,6 @@ def get_search():
     filter_statement_parameters.append(FORUM_SEARCH_MAX_RESULTS)
     results = db.execute(query, filter_statement_parameters).fetchall()
 
-    return render_template('forum/search_results.html', results=results, search_arg=search_arg, author=username, from_date=from_date, to_date=to_date,
+    return render_template('forum/search_results.html', results=results, search=search_arg, author=username,
+                           from_date=from_date.strftime(FORUM_SEARCH_DATE_FORMAT), to_date=to_date.strftime(FORUM_SEARCH_DATE_FORMAT),
                            author_id=user_id, max_results=FORUM_SEARCH_MAX_RESULTS, max_reached=(len(results) == FORUM_SEARCH_MAX_RESULTS))

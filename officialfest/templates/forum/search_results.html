@@ -3,12 +3,16 @@
 {% block site_content %}
 <div class="siteMinHeight">
     <div class="forum">
-        <h1><a href="/forum.html">Forum</a> :: {{ _("recherche") }}</h1>
+        <h1><a href="/forum.html">{{ _("Forum") }}</a> :: {{ _("recherche") }}</h1>
+        
+        {% include "forum/search_form.html" %}
+
+        <h1></h1>
 
         <h3>{{ _("Paramètres de votre recherche :") }}</h3>
         <p class="info">
-        {% if search_arg %}
-        {{ _("Contenu :") }} {{ search_arg }}<br>
+        {% if search %}
+        {{ _("Contenu :") }} {{ search }}<br>
         {% endif %}
         {% if (from_date | pretty_thread_date) == (to_date | pretty_thread_date) %}
         {{ _("Posté") }} {% if author %}{{ _("par") }} <a href="/user.html/{{ author_id }}">{{ author }}</a> {% endif %}{{ _("le") }} {{ from_date | pretty_thread_date }}.
@@ -17,7 +21,7 @@
         {% endif %}
         </p>
 
-        <h3>{{ _("Résultat de votre recherche") }} {% if max_reached %}({{ _("limité aux") }} {{ max_results }} {{ _("résultats les plus récents") }}){% else %}({{ results | length }} {{ _("message") }}{% if (results | length) > 1 %}s{% endif%}){% endif %}:</h3>
+        <h3>{{ _("Résultat de votre recherche") }} {% if max_reached %}({{ _("limité aux") }} {{ max_results }} {{ _("résultats les plus récents") }}){% else %}({{ results | length }} {{ _("message") }}{% if (results | length) > 1 %}s{% endif%}){% endif %} :</h3>
         <table class="searchResult">
             <tr>
                 <th>{{ _("Sujet") }}</th>

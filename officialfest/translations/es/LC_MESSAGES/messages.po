@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-17 01:31+0100\n"
+"POT-Creation-Date: 2023-12-21 00:07+0100\n"
 "PO-Revision-Date: 2023-12-10 01:01+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -28,24 +28,24 @@ msgstr "404 : Modo %(mode)s no encontrado"
 msgid "404 : Terrain %(level)s introuvable"
 msgstr "404 : Tierra %(level)s no encontrado"
 
-#: officialfest/forum.py:49 officialfest/forum.py:153
+#: officialfest/forum.py:50 officialfest/forum.py:154
 msgid "404 : Thème introuvable"
 msgstr "404 : Tema no encontrado"
 
-#: officialfest/forum.py:52 officialfest/forum.py:111 officialfest/forum.py:131
-#: officialfest/forum.py:156 officialfest/forum.py:176
+#: officialfest/forum.py:53 officialfest/forum.py:112 officialfest/forum.py:132
+#: officialfest/forum.py:157 officialfest/forum.py:177
 msgid "403 : Accès interdit"
 msgstr "403 : Acceso prohibido"
 
-#: officialfest/forum.py:108 officialfest/forum.py:173
+#: officialfest/forum.py:109 officialfest/forum.py:174
 msgid "404 : Thread introuvable"
 msgstr "404 : Hilo no encontrado"
 
-#: officialfest/forum.py:128
+#: officialfest/forum.py:129
 msgid "404 : Message introuvable"
 msgstr "404 : Mensaje no encontrado"
 
-#: officialfest/forum.py:245
+#: officialfest/forum.py:246
 #, python-format
 msgid "404 : Utilisateur %(author)s introuvable"
 msgstr "404 : Usuario %(author)s no encontrado"
@@ -170,6 +170,7 @@ msgstr "Desconectarse"
 #: officialfest/templates/forum/forum.html:6
 #: officialfest/templates/forum/replyForm.html:7
 #: officialfest/templates/forum/search.html:6
+#: officialfest/templates/forum/search_results.html:6
 #: officialfest/templates/forum/theme.html:2
 #: officialfest/templates/forum/theme.html:6
 #: officialfest/templates/layout.html:104
@@ -521,29 +522,7 @@ msgstr "Foro (buscar)"
 msgid "recherche"
 msgstr "buscar"
 
-#: officialfest/templates/forum/search.html:10
-msgid "Cette page vous permet de rechercher des messages dans le forum."
-msgstr "Aquí puedes buscar mensajes en el foro."
-
-#: officialfest/templates/forum/search.html:30
-#: officialfest/templates/forum/search_results.html:11
-msgid "Contenu :"
-msgstr "Contenido:"
-
-#: officialfest/templates/forum/search.html:34
-msgid "Auteur :"
-msgstr "Autor"
-
-#: officialfest/templates/forum/search.html:38
-msgid "Posté entre le"
-msgstr "Publicado entre el"
-
-#: officialfest/templates/forum/search.html:40
-#: officialfest/templates/forum/search_results.html:16
-msgid "et le"
-msgstr "y et"
-
-#: officialfest/templates/forum/search.html:54
+#: officialfest/templates/forum/search.html:13
 msgid ""
 "Vous pouvez <strong>affiner</strong> votre recherche en utilisant les "
 "signes\n"
@@ -553,23 +532,23 @@ msgstr ""
 "Puedes <strong>afinar</strong> tu búsqueda con los signos <code>+</code>\n"
 "        y <code>-</code> delante de cada palabra de búsqueda."
 
-#: officialfest/templates/forum/search.html:59
+#: officialfest/templates/forum/search.html:18
 msgid "Quelques exemples de recherche :"
 msgstr "Algunos ejemplos:"
 
-#: officialfest/templates/forum/search.html:62
+#: officialfest/templates/forum/search.html:21
 msgid "quête"
 msgstr "exploración"
 
-#: officialfest/templates/forum/search.html:63
+#: officialfest/templates/forum/search.html:22
 msgid "rechercher tous les messages traitant de <span>quête</span>"
 msgstr "busca los mensajes en los que sale la palabra <span>exploración</span>"
 
-#: officialfest/templates/forum/search.html:65
+#: officialfest/templates/forum/search.html:24
 msgid "quête réfrigérateur"
 msgstr "frigo frigorífico"
 
-#: officialfest/templates/forum/search.html:66
+#: officialfest/templates/forum/search.html:25
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> OU de "
 "<span>réfrigérateur</span>"
@@ -577,11 +556,11 @@ msgstr ""
 "busca los mensajes en los que salen las palabras <span>frigo</span> O "
 "<span>frigorífico</span>"
 
-#: officialfest/templates/forum/search.html:68
+#: officialfest/templates/forum/search.html:27
 msgid "+quête +réfrigérateur"
 msgstr "+exploración +frigorífico"
 
-#: officialfest/templates/forum/search.html:69
+#: officialfest/templates/forum/search.html:28
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> ET de "
 "<span>réfrigérateur</span>"
@@ -589,11 +568,11 @@ msgstr ""
 "busca los mensajes en los que salen las palabras <span>exploración</span>"
 " Y <span>frigorífico</span>"
 
-#: officialfest/templates/forum/search.html:71
+#: officialfest/templates/forum/search.html:30
 msgid "+quête -réfrigérateur"
 msgstr "+exploración -frigorífico"
 
-#: officialfest/templates/forum/search.html:72
+#: officialfest/templates/forum/search.html:31
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> MAIS PAS de "
 "<span>réfrigérateur</span>"
@@ -601,11 +580,11 @@ msgstr ""
 "busca los mensajes en los que sale la palabra <span>exploración</span> "
 "PERO NO <span>frigorífico</span>"
 
-#: officialfest/templates/forum/search.html:74
+#: officialfest/templates/forum/search.html:33
 msgid "+quête +\"je les ai tous trouvés\""
 msgstr "+exploración +\"ya las tengo todas\""
 
-#: officialfest/templates/forum/search.html:75
+#: officialfest/templates/forum/search.html:34
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> et contenant "
 "texto \"<span>je les ai tous trouvés</span>\""
@@ -613,59 +592,81 @@ msgstr ""
 "busca los mensajes en los que sale la palabra <span>exploración</span> y "
 "contienen el texto \"<span>ya las tengo todas</span>\""
 
-#: officialfest/templates/forum/search_results.html:8
+#: officialfest/templates/forum/search_form.html:2
+msgid "Cette page vous permet de rechercher des messages dans le forum."
+msgstr "Aquí puedes buscar mensajes en el foro."
+
+#: officialfest/templates/forum/search_form.html:23
+#: officialfest/templates/forum/search_results.html:15
+msgid "Contenu :"
+msgstr "Contenido:"
+
+#: officialfest/templates/forum/search_form.html:27
+msgid "Auteur :"
+msgstr "Autor"
+
+#: officialfest/templates/forum/search_form.html:31
+msgid "Posté entre le"
+msgstr "Publicado entre el"
+
+#: officialfest/templates/forum/search_form.html:33
+#: officialfest/templates/forum/search_results.html:20
+msgid "et le"
+msgstr "y et"
+
+#: officialfest/templates/forum/search_results.html:12
 msgid "Paramètres de votre recherche :"
 msgstr "Parámetros de tu búsqueda:"
 
-#: officialfest/templates/forum/search_results.html:14
-#: officialfest/templates/forum/search_results.html:16
+#: officialfest/templates/forum/search_results.html:18
+#: officialfest/templates/forum/search_results.html:20
 msgid "Posté"
 msgstr "Publicado"
 
-#: officialfest/templates/forum/search_results.html:14
-#: officialfest/templates/forum/search_results.html:16
+#: officialfest/templates/forum/search_results.html:18
+#: officialfest/templates/forum/search_results.html:20
 msgid "par"
 msgstr "por"
 
-#: officialfest/templates/forum/search_results.html:14
+#: officialfest/templates/forum/search_results.html:18
 msgid "le"
 msgstr "el"
 
-#: officialfest/templates/forum/search_results.html:16
+#: officialfest/templates/forum/search_results.html:20
 msgid "entre le"
 msgstr "entre el"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "Résultat de votre recherche"
 msgstr "Resultados de tu búsqueda"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "limité aux"
 msgstr "limitados a los"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "résultats les plus récents"
 msgstr "resultados más recientes"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "message"
 msgstr "mensajes"
 
-#: officialfest/templates/forum/search_results.html:23
+#: officialfest/templates/forum/search_results.html:27
 #: officialfest/templates/forum/theme.html:17
 msgid "Sujet"
 msgstr "Tema"
 
-#: officialfest/templates/forum/search_results.html:24
+#: officialfest/templates/forum/search_results.html:28
 #: officialfest/templates/forum/theme.html:18
 msgid "Auteur"
 msgstr "Autor"
 
-#: officialfest/templates/forum/search_results.html:25
+#: officialfest/templates/forum/search_results.html:29
 msgid "Date"
 msgstr "Fecha"
 
-#: officialfest/templates/forum/search_results.html:26
+#: officialfest/templates/forum/search_results.html:30
 msgid "Voir"
 msgstr "Avance"
 
@@ -883,3 +884,4 @@ msgstr "objeto"
 #: officialfest/templates/user/user.html:78
 msgid "sur"
 msgstr "de"
+

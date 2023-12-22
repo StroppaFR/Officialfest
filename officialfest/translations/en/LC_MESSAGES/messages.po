@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-17 01:31+0100\n"
+"POT-Creation-Date: 2023-12-21 00:07+0100\n"
 "PO-Revision-Date: 2023-12-10 00:58+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -28,24 +28,24 @@ msgstr "404: Mode %(mode)s not found"
 msgid "404 : Terrain %(level)s introuvable"
 msgstr "404: Field %(level)s not found"
 
-#: officialfest/forum.py:49 officialfest/forum.py:153
+#: officialfest/forum.py:50 officialfest/forum.py:154
 msgid "404 : Thème introuvable"
 msgstr "404: Theme not found"
 
-#: officialfest/forum.py:52 officialfest/forum.py:111 officialfest/forum.py:131
-#: officialfest/forum.py:156 officialfest/forum.py:176
+#: officialfest/forum.py:53 officialfest/forum.py:112 officialfest/forum.py:132
+#: officialfest/forum.py:157 officialfest/forum.py:177
 msgid "403 : Accès interdit"
 msgstr "403: Access denied"
 
-#: officialfest/forum.py:108 officialfest/forum.py:173
+#: officialfest/forum.py:109 officialfest/forum.py:174
 msgid "404 : Thread introuvable"
 msgstr "404: Thread not found"
 
-#: officialfest/forum.py:128
+#: officialfest/forum.py:129
 msgid "404 : Message introuvable"
 msgstr "404: Message not found"
 
-#: officialfest/forum.py:245
+#: officialfest/forum.py:246
 #, python-format
 msgid "404 : Utilisateur %(author)s introuvable"
 msgstr "404: User %(author)s not found"
@@ -168,6 +168,7 @@ msgstr "Disconnect"
 #: officialfest/templates/forum/forum.html:6
 #: officialfest/templates/forum/replyForm.html:7
 #: officialfest/templates/forum/search.html:6
+#: officialfest/templates/forum/search_results.html:6
 #: officialfest/templates/forum/theme.html:2
 #: officialfest/templates/forum/theme.html:6
 #: officialfest/templates/layout.html:104
@@ -502,29 +503,7 @@ msgstr "Forum (search)"
 msgid "recherche"
 msgstr "search"
 
-#: officialfest/templates/forum/search.html:10
-msgid "Cette page vous permet de rechercher des messages dans le forum."
-msgstr "This pages allows you to search for messages in the forum."
-
-#: officialfest/templates/forum/search.html:30
-#: officialfest/templates/forum/search_results.html:11
-msgid "Contenu :"
-msgstr "Content:"
-
-#: officialfest/templates/forum/search.html:34
-msgid "Auteur :"
-msgstr "Author:"
-
-#: officialfest/templates/forum/search.html:38
-msgid "Posté entre le"
-msgstr "Posted between"
-
-#: officialfest/templates/forum/search.html:40
-#: officialfest/templates/forum/search_results.html:16
-msgid "et le"
-msgstr "and"
-
-#: officialfest/templates/forum/search.html:54
+#: officialfest/templates/forum/search.html:13
 msgid ""
 "Vous pouvez <strong>affiner</strong> votre recherche en utilisant les "
 "signes\n"
@@ -535,43 +514,43 @@ msgstr ""
 "        <code>+</code> and <code>-</code> signs before each\n"
 " word of your search."
 
-#: officialfest/templates/forum/search.html:59
+#: officialfest/templates/forum/search.html:18
 msgid "Quelques exemples de recherche :"
 msgstr "A few search examples:"
 
-#: officialfest/templates/forum/search.html:62
+#: officialfest/templates/forum/search.html:21
 msgid "quête"
 msgstr "quest"
 
-#: officialfest/templates/forum/search.html:63
+#: officialfest/templates/forum/search.html:22
 msgid "rechercher tous les messages traitant de <span>quête</span>"
 msgstr "search for all messages about <span>quest</span>"
 
-#: officialfest/templates/forum/search.html:65
+#: officialfest/templates/forum/search.html:24
 msgid "quête réfrigérateur"
 msgstr "quest fridge"
 
-#: officialfest/templates/forum/search.html:66
+#: officialfest/templates/forum/search.html:25
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> OU de "
 "<span>réfrigérateur</span>"
 msgstr "search for all messages about <span>quest</span> OR <span>fridge</span>"
 
-#: officialfest/templates/forum/search.html:68
+#: officialfest/templates/forum/search.html:27
 msgid "+quête +réfrigérateur"
 msgstr "+quest +fridge"
 
-#: officialfest/templates/forum/search.html:69
+#: officialfest/templates/forum/search.html:28
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> ET de "
 "<span>réfrigérateur</span>"
 msgstr "search for all messages about <span>quest</span> AND <span>fridge</span>"
 
-#: officialfest/templates/forum/search.html:71
+#: officialfest/templates/forum/search.html:30
 msgid "+quête -réfrigérateur"
 msgstr "+quest -fridge"
 
-#: officialfest/templates/forum/search.html:72
+#: officialfest/templates/forum/search.html:31
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> MAIS PAS de "
 "<span>réfrigérateur</span>"
@@ -579,11 +558,11 @@ msgstr ""
 "search for all messages about <span>quest</span> BUT NOT "
 "<span>fridge</span>"
 
-#: officialfest/templates/forum/search.html:74
+#: officialfest/templates/forum/search.html:33
 msgid "+quête +\"je les ai tous trouvés\""
 msgstr "+quest +\"i've found them all\""
 
-#: officialfest/templates/forum/search.html:75
+#: officialfest/templates/forum/search.html:34
 msgid ""
 "rechercher tous les messages traitant de <span>quête</span> et contenant "
 "texto \"<span>je les ai tous trouvés</span>\""
@@ -591,59 +570,81 @@ msgstr ""
 "search for all messages about <span>quest</span> and including \"i've "
 "found them all\" verbatim"
 
-#: officialfest/templates/forum/search_results.html:8
+#: officialfest/templates/forum/search_form.html:2
+msgid "Cette page vous permet de rechercher des messages dans le forum."
+msgstr "This pages allows you to search for messages in the forum."
+
+#: officialfest/templates/forum/search_form.html:23
+#: officialfest/templates/forum/search_results.html:15
+msgid "Contenu :"
+msgstr "Content:"
+
+#: officialfest/templates/forum/search_form.html:27
+msgid "Auteur :"
+msgstr "Author:"
+
+#: officialfest/templates/forum/search_form.html:31
+msgid "Posté entre le"
+msgstr "Posted between"
+
+#: officialfest/templates/forum/search_form.html:33
+#: officialfest/templates/forum/search_results.html:20
+msgid "et le"
+msgstr "and"
+
+#: officialfest/templates/forum/search_results.html:12
 msgid "Paramètres de votre recherche :"
 msgstr "Search parameters:"
 
-#: officialfest/templates/forum/search_results.html:14
-#: officialfest/templates/forum/search_results.html:16
+#: officialfest/templates/forum/search_results.html:18
+#: officialfest/templates/forum/search_results.html:20
 msgid "Posté"
 msgstr "Posted"
 
-#: officialfest/templates/forum/search_results.html:14
-#: officialfest/templates/forum/search_results.html:16
+#: officialfest/templates/forum/search_results.html:18
+#: officialfest/templates/forum/search_results.html:20
 msgid "par"
 msgstr "by"
 
-#: officialfest/templates/forum/search_results.html:14
+#: officialfest/templates/forum/search_results.html:18
 msgid "le"
 msgstr "on"
 
-#: officialfest/templates/forum/search_results.html:16
+#: officialfest/templates/forum/search_results.html:20
 msgid "entre le"
 msgstr "between"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "Résultat de votre recherche"
 msgstr "Search results"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "limité aux"
 msgstr "limited to"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "résultats les plus récents"
 msgstr "most recent results"
 
-#: officialfest/templates/forum/search_results.html:20
+#: officialfest/templates/forum/search_results.html:24
 msgid "message"
 msgstr "message"
 
-#: officialfest/templates/forum/search_results.html:23
+#: officialfest/templates/forum/search_results.html:27
 #: officialfest/templates/forum/theme.html:17
 msgid "Sujet"
 msgstr "Subject"
 
-#: officialfest/templates/forum/search_results.html:24
+#: officialfest/templates/forum/search_results.html:28
 #: officialfest/templates/forum/theme.html:18
 msgid "Auteur"
 msgstr "Author"
 
-#: officialfest/templates/forum/search_results.html:25
+#: officialfest/templates/forum/search_results.html:29
 msgid "Date"
 msgstr "Date"
 
-#: officialfest/templates/forum/search_results.html:26
+#: officialfest/templates/forum/search_results.html:30
 msgid "Voir"
 msgstr "Preview"
 
