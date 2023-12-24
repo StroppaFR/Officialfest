@@ -8,6 +8,8 @@
         <dt>{{ _('Nom du joueur') }}</dt>
         <dd>{{ user.username }}</dd>
 
+        {#
+        For privacy reasons, don't show the email address
         {% if user.email %}
         <dt>
             {{ _('E-mail') }}
@@ -16,6 +18,7 @@
             <a href="mailto:{{ user.email }}">{{ user.email }}</a>
         </dd>
         {% endif %}
+        #}
 
 
         <dt>{{ _('Meilleur score') }}</dt>

@@ -55,7 +55,7 @@ gunicorn 'officialfest:create_app()'
 - most of the original pages / routes are implemented,
 - most if not all static content (images, css, etc.) should be there too,
 - access to user public data through /user.html/[id]
-- access to public and private forum threads and messages
+- access to public forum threads and messages
 - access to public rankings
 
 ## Features that will not be implemented 
@@ -69,6 +69,7 @@ Again, you will not be able to play the game with this server. Also, since this 
 
 ## Other differences with the original website
 
+- user profile doesn't show email address
 - banner shows non-affiliation with Motion Twin
 - forum displays the year when a message was posted
 - search function parameters include author and dates
@@ -79,6 +80,6 @@ Again, you will not be able to play the game with this server. Also, since this 
 
 ## TODO
 
-- Implement missing routes (see TODO in code)
+- Implement missing routes (see TODOs in code)
 - Implement access to private forum themes
-- Add missing translations to EN and ES
+- Add missing ES / EN translations
