@@ -78,7 +78,7 @@
 
     <div class="profileItems">
         <h3>{{ _('Objets du réfrigérateur') }}</h3>
-        <h4><span>{{ user_items | length }}</span> {{ _('objet') }}{% if user_items | length %}<span class="sspecial">s</span>{% endif %} {{ _('sur') }} <span>353</span></h4>
+        <h4><span>{{ user_items | length }}</span> {{ _('objet') }}{% if user_items | length %}<span class="sspecial">s</span>{% endif %} {{ _('sur') }} <span>{{ ALL_ITEMS | length }}</span></h4>
         <div>
             {% for item in ALL_ITEMS %}{% if item in user_items %}<img alt="{{ _('objet') }}" src="/img/items/small/{{ item }}.gif"/>{% else %}<img alt="{{ _('objet') }}" src="/img/items/small/a.gif"/>{% endif %}{% endfor %}
         </div>
