@@ -4,8 +4,7 @@ from flask_babel import Babel
 from officialfest import items_data
 
 def page_not_found(e):
-    # TODO: translations
-    return render_template('evni.html', error='404 : Page introuvable'), 404
+    return render_template('evni.html', error=gettext('404 : Page introuvable')), 404
 
 def create_app(test_config=None):
     # create and configure the app

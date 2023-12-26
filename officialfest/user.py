@@ -65,7 +65,6 @@ def show_profile(user_id):
 def get_inventory():
     return render_template('evni.html', error=gettext('501 : Pas encore implémenté')), 501
 
-# TODO: show full quests
 @bp.route('/quests', methods=['GET'])
 def get_quests():
     return render_template('user/quests.html')
