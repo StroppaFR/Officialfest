@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 from officialfest import items_data
 
 def page_not_found(e):

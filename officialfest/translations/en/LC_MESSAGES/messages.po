@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-26 21:01+0100\n"
+"POT-Creation-Date: 2023-12-26 23:08+0100\n"
 "PO-Revision-Date: 2023-12-10 00:58+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -61,13 +61,9 @@ msgid ""
 "%(max_strings)d filtres maximum !"
 msgstr "403: too many search filters; please use %(max_strings)d filters maximum!"
 
-#: officialfest/user.py:41
+#: officialfest/user.py:45
 msgid "404 : Utilisateur introuvable"
 msgstr "404: User not found"
-
-#: officialfest/user.py:66
-msgid "501 : Pas encore implémenté"
-msgstr "501: Not yet implemented"
 
 #: officialfest/templates/evni.html:5
 msgid "Ooops !"
@@ -773,6 +769,59 @@ msgstr ""
 msgid "aucune !"
 msgstr "none!"
 
+#: officialfest/templates/user/inventory.html:2
+msgid "Inventaire"
+msgstr "Inventory"
+
+#: officialfest/templates/user/inventory.html:5
+msgid "réfrigérateur"
+msgstr "fridge"
+
+#: officialfest/templates/user/inventory.html:7
+msgid "Le frigo d'Igor"
+msgstr "Igor's fridge"
+
+#: officialfest/templates/user/inventory.html:10
+msgid ""
+"Le réfrigérateur d'Igor est l'endroit où il conserve les objets\n"
+"            ramassés en jeu. Dans la plupart des cas, <strong>vous devez "
+"avoir trouvé au moins 10\n"
+"                fois un objet pour le débloquer complètement !</strong>"
+msgstr ""
+
+#: officialfest/templates/user/inventory.html:15
+msgid ""
+"Une fois débloqué, un objet sera <strong>visible par tous sur votre\n"
+"                <a href=\"/user.html/0\">fiche publique</a></strong>, et "
+"vous pourrez\n"
+"            l'afficher dans <strong>vos messages sur le\n"
+"                <a href=\"/forum.html\">forum</a></strong> !"
+msgstr ""
+
+#: officialfest/templates/user/inventory.html:26
+msgid "Nombre d'objets découverts"
+msgstr ""
+
+#: officialfest/templates/user/inventory.html:31
+msgid "Nombre de familles complétées"
+msgstr ""
+
+#: officialfest/templates/user/inventory.html:34
+msgid "famille(s) sur"
+msgstr ""
+
+#: officialfest/templates/user/inventory.html:42
+msgid "Collection"
+msgstr ""
+
+#: officialfest/templates/user/inventory.html:46
+msgid "Famille"
+msgstr "Family"
+
+#: officialfest/templates/user/inventory.html:52
+msgid "Famille complète !"
+msgstr "Family completed!"
+
 #: officialfest/templates/user/quests.html:5
 msgid "quêtes"
 msgstr "quests"
@@ -864,4 +913,3 @@ msgstr "item"
 #: officialfest/templates/user/user.html:81
 msgid "sur"
 msgstr "of"
-

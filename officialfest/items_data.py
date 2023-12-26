@@ -4,6 +4,7 @@ class Item:
     def __init__(self, item_id, rarity):
         self.item_id = item_id
         self.rarity = rarity
+        self.unlock = 10
         self.name = 'UNKNOWN ITEM'
 
 class Quest:
@@ -38,6 +39,8 @@ def load_data(app, lang):
                     if child.tag != 'item':
                         continue
                     new_item = Item(int(child.get('id')), int(child.get('rarity')))
+                    if child.get('unlock'):
+                        new_item.unlock = int(child.get('unlock'))
                     new_family.items.append(new_item)
                     ALL_ITEMS[new_item.item_id] = new_item
                 ALL_FAMILIES[new_family.family_id] = new_family

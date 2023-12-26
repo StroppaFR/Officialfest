@@ -80,6 +80,5 @@ Again, you will not be able to play the game with this server. Also, since this 
 
 ## TODO
 
-- Implement missing routes (see TODOs in code)
 - Implement access to private forum themes
 - Add missing ES / EN translations

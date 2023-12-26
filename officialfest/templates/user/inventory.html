@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% block title %} - {{ _('Inventaire') }}{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+    <h1><strong>{{ _('réfrigérateur') }}</strong></h1>
+    <dl class="introFridge">
+        <dt><img src="../img/design/frigo.jpg" alt="{{ _('Le frigo d\'Igor') }}"/></dt>
+        <dd>
+            <p>
+            {{ _("Le réfrigérateur d'Igor est l'endroit où il conserve les objets
+            ramassés en jeu. Dans la plupart des cas, <strong>vous devez avoir trouvé au moins 10
+                fois un objet pour le débloquer complètement !</strong>") | safe }}
+            </p>
+            <p>
+            {{ _("Une fois débloqué, un objet sera <strong>visible par tous sur votre
+                <a href=\"/user.html/0\">fiche publique</a></strong>, et vous pourrez
+            l'afficher dans <strong>vos messages sur le
+                <a href=\"/forum.html\">forum</a></strong> !") | safe }}
+            </p>
+        </dd>
+    </dl>
+    <div class="clear"></div>
+
+    <dl>
+        <dt class="statusFridge">
+            {{ _('Nombre d\'objets découverts') }}
+        </dt>
+        <dd class="numberFridge"> {{ ALL_ITEMS | length - 1 }} </dd>
+
+        <dt class="statusFridge">
+            {{ _('Nombre de familles complétées') }}
+        </dt>
+        <dd class="numberFridge">
+            {{ ALL_FAMILIES | length - 1 }} <span>{{ _('famille(s) sur') }}</span> {{ ALL_FAMILIES | length }}
+        </dd>
+    </dl>
+
+    <div class="clear lineFridge"></div>
+
+
+    {% for family_id, family in ALL_FAMILIES.items() %}
+    <table summary="{{ _('Collection') }}" class="fridge">
+        <thead>
+            <tr>
+                <th colspan="3">
+                    {{ _('Famille') }} <span>{{ family.name }}</span>
+                </th>
+                <th class="familyStatus">
+                    {% if family_id == 0 %}
+                    <em>(15 / 16)</em>
+                    {% else %}
+                    <strong>({{ _('Famille complète !') }})</strong>
+                    {% endif %}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in family.items %}
+            {% if item.item_id != 115 %}
+            <tr>
+                <td class="item">
+                    <img src="/img/items/{{ item.item_id }}.gif" alt="{{ item.name }}" title="{{ item.name }}"/>
+                </td>
+                <td class="quantity known">x{{ item.unlock }}</td>
+                <td class="name">
+                    <span class="known">{{ item.name }}</span>
+                </td>
+                <td></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

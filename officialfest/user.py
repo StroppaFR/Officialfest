@@ -2,7 +2,7 @@ from flask import Blueprint, redirect, render_template
 from flask_babel import gettext
 from itertools import chain
 from officialfest.db import get_db
-from officialfest.items_data import ALL_ITEMS, ALL_QUESTS
+from officialfest.items_data import ALL_ITEMS, ALL_QUESTS, ALL_FAMILIES
 
 bp = Blueprint('user', __name__, url_prefix='/user.html')
 
@@ -13,6 +13,10 @@ def inject_all_items():
 @bp.app_context_processor
 def inject_all_quests():
     return dict(ALL_QUESTS=ALL_QUESTS)
+
+@bp.app_context_processor
+def inject_all_families():
+    return dict(ALL_FAMILIES=ALL_FAMILIES)
 
 @bp.route('/', methods=['GET'], strict_slashes=False)
 def get_user_account():
@@ -60,10 +64,9 @@ def show_profile(user_id):
     return render_template('user/user.html', user=user, user_items=user_items,
                            completed_quests=completed_quests, current_quests=current_quests)
 
-# TODO: show full fridge
 @bp.route('/inventory', methods=['GET'])
 def get_inventory():
-    return render_template('evni.html', error=gettext('501 : Pas encore implémenté')), 501
+    return render_template('user/inventory.html')
 
 @bp.route('/quests', methods=['GET'])
 def get_quests():

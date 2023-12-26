@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-26 21:01+0100\n"
+"POT-Creation-Date: 2023-12-26 23:08+0100\n"
 "PO-Revision-Date: 2023-12-10 01:01+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -63,13 +63,9 @@ msgstr ""
 "403 : Demasiados filtros en la búsqueda ; por favor limítese a 5 filtros "
 "como máximo !"
 
-#: officialfest/user.py:41
+#: officialfest/user.py:45
 msgid "404 : Utilisateur introuvable"
 msgstr "404 : Usuario no encontrado"
-
-#: officialfest/user.py:66
-msgid "501 : Pas encore implémenté"
-msgstr "501 : Aun no implementado"
 
 #: officialfest/templates/evni.html:5
 msgid "Ooops !"
@@ -817,6 +813,65 @@ msgstr "Partidas obtenidas"
 msgid "aucune !"
 msgstr "¡ninguna!"
 
+#: officialfest/templates/user/inventory.html:2
+msgid "Inventaire"
+msgstr "Inventario"
+
+#: officialfest/templates/user/inventory.html:5
+msgid "réfrigérateur"
+msgstr "frigorífico"
+
+#: officialfest/templates/user/inventory.html:7
+msgid "Le frigo d'Igor"
+msgstr "El frigo de Igor"
+
+#: officialfest/templates/user/inventory.html:10
+msgid ""
+"Le réfrigérateur d'Igor est l'endroit où il conserve les objets\n"
+"            ramassés en jeu. Dans la plupart des cas, <strong>vous devez "
+"avoir trouvé au moins 10\n"
+"                fois un objet pour le débloquer complètement !</strong>"
+msgstr ""
+"El frigorífico es el lugar donde Igor conserva los objetos encontrados\n"
+"durante el juego. En la mayoría de los casos, <strong>debes haber encontrado al menos\n"
+"10 veces un objeto para que esté disponible en el frigorífico</strong>."
+
+#: officialfest/templates/user/inventory.html:15
+msgid ""
+"Une fois débloqué, un objet sera <strong>visible par tous sur votre\n"
+"                <a href=\"/user.html/0\">fiche publique</a></strong>, et "
+"vous pourrez\n"
+"            l'afficher dans <strong>vos messages sur le\n"
+"                <a href=\"/forum.html\">forum</a></strong> !"
+msgstr ""
+"Una vez desbloqueado, ¡el objeto será <strong>visible por todos en tu\n"
+"<a href=\"/user.html/0\">ficha pública</a></strong> y podrás usarlo en los mensajes\n"
+"que escribas en el <strong><a href=\"/forum.html\">foro</a></strong>!"
+
+#: officialfest/templates/user/inventory.html:26
+msgid "Nombre d'objets découverts"
+msgstr "Número de objetos descubiertos"
+
+#: officialfest/templates/user/inventory.html:31
+msgid "Nombre de familles complétées"
+msgstr "Número de familias completadas"
+
+#: officialfest/templates/user/inventory.html:34
+msgid "famille(s) sur"
+msgstr "familia(s) de"
+
+#: officialfest/templates/user/inventory.html:42
+msgid "Collection"
+msgstr "Collection"
+
+#: officialfest/templates/user/inventory.html:46
+msgid "Famille"
+msgstr "Familia"
+
+#: officialfest/templates/user/inventory.html:52
+msgid "Famille complète !"
+msgstr "¡familia completada!"
+
 #: officialfest/templates/user/quests.html:5
 msgid "quêtes"
 msgstr "exploraciones"
@@ -910,4 +965,19 @@ msgstr "de"
 
 #~ msgid "E-mail"
 #~ msgstr "E-mail"
+
+#~ msgid "501 : Pas encore implémenté"
+#~ msgstr "501 : Aun no implementado"
+
+#~ msgid "Le frigo d Igor"
+#~ msgstr ""
+
+#~ msgid "Inventaire"
+#~ msgstr ""
+
+#~ msgid "réfrigérateur"
+#~ msgstr "Frigorífico"
+
+#~ msgid "Le frigo d'Igor"
+#~ msgstr ""
 
