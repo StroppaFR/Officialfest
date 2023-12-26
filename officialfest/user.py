@@ -68,4 +68,4 @@ def get_inventory():
 # TODO: show full quests
 @bp.route('/quests', methods=['GET'])
 def get_quests():
-    return render_template('evni.html', error=gettext('501 : Pas encore implémenté')), 501
+    return render_template('user/quests.html')

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block title %} - {{ _('Quêtes') }}{% endblock %}
+{% block site_content %}
+<div class="siteMinHeight">
+    <h1><strong>{{ _('quêtes') }}</strong></h1>
+    <table class="quest">
+        <thead>
+            <tr>
+                <th class="thLeft">
+                    <strong>{{ _('Quêtes en cours') }}</strong>
+                </th>
+                <th class="thRight">
+                    <strong>{{ _('Statut') }}</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="questLine">
+                <td colspan="2" class="notYetQuest">
+                    {{ _("Vous n'avez pas encore initié de quêtes !") }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="quest">
+        <thead>
+            <tr>
+                <th class="thLeft">
+                    <strong>{{ _("Quêtes complétées") }}</strong>
+                </th>
+
+                <th class="thRight">
+                    <strong>{{ _("Statut") }}</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quest_id, quest in ALL_QUESTS.items() %}
+            <tr class="questLine">
+                <td class="questTitle">{{ quest.name }}</td>
+                <td>
+                    {% for require in quest.requires %}
+                    <div class="itemQuest">
+                        <img src="/img/items/small/{{ require[0] }}.gif" alt="{{ ALL_ITEMS[require[0]].name }}"/>
+                        <div class="complete">{{ require[1] }}</div>
+                    </div>
+                    {% endfor %}
+                    <div class="itemDesc"><strong>{{ _('Effet:') }} </strong><span>{{ quest.description }}</span></div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="emptySpace"></div>
+</div>
+{% endblock %}

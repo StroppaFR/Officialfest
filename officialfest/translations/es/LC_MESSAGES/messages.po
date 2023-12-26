@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-21 00:07+0100\n"
+"POT-Creation-Date: 2023-12-26 20:49+0100\n"
 "PO-Revision-Date: 2023-12-10 01:01+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -45,12 +45,12 @@ msgstr "404 : Hilo no encontrado"
 msgid "404 : Message introuvable"
 msgstr "404 : Mensaje no encontrado"
 
-#: officialfest/forum.py:246
+#: officialfest/forum.py:249
 #, python-format
 msgid "404 : Utilisateur %(author)s introuvable"
 msgstr "404 : Usuario %(author)s no encontrado"
 
-#: officialfest/forum.py:303
+#: officialfest/forum.py:306
 #, python-format
 msgid ""
 "403 : trop de filtres dans la recherche ; merci de vous limiter à "
@@ -63,7 +63,7 @@ msgstr ""
 msgid "404 : Utilisateur introuvable"
 msgstr "404 : Usuario no encontrado"
 
-#: officialfest/user.py:66 officialfest/user.py:71
+#: officialfest/user.py:66
 msgid "501 : Pas encore implémenté"
 msgstr "501 : Aun no implementado"
 
@@ -123,7 +123,7 @@ msgstr "Posición:"
 #: officialfest/templates/forum/replyForm.html:20
 #: officialfest/templates/forum/thread.html:23
 #: officialfest/templates/layout.html:65
-#: officialfest/templates/user/user.html:33
+#: officialfest/templates/user/user.html:36
 msgid "Le Panthéon !"
 msgstr "El Panteón !"
 
@@ -136,7 +136,8 @@ msgid "Réfrigérateur"
 msgstr "Frigorífico"
 
 #: officialfest/templates/layout.html:86
-#: officialfest/templates/user/user.html:52
+#: officialfest/templates/user/quests.html:2
+#: officialfest/templates/user/user.html:55
 msgid "Quêtes"
 msgstr "Exploraciones"
 
@@ -482,7 +483,7 @@ msgstr "En respuesta a"
 
 #: officialfest/templates/forum/replyForm.html:22
 #: officialfest/templates/forum/thread.html:25
-#: officialfest/templates/user/user.html:35
+#: officialfest/templates/user/user.html:38
 msgid "Niveau Pyramide :"
 msgstr "Nivel Pirámide:"
 
@@ -812,6 +813,32 @@ msgstr "Partidas obtenidas"
 msgid "aucune !"
 msgstr "¡ninguna!"
 
+#: officialfest/templates/user/quests.html:5
+msgid "quêtes"
+msgstr "exploraciones"
+
+#: officialfest/templates/user/quests.html:10
+#: officialfest/templates/user/user.html:67
+msgid "Quêtes en cours"
+msgstr "Exploraciones en curso"
+
+#: officialfest/templates/user/quests.html:13
+#: officialfest/templates/user/quests.html:34
+msgid "Statut"
+msgstr "Estatus"
+
+#: officialfest/templates/user/quests.html:20
+msgid "Vous n'avez pas encore initié de quêtes !"
+msgstr "¡Aún no has empezado ninguna exploracion!"
+
+#: officialfest/templates/user/quests.html:30
+msgid "Quêtes complétées"
+msgstr "Exploraciones completadas"
+
+#: officialfest/templates/user/quests.html:49
+msgid "Effet:"
+msgstr "Efecto:"
+
 #: officialfest/templates/user/user.html:2
 msgid "Fiche utilisateur"
 msgstr "Ficha de jugador"
@@ -824,64 +851,59 @@ msgstr "ficha de"
 msgid "Nom du joueur"
 msgstr "Nombre del jugador"
 
-#: officialfest/templates/user/user.html:13
-msgid "E-mail"
-msgstr "E-mail"
-
-#: officialfest/templates/user/user.html:21
+#: officialfest/templates/user/user.html:24
 msgid "Meilleur score"
 msgstr "Mejor puntuación"
 
-#: officialfest/templates/user/user.html:24
+#: officialfest/templates/user/user.html:27
 msgid "Meilleur niveau"
 msgstr "Mejor nivel"
 
-#: officialfest/templates/user/user.html:25
+#: officialfest/templates/user/user.html:28
 msgid "Carotte recuperée !"
 msgstr "¡Ha encontrado la Zanahoria!"
 
-#: officialfest/templates/user/user.html:27
+#: officialfest/templates/user/user.html:30
 msgid "Score de la semaine"
 msgstr "Puntuación de la semana"
 
-#: officialfest/templates/user/user.html:30
+#: officialfest/templates/user/user.html:33
 msgid "Pyramide"
 msgstr "Pirámide"
 
-#: officialfest/templates/user/user.html:42
+#: officialfest/templates/user/user.html:45
 msgid "Ses dernières paroles au <a href=\"/halloffame.html\">Panthéon</a>"
 msgstr "Sus palabras en el <a href=\"/halloffame.html\">Panteón</a>"
 
-#: officialfest/templates/user/user.html:43
+#: officialfest/templates/user/user.html:46
 msgid "Dites le"
 msgstr "Dichas el"
 
-#: officialfest/templates/user/user.html:53
+#: officialfest/templates/user/user.html:56
 msgid "Quêtes completées"
 msgstr "Exploraciones completadas"
 
-#: officialfest/templates/user/user.html:56
+#: officialfest/templates/user/user.html:59
 msgid "Aucune quête completée!"
 msgstr "¡Ninguna exploración completada!"
 
-#: officialfest/templates/user/user.html:64
-msgid "Quêtes en cours"
-msgstr "Exploraciones en curso"
-
-#: officialfest/templates/user/user.html:67
+#: officialfest/templates/user/user.html:70
 msgid "Aucune! Il va falloir jouer plus!"
 msgstr "¡Ninguna! ¡Tendrás que jugar un poco más!"
 
-#: officialfest/templates/user/user.html:77
+#: officialfest/templates/user/user.html:80
 msgid "Objets du réfrigérateur"
 msgstr "Objetos del frigorífico"
 
-#: officialfest/templates/user/user.html:78
-#: officialfest/templates/user/user.html:80
+#: officialfest/templates/user/user.html:81
+#: officialfest/templates/user/user.html:83
 msgid "objet"
 msgstr "objeto"
 
-#: officialfest/templates/user/user.html:78
+#: officialfest/templates/user/user.html:81
 msgid "sur"
 msgstr "de"
+
+#~ msgid "E-mail"
+#~ msgstr "E-mail"
 

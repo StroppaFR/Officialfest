@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-12-21 00:07+0100\n"
+"POT-Creation-Date: 2023-12-26 20:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,12 +44,12 @@ msgstr ""
 msgid "404 : Message introuvable"
 msgstr ""
 
-#: officialfest/forum.py:246
+#: officialfest/forum.py:249
 #, python-format
 msgid "404 : Utilisateur %(author)s introuvable"
 msgstr ""
 
-#: officialfest/forum.py:303
+#: officialfest/forum.py:306
 #, python-format
 msgid ""
 "403 : trop de filtres dans la recherche ; merci de vous limiter à "
@@ -60,7 +60,7 @@ msgstr ""
 msgid "404 : Utilisateur introuvable"
 msgstr ""
 
-#: officialfest/user.py:66 officialfest/user.py:71
+#: officialfest/user.py:66
 msgid "501 : Pas encore implémenté"
 msgstr ""
 
@@ -116,7 +116,7 @@ msgstr ""
 #: officialfest/templates/forum/replyForm.html:20
 #: officialfest/templates/forum/thread.html:23
 #: officialfest/templates/layout.html:65
-#: officialfest/templates/user/user.html:33
+#: officialfest/templates/user/user.html:36
 msgid "Le Panthéon !"
 msgstr ""
 
@@ -129,7 +129,8 @@ msgid "Réfrigérateur"
 msgstr ""
 
 #: officialfest/templates/layout.html:86
-#: officialfest/templates/user/user.html:52
+#: officialfest/templates/user/quests.html:2
+#: officialfest/templates/user/user.html:55
 msgid "Quêtes"
 msgstr ""
 
@@ -450,7 +451,7 @@ msgstr ""
 
 #: officialfest/templates/forum/replyForm.html:22
 #: officialfest/templates/forum/thread.html:25
-#: officialfest/templates/user/user.html:35
+#: officialfest/templates/user/user.html:38
 msgid "Niveau Pyramide :"
 msgstr ""
 
@@ -748,6 +749,32 @@ msgstr ""
 msgid "aucune !"
 msgstr ""
 
+#: officialfest/templates/user/quests.html:5
+msgid "quêtes"
+msgstr ""
+
+#: officialfest/templates/user/quests.html:10
+#: officialfest/templates/user/user.html:67
+msgid "Quêtes en cours"
+msgstr ""
+
+#: officialfest/templates/user/quests.html:13
+#: officialfest/templates/user/quests.html:34
+msgid "Statut"
+msgstr ""
+
+#: officialfest/templates/user/quests.html:20
+msgid "Vous n'avez pas encore initié de quêtes !"
+msgstr ""
+
+#: officialfest/templates/user/quests.html:30
+msgid "Quêtes complétées"
+msgstr ""
+
+#: officialfest/templates/user/quests.html:49
+msgid "Effet:"
+msgstr ""
+
 #: officialfest/templates/user/user.html:2
 msgid "Fiche utilisateur"
 msgstr ""
@@ -760,64 +787,56 @@ msgstr ""
 msgid "Nom du joueur"
 msgstr ""
 
-#: officialfest/templates/user/user.html:13
-msgid "E-mail"
-msgstr ""
-
-#: officialfest/templates/user/user.html:21
+#: officialfest/templates/user/user.html:24
 msgid "Meilleur score"
 msgstr ""
 
-#: officialfest/templates/user/user.html:24
+#: officialfest/templates/user/user.html:27
 msgid "Meilleur niveau"
 msgstr ""
 
-#: officialfest/templates/user/user.html:25
+#: officialfest/templates/user/user.html:28
 msgid "Carotte recuperée !"
 msgstr ""
 
-#: officialfest/templates/user/user.html:27
+#: officialfest/templates/user/user.html:30
 msgid "Score de la semaine"
 msgstr ""
 
-#: officialfest/templates/user/user.html:30
+#: officialfest/templates/user/user.html:33
 msgid "Pyramide"
 msgstr ""
 
-#: officialfest/templates/user/user.html:42
+#: officialfest/templates/user/user.html:45
 msgid "Ses dernières paroles au <a href=\"/halloffame.html\">Panthéon</a>"
 msgstr ""
 
-#: officialfest/templates/user/user.html:43
+#: officialfest/templates/user/user.html:46
 msgid "Dites le"
 msgstr ""
 
-#: officialfest/templates/user/user.html:53
+#: officialfest/templates/user/user.html:56
 msgid "Quêtes completées"
 msgstr ""
 
-#: officialfest/templates/user/user.html:56
+#: officialfest/templates/user/user.html:59
 msgid "Aucune quête completée!"
 msgstr ""
 
-#: officialfest/templates/user/user.html:64
-msgid "Quêtes en cours"
-msgstr ""
-
-#: officialfest/templates/user/user.html:67
+#: officialfest/templates/user/user.html:70
 msgid "Aucune! Il va falloir jouer plus!"
 msgstr ""
 
-#: officialfest/templates/user/user.html:77
+#: officialfest/templates/user/user.html:80
 msgid "Objets du réfrigérateur"
 msgstr ""
 
-#: officialfest/templates/user/user.html:78
-#: officialfest/templates/user/user.html:80
+#: officialfest/templates/user/user.html:81
+#: officialfest/templates/user/user.html:83
 msgid "objet"
 msgstr ""
 
-#: officialfest/templates/user/user.html:78
+#: officialfest/templates/user/user.html:81
 msgid "sur"
 msgstr ""
 
